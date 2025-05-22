@@ -1,6 +1,6 @@
 const MailingList = () => {
   return (
-    <div className="w-[500px] bg-lime-slaps px-4 py-4 rounded-[20px] fixed left-[400px] top-[250px]">
+    <div className="w-[500px] bg-lime-slaps px-6 py-6 rounded-[20px] fixed left-[400px] top-[250px]">
       <div className="">
         <h2 className="uppercase">Mailing List</h2>
         <p className="text-sm mt-2 mb-2">Be the first to know.</p>
