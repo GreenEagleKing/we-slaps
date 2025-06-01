@@ -2,10 +2,10 @@ import type { SVGProps } from "react";
 
 const SlapsLogo = (props: SVGProps<SVGSVGElement>) => (
   <svg
-    width="10%"
+    width="180px"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 219.325 90.2521"
-    fill="#0f0f10"
+    fill="currentColor"
     {...props}
   >
     <path
