@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const UserFeedback = () => {
   return (
-    <div className="md:absolute md:left-4/5 md:top-1/8 md:-translate-x-1/2 relative">
+    <div className="md:absolute md:left-1/2 md:top-4/12 md:-translate-x-1/2 relative">
       <a
         href="https://docs.google.com/forms/d/e/1FAIpQLSdlKH_qxYfze-pj8nI3vPYiA32luayM11YocfCFlD4Y9moMHQ/viewform?usp=header"
         target="_blank"

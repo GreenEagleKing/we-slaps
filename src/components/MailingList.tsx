@@ -9,7 +9,6 @@ const MailingList: React.FC = () => {
     const email = formData.get("email");
 
     if (typeof email !== "string") {
-      // set error message
       console.error("Email is missing or not a string");
       return;
     }
