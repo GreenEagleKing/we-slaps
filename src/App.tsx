@@ -19,7 +19,7 @@ export default function App() {
 
   return (
     <>
-      <div className="relative min-h-screen overflow-x-hidden">
+      <div className="relative min-h-screen">
         {isLoading && <LoadingScreen />}
         {!isLoading && (
           <motion.div
@@ -32,7 +32,7 @@ export default function App() {
                 <SlapsLogo />
               </div>
 
-              <div className="min-h-screen px-4 flex flex-col justify-center items-center gap-12">
+              <div className="px-4 flex flex-col justify-center items-center gap-12">
                 <MailingList />
                 <Questionnaire />
                 <About />
