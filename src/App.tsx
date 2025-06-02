@@ -2,7 +2,6 @@ import About from "./components/About";
 import Events from "./components/Events";
 import Journal from "./components/Journal";
 import MailingList from "./components/MailingList";
-import Questionnaire from "./components/Questionnaire";
 import { ReactComponent as SlapsLogo } from "./components/SlapsLogo";
 import UserFeedback from "./components/UserFeedback";
 import { useEffect, useState } from "react";
@@ -34,7 +33,6 @@ export default function App() {
 
               <div className="px-4 flex flex-col justify-center items-center gap-12">
                 <MailingList />
-                <Questionnaire />
                 <About />
                 <UserFeedback />
                 <Events />
