@@ -15,16 +15,14 @@ const MailingList: React.FC = () => {
     }
 
     try {
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbzcZhsO11Mt9-Db5xWzvVpgbTcCbG5uQQp0W4V9KnbxzUt72hJ5FiK6XqdTkdMVotiK/exec",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: new URLSearchParams({ email }),
-        }
-      );
+      const googleSheetsURL = import.meta.env.VITE_MAILING_LIST_GOOGLE_FORM;
+      const response = await fetch(googleSheetsURL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({ email }),
+      });
       if (!response.ok) {
         console.error("Failed to submit email");
       } else {
