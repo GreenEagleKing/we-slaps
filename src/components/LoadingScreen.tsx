@@ -16,7 +16,7 @@ const LoadingScreen = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setStartAnimation(true);
-    }, 2000); // 2 seconds delay before animation starts
+    }, 1000); // 2 seconds delay before animation starts
 
     return () => clearTimeout(timer);
   }, []);

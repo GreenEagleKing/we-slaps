@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 const MailingList: React.FC = () => {
   const submitEmail = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -16,6 +16,7 @@ const MailingList: React.FC = () => {
 
     try {
       const googleSheetsURL = import.meta.env.VITE_MAILING_LIST_GOOGLE_FORM;
+      console.log(googleSheetsURL);
       const response = await fetch(googleSheetsURL, {
         method: "POST",
         headers: {

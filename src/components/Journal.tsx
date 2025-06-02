@@ -1,5 +1,5 @@
 import benBike from "../assets/benBike.png";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 const Journal = () => {
   return (
