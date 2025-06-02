@@ -8,15 +8,14 @@ const SlapsLogoMotion = motion(SlapsLogoRaw);
 const LoadingScreen = () => {
   const [startAnimation, setStartAnimation] = useState(false);
   const trailCount = 10;
-  const totalMove = -605;
+  const totalMove = -595;
   const trailDelayStep = 0.1;
   const trailMoveFactor = 1;
 
-  // Trigger animation start after 2 seconds delay
   useEffect(() => {
     const timer = setTimeout(() => {
       setStartAnimation(true);
-    }, 1000); // 2 seconds delay before animation starts
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
