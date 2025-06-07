@@ -16,12 +16,13 @@ export default function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  const MotionDiv = motion.create("div");
   return (
     <>
       <div className="relative min-h-screen">
         {isLoading && <LoadingScreen />}
         {!isLoading && (
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
@@ -39,7 +40,7 @@ export default function App() {
                 <Journal />
               </div>
             </div>
-          </motion.div>
+          </MotionDiv>
         )}
       </div>
     </>
