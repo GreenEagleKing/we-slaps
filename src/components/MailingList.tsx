@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const MailingList: React.FC = () => {
   const [mailingSubmissionState, setMailingSubmissionState] = useState<
-    "idle" | "success" | "error"
+    "idle" | "submitting" | "success" | "error"
   >("idle");
 
   const submitEmail = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -18,7 +18,7 @@ const MailingList: React.FC = () => {
       return;
     }
 
-    setMailingSubmissionState("idle");
+    setMailingSubmissionState("submitting");
 
     try {
       const googleSheetsURL = import.meta.env.VITE_MAILING_LIST_GOOGLE_FORM;
@@ -49,6 +49,8 @@ const MailingList: React.FC = () => {
     switch (mailingSubmissionState) {
       case "success":
         return "bg-green-300";
+      case "submitting":
+        return "bg-orange-300";
       case "error":
         return "bg-red-300";
       default:
@@ -76,29 +78,30 @@ const MailingList: React.FC = () => {
       }}
       animate={{ scale: getScale() }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className={`md:w-[500px] ${submissionStateColour()} px-6 py-6 rounded-[20px] md:absolute md:left-3/8 md:top-1/10 md:-translate-x-1/2 relative mt-10 min-w-[300px] transition-colors duration-300 drop-shadow-lg`}
+      className={`mt-4 mb-12 `}
     >
-      <div className="">
-        <h2 className="uppercase">Mailing List</h2>
-        <p className="text-sm mt-2 mb-2">Be the first to know.</p>
-      </div>
-      <div>
-        <form onSubmit={submitEmail} className="flex justify-between gap-4">
-          <input
-            className="border rounded-sm text-sm px-4 py-1 w-full"
-            placeholder="enter email"
-            name="email"
-            type="email"
-            required
-          ></input>
-          <button
-            className="bg-gray-700 text-white px-4 py-1 rounded-md text-sm border-lime-slaps border-2 hover:border-2 hover:border-white active:bg-gray-900"
-            type="submit"
-          >
-            subscribe
-          </button>
-        </form>
-      </div>
+      <form onSubmit={submitEmail} className="flex justify-between gap-4">
+        <input
+          className="w-full sm:w-[400px] border border-black-slaps bg-white rounded-sm font-mono text-sm px-6 py-2 flex-grow placeholder:text-black-slaps sm:text-base"
+          placeholder="Enter Email"
+          name="email"
+          type="email"
+          required
+        ></input>
+        <button
+          className={`${submissionStateColour()} transition-colors duration-300 text-black-slaps px-4 py-1 rounded-sm font-mono text-sm border border-black-slaps uppercase sm:text-base`}
+          type="submit"
+          disabled={mailingSubmissionState === "submitting"}
+        >
+          {mailingSubmissionState === "submitting"
+            ? "Submitting..."
+            : mailingSubmissionState === "success"
+            ? "Subscribed!"
+            : mailingSubmissionState === "error"
+            ? "Try again"
+            : "Subscribe"}
+        </button>
+      </form>
     </MotionDiv>
   );
 };

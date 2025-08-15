@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cousine:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import "tailwindcss";
 
 @theme {
   /* Font family */
   --font-display: "Inter", sans-serif;
+  --font-mono: "Cousine", monospace;
 
   /* Font sizes */
   --text-slaps-heading: 18px;
@@ -13,8 +15,26 @@
   /* Custom colors */
   --color-lime-slaps: #efff74;
   --color-lilac-slaps: #9b85aa;
-  --color-black-slaps: #454444;
+  --color-black-slaps: #414141;
 
   /* Screens sizes */
   --breakpoint-md: 950px;
+}
+
+@layer utilities {
+  .grid-areas-layout {
+    grid-template-areas:
+      "logo"
+      "main"
+      "footer";
+  }
+  .area-logo {
+    grid-area: logo;
+  }
+  .area-main {
+    grid-area: main;
+  }
+  .area-footer {
+    grid-area: footer;
+  }
 }
