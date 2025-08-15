@@ -32,7 +32,7 @@ export default function App() {
                 className="mb-14 sm:mb-10 w-full max-w-lg"
               >
                 <source src={PFMRotateWin} type="video/webm" />
-                <source src={PFMRotateMac} type="video/mp4" />
+                <source src={PFMRotateMac} type="video/mp4; codecs=hvc1" />
                 Your browser does not support the video tag.
               </video>
               <p className="uppercase text-center max-w-[300px] sm:max-w-[450px] font-display font-medium italic  text-black-slaps text-sm sm:text-base">
