@@ -2,6 +2,7 @@ import MailingList from "./components/MailingList";
 import { ReactComponent as SlapsLogo } from "./components/SlapsLogo";
 import { motion } from "framer-motion";
 import Footer from "./components/Footer";
+import pfmForWebVideo from "./assets/PFMforWeb.webm";
 
 export default function App() {
   const MotionDiv = motion.create("div");
@@ -28,7 +29,7 @@ export default function App() {
                 playsInline
                 className="mb-14 sm:mb-10 w-full max-w-lg"
               >
-                <source src="src/assets/PFMforWeb.webm" type="video/webm" />
+                <source src={pfmForWebVideo} type="video/webm" />
                 Your browser does not support the video tag.
               </video>
               <p className="uppercase text-center max-w-[300px] sm:max-w-[450px] font-display font-medium italic  text-black-slaps text-sm sm:text-base">
