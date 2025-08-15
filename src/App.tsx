@@ -1,16 +1,16 @@
 import MailingList from "./components/MailingList";
 import { ReactComponent as SlapsLogo } from "./components/SlapsLogo";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Footer from "./components/Footer";
 
 export default function App() {
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 4000);
-    return () => clearTimeout(timer);
-  }, []);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => setIsLoading(false), 4000);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   const MotionDiv = motion.create("div");
   return (
