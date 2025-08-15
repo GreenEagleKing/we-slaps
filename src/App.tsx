@@ -1,9 +1,5 @@
-import About from "./components/About";
-import Events from "./components/Events";
-import Journal from "./components/Journal";
 import MailingList from "./components/MailingList";
 import { ReactComponent as SlapsLogo } from "./components/SlapsLogo";
-import UserFeedback from "./components/UserFeedback";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import LoadingScreen from "./components/LoadingScreen";
