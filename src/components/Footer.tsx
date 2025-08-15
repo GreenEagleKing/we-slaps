@@ -1,8 +1,4 @@
-import softBottleGel from "../assets/softBottleGel.png";
-import { motion } from "framer-motion";
-
 const Footer = () => {
-  const MotionDiv = motion.create("div");
   return (
     <div className="flex flex-col text-center gap-2">
       <a
