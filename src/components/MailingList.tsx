@@ -73,11 +73,11 @@ const MailingList: React.FC = () => {
   const MotionDiv = motion.create("div");
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-5">
       <p className="font-display font-bold italic uppercase text-center text-lime-slaps [text-shadow:1px_0_0_#000,-1px_0_0_#000,0_1px_0_#000,0_-1px_0_#000] text-2xl sm:text-2xl ">
         We're working on it...
       </p>
-      <JoinWaitingList />
+      <JoinWaitingList className="mb-[-12px]" />
       <MotionDiv
         whileHover={{
           scale: mailingSubmissionState === "idle" ? 1.05 : getScale(),

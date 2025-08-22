@@ -3,9 +3,8 @@ import MailingList from "./components/MailingList";
 import { ReactComponent as SlapsLogo } from "./components/SlapsLogo";
 import { motion } from "framer-motion";
 import Footer from "./components/Footer";
-// import pfmForWebVideo from "./assets/PFMforWeb.webm";
 import PFMRotateMac from "./assets/PFMRotateOnlyMac-1.mov";
-// import PFMRotateWin from "./assets/PFMRotateOnlyWinWebM.webm";
+import PFMRotateWin from "./assets/PFMRotateOnlyWinWebM.webm";
 import ldnMarathon from "./assets/ldnMarathon2025-105.jpg";
 
 export default function App() {
@@ -45,12 +44,12 @@ export default function App() {
                   loop
                   muted
                   playsInline
-                  className=" sm:mb-10 w-full max-w-lg"
+                  className=" sm:mb-10 w-full max-w-lg m-[-30px]"
                 >
                   {isIOS ? (
                     <source src={PFMRotateMac} type="video/mp4; codecs=hvc1" />
                   ) : (
-                    <source src={PFMRotateMac} type="video/webm" />
+                    <source src={PFMRotateWin} type="video/webm" />
                   )}
                   Your browser does not support the video tag.
                 </video>
