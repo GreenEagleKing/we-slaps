@@ -3,8 +3,8 @@ import { ReactComponent as SlapsLogo } from "./components/SlapsLogo";
 import { motion } from "framer-motion";
 import Footer from "./components/Footer";
 // import pfmForWebVideo from "./assets/PFMforWeb.webm";
-import PFMRotateMac from "./assets/PFMRotateOnlyMac.mov";
-// import PFMRotateWin from "./assets/PFMRotateOnlyWinWebM.webm";
+import PFMRotateMac from "./assets/PFMRotateOnlyMacV2.mp4";
+import PFMRotateWin from "./assets/PFMRotateOnlyWinWebM.webm";
 import ldnMarathon from "./assets/ldnMarathon2025-105.jpg";
 
 export default function App() {
@@ -40,8 +40,8 @@ export default function App() {
                   playsInline
                   className=" sm:mb-10 w-full max-w-lg"
                 >
-                  {/* <source src={PFMRotateWin} type="video/webm" /> */}
                   <source src={PFMRotateMac} type="video/mp4; codecs=hvc1" />
+                  <source src={PFMRotateWin} type="video/webm" />
                   Your browser does not support the video tag.
                 </video>
                 <p className="uppercase text-center max-w-[300px] sm:max-w-[450px] font-display font-medium italic  text-white text-sm sm:text-base">
