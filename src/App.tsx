@@ -4,7 +4,7 @@ import { ReactComponent as SlapsLogo } from "./components/SlapsLogo";
 import { motion } from "framer-motion";
 import Footer from "./components/Footer";
 // import pfmForWebVideo from "./assets/PFMforWeb.webm";
-import PFMRotateMac from "./assets/PFMRotateOnlyMacALPA.mp4";
+import PFMRotateMac from "./assets/PFMRotateOnlyMacALPA.mov";
 // import PFMRotateWin from "./assets/PFMRotateOnlyWinWebM.webm";
 import ldnMarathon from "./assets/ldnMarathon2025-105.jpg";
 
