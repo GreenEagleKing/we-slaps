@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import MailingList from "./components/MailingList";
 import { ReactComponent as SlapsLogo } from "./components/SlapsLogo";
 import { motion } from "framer-motion";
@@ -9,6 +10,13 @@ import ldnMarathon from "./assets/ldnMarathon2025-105.jpg";
 
 export default function App() {
   const MotionDiv = motion.create("div");
+  const [isIOS, setIsIOS] = useState(false);
+
+  useEffect(() => {
+    const userAgent = navigator.userAgent;
+    setIsIOS(/iPad|iPhone|iPod/.test(userAgent));
+  }, []);
+
   return (
     <>
       <div className="relative min-h-screen">
@@ -40,8 +48,11 @@ export default function App() {
                   playsInline
                   className=" sm:mb-10 w-full max-w-lg"
                 >
-                  <source src={PFMRotateMac} type="video/mp4; codecs=hvc1" />
-                  <source src={PFMRotateWin} type="video/webm" />
+                  {isIOS ? (
+                    <source src={PFMRotateMac} type="video/mp4; codecs=hvc1" />
+                  ) : (
+                    <source src={PFMRotateWin} type="video/webm" />
+                  )}
                   Your browser does not support the video tag.
                 </video>
                 <p className="uppercase text-center max-w-[300px] sm:max-w-[450px] font-display font-medium italic  text-white text-sm sm:text-base">
