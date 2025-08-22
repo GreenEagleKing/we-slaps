@@ -62,7 +62,6 @@ export default function App() {
                   SHARED EXPERIENCES, WE'RE BRIDGING THE GAP BETWEEN HEALTH AND
                   SKIN HEALTH.
                 </p>
-                <div className="h-3 sm:h-12"></div>
                 <MailingList />
               </div>
               <div className="area-footer pb-30 flex justify-center">
