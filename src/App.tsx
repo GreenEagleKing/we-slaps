@@ -4,8 +4,8 @@ import { ReactComponent as SlapsLogo } from "./components/SlapsLogo";
 import { motion } from "framer-motion";
 import Footer from "./components/Footer";
 // import pfmForWebVideo from "./assets/PFMforWeb.webm";
-import PFMRotateMac from "./assets/PFMRotateOnlyMacV2.mp4";
-// import PFMRotateWin from "./assets/PFMRotateOnlyWinWebM.webm";
+import PFMRotateMac from "./assets/PFMRotateOnlyMac_hevc_with_alpha.mp4";
+import PFMRotateWin from "./assets/PFMRotateOnlyWinWebM.webm";
 import ldnMarathon from "./assets/ldnMarathon2025-105.jpg";
 
 export default function App() {
@@ -25,16 +25,15 @@ export default function App() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <section
-            style={{
-              backgroundImage: `url(${ldnMarathon})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-            }}
-          >
+          <div className="relative w-full min-h-screen bg-black">
+            <img
+              src={ldnMarathon}
+              alt="London Marathon"
+              className="absolute top-0 left-0 w-full h-full object-cover opacity-85 bg-blend-multiply"
+            />
+
             <div
-              className="w-full min-h-screen grid grid-rows-[auto_1fr_auto] grid-cols-1 
+              className="relative w-full min-h-screen grid grid-rows-[auto_1fr_auto] grid-cols-1 
              grid-areas-layout bg-[linear-gradient(to_right,rgba(255,255,255,0.2)_2px,transparent_2px),linear-gradient(to_bottom,rgba(255,255,255,0.2)_2px,transparent_2px)] bg-[size:2rem_2rem]"
             >
               <div className="area-logo flex mt-12 sm:mt-16 justify-center">
@@ -51,7 +50,7 @@ export default function App() {
                   {isIOS ? (
                     <source src={PFMRotateMac} type="video/mp4; codecs=hvc1" />
                   ) : (
-                    <source src={PFMRotateMac} type="video/webm" />
+                    <source src={PFMRotateWin} type="video/webm" />
                   )}
                   Your browser does not support the video tag.
                 </video>
@@ -64,19 +63,14 @@ export default function App() {
                   SHARED EXPERIENCES, WE'RE BRIDGING THE GAP BETWEEN HEALTH AND
                   SKIN HEALTH.
                 </p>
-                <div className="h-3 sm:h-12"></div>{" "}
-                <p className="font-display font-medium italic uppercase text-center text-white text-sm sm:text-base">
-                  We're working on it...
-                  <br />
-                  Join our mailing list & be the first to know
-                </p>
+                <div className="h-3 sm:h-12"></div>
                 <MailingList />
               </div>
               <div className="area-footer pb-10 sm:pb-24 flex justify-center">
                 <Footer />
               </div>
             </div>
-          </section>
+          </div>
         </MotionDiv>
       </div>
     </>
