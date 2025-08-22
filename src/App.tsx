@@ -50,7 +50,7 @@ export default function App() {
                   {isIOS ? (
                     <source src={PFMRotateMac} type="video/mp4; codecs=hvc1" />
                   ) : (
-                    <source src={PFMRotateWin} type="video/webm" />
+                    <source src={PFMRotateMac} type="video/webm" />
                   )}
                   Your browser does not support the video tag.
                 </video>
