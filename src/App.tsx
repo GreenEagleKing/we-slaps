@@ -35,7 +35,7 @@ export default function App() {
               className="relative w-full min-h-screen grid grid-rows-[auto_1fr_auto] grid-cols-1 
              grid-areas-layout bg-[linear-gradient(to_right,rgba(255,255,255,0.2)_2px,transparent_2px),linear-gradient(to_bottom,rgba(255,255,255,0.2)_2px,transparent_2px)] bg-[size:2rem_2rem]"
             >
-              <div className="area-logo flex mt-8 sm:mt-16 justify-center">
+              <div className="area-logo flex mt-4 sm:mt-16 justify-center">
                 <SlapsLogo />
               </div>
               <div className="area-main flex flex-col items-center justify-center gap-6 sm:gap-8 max-w-xl mx-auto mt-4">
@@ -44,7 +44,7 @@ export default function App() {
                   loop
                   muted
                   playsInline
-                  className=" sm:mb-10 w-full max-w-lg mb-[-25px] mt-[-80px]"
+                  className=" sm:mb-10 w-full max-w-lg mb-[-30px] mt-[-50px]"
                 >
                   {isIOS ? (
                     <source src={PFMRotateMac} type="video/mp4; codecs=hvc1" />
@@ -65,7 +65,7 @@ export default function App() {
                 <div className="h-3 sm:h-12"></div>
                 <MailingList />
               </div>
-              <div className="area-footer pb-24 flex justify-center">
+              <div className="area-footer pb-30 flex justify-center">
                 <Footer />
               </div>
             </div>
