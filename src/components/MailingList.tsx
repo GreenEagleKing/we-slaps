@@ -24,21 +24,12 @@ const MailingList: React.FC = () => {
       const NOTION_API_KEY = process.env.NOTION_API_KEY;
       const MAILING_LIST_DATABASE_ID = process.env.MAILING_LIST_DATABASE_ID;
 
-      const response = await fetch("https://api.notion.com/v1/pages", {
+      const response = await fetch("/api/submit-to-notion", {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${NOTION_API_KEY}`,
           "Content-Type": "application/json",
-          "Notion-Version": "2022-06-28",
         },
-        body: JSON.stringify({
-          parent: { database_id: MAILING_LIST_DATABASE_ID },
-          properties: {
-            Email: {
-              email: email,
-            },
-          },
-        }),
+        body: JSON.stringify({ email: email }),
       });
 
       // const googleSheetsURL = import.meta.env.VITE_MAILING_LIST_GOOGLE_FORM;
