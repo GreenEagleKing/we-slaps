@@ -98,7 +98,7 @@ const MailingList: React.FC = () => {
             required
           ></input>
           <button
-            className={`${submissionStateColour()} transition-colors duration-300 text-black-slaps px-4 py-1 rounded-sm font-mono text-sm border border-black-slaps uppercase sm:text-base`}
+            className={`${submissionStateColour()} transition-colors duration-300 text-black-slaps px-4 py-1 rounded-sm font-mono text-[12px] border border-black-slaps uppercase sm:text-base`}
             type="submit"
             disabled={mailingSubmissionState === "submitting"}
           >
