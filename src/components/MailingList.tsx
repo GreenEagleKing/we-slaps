@@ -21,8 +21,8 @@ const MailingList: React.FC = () => {
     setMailingSubmissionState("submitting");
 
     try {
-      const NOTION_API_KEY = process.env.NOTION_API_KEY;
-      const MAILING_LIST_DATABASE_ID = process.env.MAILING_LIST_DATABASE_ID;
+      // const NOTION_API_KEY = process.env.NOTION_API_KEY;
+      // const MAILING_LIST_DATABASE_ID = process.env.MAILING_LIST_DATABASE_ID;
 
       const response = await fetch("/api/submit-to-notion", {
         method: "POST",
