@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { ReactComponent as JoinWaitingList } from "./JoinWaitingList";
 
 const MailingList: React.FC = () => {
   const [mailingSubmissionState, setMailingSubmissionState] = useState<
@@ -73,11 +72,12 @@ const MailingList: React.FC = () => {
   const MotionDiv = motion.create("div");
 
   return (
-    <div className="flex flex-col gap-8">
-      {/* <p className="font-display font-bold italic uppercase text-center text-lime-slaps [text-shadow:1px_0_0_#000,-1px_0_0_#000,0_1px_0_#000,0_-1px_0_#000] text-2xl sm:text-2xl ">
-        We're working on it...
-      </p> */}
-      <JoinWaitingList className="mb-[-25px] sm:mb-[-12px]" />
+    <div className="flex flex-col gap-8 justify-center items-center">
+      <div className="uppercase text-center max-w-[300px] sm:max-w-[450px] font-display font-medium italic  text-white text-sm sm:text-base">
+        <p>We're working on it...</p>
+        <p>Join our mailing list & be the first to know</p>
+      </div>
+
       <MotionDiv
         whileHover={{
           scale: mailingSubmissionState === "idle" ? 1.05 : getScale(),
@@ -88,8 +88,8 @@ const MailingList: React.FC = () => {
       >
         <form onSubmit={submitEmail} className="flex justify-between gap-4">
           <input
-            className="w-full sm:w-[400px] border border-black-slaps bg-white rounded-sm font-mono text-sm px-6 py-2 flex-grow placeholder:text-black-slaps sm:text-base"
-            placeholder="Enter Email"
+            className="w-full sm:w-[400px] border border-black-slaps bg-white rounded-sm font-mono text-[14px] px-6 py-1.5 flex-grow placeholder:text-black-slaps sm:text-base"
+            placeholder="ENTER EMAIL"
             name="email"
             type="email"
             required

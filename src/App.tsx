@@ -39,9 +39,9 @@ export default function App() {
 
             <div
               className="relative w-full min-h-screen grid grid-rows-[auto_1fr_auto] grid-cols-1 
-             grid-areas-layout bg-[linear-gradient(to_right,rgba(255,255,255,0.2)_2px,transparent_2px),linear-gradient(to_bottom,rgba(255,255,255,0.2)_2px,transparent_2px)] bg-[size:2rem_2rem]"
+             grid-areas-layout bg-[linear-gradient(to_right,rgba(255,255,255,0.2)_2px,transparent_2px),linear-gradient(to_bottom,rgba(255,255,255,0.2)_2px,transparent_2px)] bg-[size:1.3rem_1.3rem]"
             >
-              <div className="area-logo flex sm:mt-16 justify-center mt-4">
+              <div className="area-logo flex sm:mt-16 justify-center mt-4 pl-1">
                 <SlapsLogo />
               </div>
               <div className="area-main flex flex-col items-center justify-center gap-14 sm:gap-20 max-w-xl mx-auto lg:mt-5 mt-5">
@@ -50,7 +50,7 @@ export default function App() {
                   loop
                   muted
                   playsInline
-                  className=" w-full max-w-lg my-[-50px] sm:my-[-70px]"
+                  className=" w-10/12 max-w-lg my-[-50px] sm:my-[-70px]"
                 >
                   {isAppleDevice ? (
                     <source src={PFMRotateMac} type="video/mp4; codecs=hvc1" />
