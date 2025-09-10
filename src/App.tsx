@@ -15,7 +15,7 @@ export default function App() {
     const userAgent = navigator.userAgent;
     const isSafari =
       /Safari/.test(userAgent) &&
-      !/Chrome|CriOS|FxiOS|Edge|EdgA|Firefox/.test(userAgent) &&
+      !/CriOS|FxiOS|Edge|EdgA|Firefox/.test(userAgent) &&
       /(iPad|iPhone|iPod|Macintosh)/.test(userAgent);
 
     setIsSafari(isSafari);
