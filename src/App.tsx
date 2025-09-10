@@ -47,7 +47,7 @@ export default function App() {
                   className=" w-full max-w-lg my-[-50px] sm:my-[-70px]"
                 >
                   {isIOS ? (
-                    <source src={PFMRotateMac} type="video/mp4; codecs=hvc1" />
+                    <source src={PFMRotateMac} type='video/mp4; codecs=hvc1' />
                   ) : (
                     <source src={PFMRotateWin} type="video/webm" />
                   )}
