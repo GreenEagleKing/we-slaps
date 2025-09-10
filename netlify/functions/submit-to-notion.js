@@ -42,7 +42,13 @@ exports.handler = async (event, context) => {
         parent: { database_id: MAILING_LIST_DATABASE_ID },
         properties: {
           Email: {
-            email: email,
+            title: [
+              {
+                text: {
+                  content: email,
+                },
+              },
+            ],
           },
         },
       }),
