@@ -4,4 +4,4 @@ node_bundler = "esbuild"
 
 [[redirects]]
 from = "/api/*"
-to = "/.netlify/
+to = "/.netlify/functions/:splat"
