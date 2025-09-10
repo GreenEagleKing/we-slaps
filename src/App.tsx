@@ -38,7 +38,7 @@ export default function App() {
               <div className="area-logo flex sm:mt-16 justify-center mt-4">
                 <SlapsLogo />
               </div>
-              <div className="area-main flex flex-col items-center justify-center gap-14 sm:gap-20 max-w-xl mx-auto">
+              <div className="area-main flex flex-col items-center justify-center gap-14 @smh:gap-20 max-w-xl mx-auto lg:mt-0 mt-5">
                 <video
                   autoPlay
                   loop
@@ -47,7 +47,7 @@ export default function App() {
                   className=" w-full max-w-lg my-[-50px] sm:my-[-70px]"
                 >
                   {isIOS ? (
-                    <source src={PFMRotateMac} type='video/mp4; codecs=hvc1' />
+                    <source src={PFMRotateMac} type="video/mp4; codecs=hvc1" />
                   ) : (
                     <source src={PFMRotateWin} type="video/webm" />
                   )}
@@ -67,7 +67,7 @@ export default function App() {
 
                 <MailingList />
               </div>
-              <div className="area-footer sm:mb-16 mb-10 flex justify-center">
+              <div className="area-footer sm:mb-16 mb-10 lg:mt-0 mt-10 flex justify-center">
                 <Footer />
               </div>
             </div>

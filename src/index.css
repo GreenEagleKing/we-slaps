@@ -16,9 +16,6 @@
   --color-lime-slaps: #efff74;
   --color-lilac-slaps: #9b85aa;
   --color-black-slaps: #414141;
-
-  /* Screens sizes */
-  --breakpoint-md: 950px;
 }
 
 @layer utilities {
