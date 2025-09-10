@@ -1,25 +1,36 @@
-const fetch = require("node-fetch");
+const process = require("process");
 
 exports.handler = async (event, context) => {
   if (event.httpMethod !== "POST") {
-    return { statusCode: 405, body: "Method Not Allowed" };
-  }
-
-  const { email } = JSON.parse(event.body);
-  const NOTION_API_KEY = process.env.NOTION_API_KEY;
-  const MAILING_LIST_DATABASE_ID = process.env.MAILING_LIST_DATABASE_ID;
-
-  if (!NOTION_API_KEY || !MAILING_LIST_DATABASE_ID) {
     return {
-      statusCode: 500,
-      body: JSON.stringify({
-        error:
-          "Server-side environment variables are not configured correctly.",
-      }),
+      statusCode: 405,
+      body: JSON.stringify({ error: "Method Not Allowed" }),
     };
   }
 
   try {
+    const { email } = JSON.parse(event.body);
+
+    if (!email) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: "Email is required." }),
+      };
+    }
+
+    const NOTION_API_KEY = process.env.NOTION_API_KEY;
+    const MAILING_LIST_DATABASE_ID = process.env.MAILING_LIST_DATABASE_ID;
+
+    if (!NOTION_API_KEY || !MAILING_LIST_DATABASE_ID) {
+      return {
+        statusCode: 500,
+        body: JSON.stringify({
+          error:
+            "Server-side environment variables are not configured correctly.",
+        }),
+      };
+    }
+
     const response = await fetch("https://api.notion.com/v1/pages", {
       method: "POST",
       headers: {
@@ -38,7 +49,7 @@ exports.handler = async (event, context) => {
     });
 
     if (!response.ok) {
-      const errorData = await response.json();
+      const errorData = await response.text();
       console.error("Notion API Error:", errorData);
       return {
         statusCode: response.status,
