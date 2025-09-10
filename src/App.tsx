@@ -59,7 +59,7 @@ export default function App() {
                   )}
                   Your browser does not support the video tag.
                 </video>
-                <div className="flex flex-col gap-8">
+                <div className="flex flex-col gap-8 justify-center items-center">
                   <p className="uppercase text-center max-w-[300px] sm:max-w-[450px] font-display font-medium italic  text-white text-sm sm:text-base">
                     This is sun protection for movement.
                   </p>
