@@ -1,16 +1,22 @@
-export default async (req, res) => {
-  const { email } = req.body;
+const fetch = require("node-fetch");
+
+exports.handler = async (event, context) => {
+  if (event.httpMethod !== "POST") {
+    return { statusCode: 405, body: "Method Not Allowed" };
+  }
+
+  const { email } = JSON.parse(event.body);
   const NOTION_API_KEY = process.env.NOTION_API_KEY;
   const MAILING_LIST_DATABASE_ID = process.env.MAILING_LIST_DATABASE_ID;
 
   if (!NOTION_API_KEY || !MAILING_LIST_DATABASE_ID) {
-    res
-      .status(500)
-      .json({
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
         error:
           "Server-side environment variables are not configured correctly.",
-      });
-    return;
+      }),
+    };
   }
 
   try {
@@ -34,15 +40,21 @@ export default async (req, res) => {
     if (!response.ok) {
       const errorData = await response.json();
       console.error("Notion API Error:", errorData);
-      res
-        .status(response.status)
-        .json({ error: "Failed to submit to Notion." });
-      return;
+      return {
+        statusCode: response.status,
+        body: JSON.stringify({ error: "Failed to submit to Notion." }),
+      };
     }
 
-    res.status(200).json({ status: "success" });
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ status: "success" }),
+    };
   } catch (error) {
     console.error("Submission error:", error);
-    res.status(500).json({ error: "Internal server error." });
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "Internal server error." }),
+    };
   }
 };
