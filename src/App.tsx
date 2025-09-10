@@ -9,11 +9,16 @@ import ldnMarathon from "./assets/ldnMarathon2025-105.jpg";
 
 export default function App() {
   const MotionDiv = motion.create("div");
-  const [isIOS, setIsIOS] = useState(false);
+  const [isIOS, setIsSafari] = useState(false);
 
   useEffect(() => {
     const userAgent = navigator.userAgent;
-    setIsIOS(/iPad|iPhone|iPod/.test(userAgent));
+    const isSafari =
+      /Safari/.test(userAgent) &&
+      !/Chrome|CriOS|FxiOS|Edge|EdgA|Firefox/.test(userAgent) &&
+      /(iPad|iPhone|iPod|Macintosh)/.test(userAgent);
+
+    setIsSafari(isSafari);
   }, []);
 
   return (
@@ -47,7 +52,7 @@ export default function App() {
                   className=" w-full max-w-lg my-[-50px] sm:my-[-70px]"
                 >
                   {isIOS ? (
-                    <source src={PFMRotateMac} type='video/mp4; codecs=hvc1' />
+                    <source src={PFMRotateMac} type="video/mp4; codecs=hvc1" />
                   ) : (
                     <source src={PFMRotateWin} type="video/webm" />
                   )}
