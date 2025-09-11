@@ -1,4 +1,8 @@
-const Footer = () => {
+interface FooterProps {
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Footer = ({ setShowModal }: FooterProps) => {
   return (
     <div className="flex text-center gap-4 lg:flex-col lg:gap-2">
       <a
@@ -8,16 +12,9 @@ const Footer = () => {
       >
         Instagram
       </a>
-      {/* <a
-        href="https://www.linkedin.com/feed/"
-        className="uppercase underline-offset-4 underline  text-white text-sm sm:text-base"
-      >
-        LinkedIn
-      </a> */}
       <a
-        href=""
+        onClick={() => setShowModal(true)}
         className="uppercase underline-offset-4 underline  text-white text-sm sm:text-base"
-        target="_blank"
       >
         Contact Us
       </a>

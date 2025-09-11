@@ -3,6 +3,7 @@ import MailingList from "./components/MailingList";
 import { ReactComponent as SlapsLogo } from "./components/SlapsLogo";
 import { motion } from "framer-motion";
 import Footer from "./components/Footer";
+import About from "./components/About";
 import PFMRotateMac from "./assets/PFMRotateOnlyMac-1.mov";
 import PFMRotateWin from "./assets/PFMRotateOnlyWinWebM.webm";
 import ldnMarathon from "./assets/ldnMarathon2025-105.jpg";
@@ -10,6 +11,7 @@ import ldnMarathon from "./assets/ldnMarathon2025-105.jpg";
 export default function App() {
   const MotionDiv = motion.create("div");
   const [isAppleDevice, setIsAppleDevice] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const userAgent = navigator.userAgent;
@@ -74,10 +76,11 @@ export default function App() {
                 <MailingList />
               </div>
               <div className="area-footer sm:mb-16 mb-10 lg:mt-5 mt-10 flex justify-center">
-                <Footer />
+                <Footer setShowModal={setShowModal} />
               </div>
             </div>
           </div>
+          {showModal && <About setShowModal={setShowModal} />}
         </MotionDiv>
       </div>
     </>
