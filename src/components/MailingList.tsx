@@ -95,7 +95,6 @@ const MailingList: React.FC = () => {
         }}
         animate={{ scale: getScale() }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        // className={`mb-12 `}
       >
         <form
           onSubmit={submitEmail}

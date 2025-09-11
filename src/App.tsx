@@ -11,7 +11,7 @@ import ldnMarathon from "./assets/ldnMarathon2025-105.jpg";
 export default function App() {
   const MotionDiv = motion.create("div");
   const [isAppleDevice, setIsAppleDevice] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowContactModal] = useState(false);
 
   useEffect(() => {
     const userAgent = navigator.userAgent;
@@ -76,11 +76,11 @@ export default function App() {
                 <MailingList />
               </div>
               <div className="area-footer sm:mb-16 mb-10 lg:mt-5 mt-10 flex justify-center">
-                <Footer setShowModal={setShowModal} />
+                <Footer setShowContactModal={setShowContactModal} />
               </div>
             </div>
           </div>
-          {showModal && <About setShowModal={setShowModal} />}
+          {showModal && <About setShowContactModal={setShowContactModal} />}
         </MotionDiv>
       </div>
     </>

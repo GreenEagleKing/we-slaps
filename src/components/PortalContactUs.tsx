@@ -28,7 +28,7 @@ export default function PortalContactUs({ onClose }: PortalContactUsProps) {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
-          "form-name": "contact", // must match your form name
+          "form-name": "contact",
           email: formData.get("email") as string,
           message: formData.get("message") as string,
         }),

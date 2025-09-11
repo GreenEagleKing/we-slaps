@@ -1,8 +1,8 @@
 interface FooterProps {
-  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowContactModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Footer = ({ setShowModal }: FooterProps) => {
+const Footer = ({ setShowContactModal }: FooterProps) => {
   return (
     <div className="flex text-center gap-4 lg:flex-col lg:gap-2">
       <a
@@ -13,7 +13,7 @@ const Footer = ({ setShowModal }: FooterProps) => {
         Instagram
       </a>
       <a
-        onClick={() => setShowModal(true)}
+        onClick={() => setShowContactModal(true)}
         className="uppercase underline-offset-4 underline  text-white text-sm sm:text-base"
       >
         Contact Us

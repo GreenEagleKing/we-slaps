@@ -2,11 +2,11 @@ import { createPortal } from "react-dom";
 import PortalContactUs from "./PortalContactUs";
 
 interface AboutProps {
-  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowContactModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const About = ({ setShowModal }: AboutProps) => {
-  const handleCloseModal = () => setShowModal(false);
+const About = ({ setShowContactModal }: AboutProps) => {
+  const handleCloseModal = () => setShowContactModal(false);
 
   return (
     <>
