@@ -50,14 +50,10 @@ exports.handler = async (event, context) => {
               },
             ],
           },
-          Date: {
-            date: [
-              {
-                text: {
-                  content: new Date().toISOString(),
-                },
-              },
-            ],
+          "Date Added": {
+            date: {
+              start: new Date().toISOString(),
+            },
           },
         },
       }),
