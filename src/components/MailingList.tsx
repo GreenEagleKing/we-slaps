@@ -21,9 +21,6 @@ const MailingList: React.FC = () => {
     setMailingSubmissionState("submitting");
 
     try {
-      // const NOTION_API_KEY = process.env.NOTION_API_KEY;
-      // const MAILING_LIST_DATABASE_ID = process.env.MAILING_LIST_DATABASE_ID;
-
       const response = await fetch("/api/submit-to-notion", {
         method: "POST",
         headers: {
@@ -31,15 +28,6 @@ const MailingList: React.FC = () => {
         },
         body: JSON.stringify({ email: email }),
       });
-
-      // const googleSheetsURL = import.meta.env.VITE_MAILING_LIST_GOOGLE_FORM;
-      // const response = await fetch(googleSheetsURL, {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/x-www-form-urlencoded",
-      //   },
-      //   body: new URLSearchParams({ email }),
-      // });
 
       if (response.status !== 200) {
         setMailingSubmissionState("error");

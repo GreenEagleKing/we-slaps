@@ -50,6 +50,15 @@ exports.handler = async (event, context) => {
               },
             ],
           },
+          Date: {
+            date: [
+              {
+                text: {
+                  content: new Date().toISOString(),
+                },
+              },
+            ],
+          },
         },
       }),
     });
