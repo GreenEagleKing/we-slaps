@@ -67,7 +67,7 @@ export default function PortalContactUs({ onClose }: PortalContactUsProps) {
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/70">
       <div className="bg-white rounded-xl shadow-lg p-6 flex-col flex gap-4 sm:w-4/12">
         <div className="flex flex-row-reverse">
-          <button onClick={onClose} className="ml-2">
+          <button onClick={onClose} className="ml-2 cursor-pointer">
             X
           </button>
           <h2 className="uppercase font-display font-medium italic text-sm sm:text-base mr-auto">

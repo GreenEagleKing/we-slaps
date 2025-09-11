@@ -15,13 +15,13 @@ const Footer = ({ setShowContactModal, setShowLFGModal }: FooterProps) => {
       </a>
       <a
         onClick={() => setShowContactModal(true)}
-        className="uppercase underline-offset-4 underline  text-white text-sm sm:text-base"
+        className="uppercase underline-offset-4 underline  text-white text-sm sm:text-base cursor-pointer"
       >
         Contact Us
       </a>
       <a
         onClick={() => setShowLFGModal(true)}
-        className="uppercase underline-offset-4 underline text-white text-sm sm:text-base"
+        className="uppercase underline-offset-4 underline text-white text-sm sm:text-base cursor-pointer"
       >
         LFG
       </a>
