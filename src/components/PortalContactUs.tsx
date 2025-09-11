@@ -9,6 +9,13 @@ export default function PortalContactUs({ onClose }: PortalContactUsProps) {
     "idle" | "submitting" | "success" | "error"
   >("idle");
 
+  const encode = (data: Record<string, string>) =>
+    Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -19,7 +26,12 @@ export default function PortalContactUs({ onClose }: PortalContactUsProps) {
     try {
       const response = await fetch("/", {
         method: "POST",
-        body: formData,
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": "contact", // must match your form name
+          email: formData.get("email") as string,
+          message: formData.get("message") as string,
+        }),
       });
 
       if (response.ok) {
