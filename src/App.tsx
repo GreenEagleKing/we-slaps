@@ -31,7 +31,7 @@ export default function App() {
 
   return (
     <>
-      <div className="relative min-h-screen">
+      <div className="relative min-h-[100dvh]">
         <MotionDiv
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
