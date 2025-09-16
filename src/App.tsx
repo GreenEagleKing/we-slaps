@@ -37,7 +37,7 @@ export default function App() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <div className="relative w-full min-h-screen bg-black">
+          <div className="relative w-full min-h-[100dvh] bg-black">
             <img
               src={ldnMarathon}
               alt="London Marathon"
@@ -45,7 +45,7 @@ export default function App() {
             />
 
             <div
-              className="relative w-full min-h-screen grid grid-rows-[auto_1fr_auto] grid-cols-1 
+              className="relative w-full min-h-[100dvh] grid grid-rows-[auto_1fr_auto] grid-cols-1 
              grid-areas-layout bg-[linear-gradient(to_right,rgba(255,255,255,0.2)_2px,transparent_2px),linear-gradient(to_bottom,rgba(255,255,255,0.2)_2px,transparent_2px)] bg-[size:1.3rem_1.3rem]"
             >
               <div className="area-logo flex sm:mt-16 justify-center mt-4 pl-1">
