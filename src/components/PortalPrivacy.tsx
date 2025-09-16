@@ -5,11 +5,11 @@ type PortalPrivacyProps = {
 export default function PortalPrivacy({ onClose }: PortalPrivacyProps) {
   return (
     <div
-      className="fixed inset-0 flex items-center justify-center z-50 bg-black/70"
+      className="fixed inset-0 flex items-center justify-center overflow-y-auto z-50 bg-black/70 p-4"
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-xl shadow-lg p-6 flex-col flex gap-4 sm:w-1/2 w-3/4 md:w-1/2 max-h-[90vh] overflow-y-auto text-sm sm:text-base"
+        className="bg-white rounded-xl shadow-lg p-6 flex-col flex gap-4 sm:w-1/2 w-3/4 md:w-1/2 max-h-[90dvh] overflow-y-auto text-sm sm:text-base"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex flex-row-reverse">
