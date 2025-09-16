@@ -64,8 +64,14 @@ export default function PortalContactUs({ onClose }: PortalContactUsProps) {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/70">
-      <div className="bg-white rounded-xl shadow-lg p-6 flex-col flex gap-4 sm:w-4/12">
+    <div
+      className="fixed inset-0 flex items-center justify-center z-50 bg-black/70"
+      onClick={onClose}
+    >
+      <div
+        className="bg-white rounded-xl shadow-lg p-6 flex-col flex gap-4 sm:w-4/12"
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="flex flex-row-reverse">
           <button onClick={onClose} className="ml-2 cursor-pointer">
             X

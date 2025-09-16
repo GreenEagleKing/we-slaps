@@ -1,9 +1,14 @@
 interface FooterProps {
   setShowContactModal: React.Dispatch<React.SetStateAction<boolean>>;
   setShowLFGModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowPrivacyModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Footer = ({ setShowContactModal, setShowLFGModal }: FooterProps) => {
+const Footer = ({
+  setShowContactModal,
+  setShowLFGModal,
+  setShowPrivacyModal,
+}: FooterProps) => {
   return (
     <div className="flex text-center gap-4 lg:flex-col lg:gap-2">
       <a
@@ -18,6 +23,12 @@ const Footer = ({ setShowContactModal, setShowLFGModal }: FooterProps) => {
         className="uppercase underline-offset-4 underline  text-white text-sm sm:text-base cursor-pointer"
       >
         Contact Us
+      </a>
+      <a
+        onClick={() => setShowPrivacyModal(true)}
+        className="uppercase underline-offset-4 underline text-white text-sm sm:text-base cursor-pointer"
+      >
+        Privacy
       </a>
       <a
         onClick={() => setShowLFGModal(true)}
