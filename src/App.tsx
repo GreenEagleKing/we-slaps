@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import MailingList from "./components/MailingList";
 import { ReactComponent as SlapsLogo } from "./components/SlapsLogo";
 import { motion } from "framer-motion";
 import Footer from "./components/Footer";
-import About from "./components/About";
-import LFG from "./components/LFG";
+import PortalContactUs from "./components/PortalContactUs";
+import PortalLFG from "./components/PortalLFG";
+import PortalPrivacy from "./components/PortalPrivacy";
 import PFMRotateMac from "./assets/PFMRotateOnlyMac-1.mov";
 import PFMRotateWin from "./assets/PFMRotateOnlyWinWebM.webm";
 import ldnMarathon from "./assets/ldnMarathon2025-105.jpg";
@@ -13,7 +15,8 @@ export default function App() {
   const MotionDiv = motion.create("div");
   const [isAppleDevice, setIsAppleDevice] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
-  const [showLFGModal, setshowLFGModal] = useState(false);
+  const [showLFGModal, setShowLFGModal] = useState(false);
+  const [showPrivacyModal, setShowPrivacyModal] = useState(false);
 
   useEffect(() => {
     const userAgent = navigator.userAgent;
@@ -80,15 +83,32 @@ export default function App() {
               <div className="area-footer sm:mb-16 mb-10 lg:mt-5 mt-10 flex justify-center">
                 <Footer
                   setShowContactModal={setShowContactModal}
-                  setShowLFGModal={setshowLFGModal}
+                  setShowLFGModal={setShowLFGModal}
+                  setShowPrivacyModal={setShowPrivacyModal}
                 />
               </div>
             </div>
           </div>
-          {showContactModal && (
-            <About setShowContactModal={setShowContactModal} />
-          )}
-          {showLFGModal && <LFG setShowLFGModal={setshowLFGModal} />}
+          {/* Contact Modal */}
+          {showContactModal &&
+            createPortal(
+              <PortalContactUs onClose={() => setShowContactModal(false)} />,
+              document.body
+            )}
+
+          {/* LFG Modal */}
+          {showLFGModal &&
+            createPortal(
+              <PortalLFG onClose={() => setShowLFGModal(false)} />,
+              document.body
+            )}
+
+          {/* Privacy Policy Modal */}
+          {showPrivacyModal &&
+            createPortal(
+              <PortalPrivacy onClose={() => setShowPrivacyModal(false)} />,
+              document.body
+            )}
         </MotionDiv>
       </div>
     </>
