@@ -74,10 +74,10 @@ export default function PortalPrivacy({ onClose }: PortalPrivacyProps) {
           <p>
             To exercise these rights, email us at{" "}
             <a
-              href="mailto:weslaps123@gmail.com"
+              href="mailto:hello@weslaps.com"
               className="underline text-blue-600 hover:text-blue-800"
             >
-              weslaps123@gmail.com
+              hello@weslaps.com
             </a>
             .
           </p>
@@ -95,10 +95,10 @@ export default function PortalPrivacy({ onClose }: PortalPrivacyProps) {
             If you have questions about this policy or how we handle your data,
             please contact us at:{" "}
             <a
-              href="mailto:weslaps123@gmail.com"
+              href="mailto:hello@weslaps.com"
               className="underline text-blue-600 hover:text-blue-800"
             >
-              weslaps123@gmail.com
+              hello@weslaps.com
             </a>
             .
           </p>
