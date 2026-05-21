@@ -53,7 +53,7 @@ const MailingList: React.FC = () => {
       case "error":
         return "bg-red-300";
       default:
-        return "bg-lime-slaps";
+        return "bg-orange-slaps";
     }
   };
 
@@ -72,11 +72,6 @@ const MailingList: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-8 justify-center items-center">
-      <div className="font-display font-bold italic uppercase text-center text-lime-slaps [text-shadow:2px_0_0_#000,-1px_0_0_#000,0_1px_0_#000,0_-1px_0_#000] text-sm sm:text-2xl">
-        <p>We're working on it...</p>
-        <p>Join our mailing list & be the first to know</p>
-      </div>
-
       <MotionDiv
         whileHover={{
           scale: mailingSubmissionState === "idle" ? 1.05 : getScale(),
@@ -84,19 +79,22 @@ const MailingList: React.FC = () => {
         animate={{ scale: getScale() }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
+        <div>
+          <h2 className="text-2xl sm:text-3xl text-center text-offwhite-slaps text-slaps-heading uppercase font-extrabold">Join Mailing List</h2>
+        </div>
         <form
           onSubmit={submitEmail}
-          className="flex justify-between gap-4 mx-2"
+          className="flex flex-col justify-between gap-3 mx-2"
         >
           <input
-            className="w-full sm:w-[400px] border border-black-slaps bg-white rounded-sm font-mono text-[12px] pl-4 pr-20 py-2 flex-grow placeholder:text-black-slaps sm:text-base placeholder:text-left"
-            placeholder="ENTER EMAIL"
+            className="bg-transparent text-slaps-body text-offwhite-slaps w-full text-center sm:w-[400px] outline-2 outline-offwhite-slaps rounded-sm text-[14px] py-2 flex-grow placeholder:text-offwhite-slaps sm:text-base placeholder:text-center focus:outline-orange-slaps"
+            placeholder="YOUR EMAIL"
             name="email"
             type="email"
             required
-          ></input>
+          />
           <button
-            className={`${submissionStateColour()} transition-colors duration-300 text-black-slaps px-4 py-1 rounded-sm font-mono text-[12px] border border-black-slaps uppercase sm:text-base`}
+            className={`${submissionStateColour()} text-slaps-body transition-colors duration-300 text-offwhite-slaps px-4 py-8 rounded-sm text-[24px] outline-3 outline-offset-2 outline-double outline-orange-slaps uppercase sm:text-base`}
             type="submit"
             disabled={mailingSubmissionState === "submitting"}
           >
@@ -106,7 +104,7 @@ const MailingList: React.FC = () => {
               ? "Subscribed!"
               : mailingSubmissionState === "error"
               ? "Try again"
-              : "Subscribe"}
+              : "Get Slaps First"}
           </button>
         </form>
       </MotionDiv>
