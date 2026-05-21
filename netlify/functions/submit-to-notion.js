@@ -1,14 +1,17 @@
-import { OAuth2Client } from "google-auth-library";
-
 const getAccessToken = async () => {
-  const auth = new OAuth2Client(
-    process.env.GMAIL_CLIENT_ID,
-    process.env.GMAIL_CLIENT_SECRET,
-    "https://developers.google.com/oauthplayground"
-  );
-  auth.setCredentials({ refresh_token: process.env.GMAIL_REFRESH_TOKEN });
-  const { token } = await auth.getAccessToken();
-  return token;
+  const res = await fetch("https://oauth2.googleapis.com/token", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({
+      client_id: process.env.GMAIL_CLIENT_ID,
+      client_secret: process.env.GMAIL_CLIENT_SECRET,
+      refresh_token: process.env.GMAIL_REFRESH_TOKEN,
+      grant_type: "refresh_token",
+    }),
+  });
+  const data = await res.json();
+  if (!data.access_token) throw new Error(`Token exchange failed: ${JSON.stringify(data)}`);
+  return data.access_token;
 };
 
 const sendWelcomeEmail = async (to) => {
