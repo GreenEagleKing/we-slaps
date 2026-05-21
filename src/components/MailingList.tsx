@@ -44,19 +44,6 @@ const MailingList: React.FC = () => {
     }, 1000);
   };
 
-  const submissionStateColour = (): string => {
-    switch (mailingSubmissionState) {
-      case "success":
-        return "bg-green-300";
-      case "submitting":
-        return "bg-orange-300";
-      case "error":
-        return "bg-red-300";
-      default:
-        return "bg-orange-slaps";
-    }
-  };
-
   const getScale = (): number => {
     switch (mailingSubmissionState) {
       case "success":
@@ -94,7 +81,7 @@ const MailingList: React.FC = () => {
             required
           />
           <button
-            className={`${submissionStateColour()} text-slaps-body transition-colors duration-300 text-offwhite-slaps px-4 py-8 rounded-sm text-[24px] outline-3 outline-offset-2 outline-double outline-orange-slaps uppercase sm:text-base`}
+            className="text-slaps-body bg-orange-slaps text-offwhite-slaps px-4 py-8 rounded-sm text-[24px] outline-3 outline-offset-2 outline-double outline-orange-slaps uppercase sm:text-base"
             type="submit"
             disabled={mailingSubmissionState === "submitting"}
           >

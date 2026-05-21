@@ -8,10 +8,11 @@ import { ReactComponent as MenuCross } from "./MenuCross";
 interface NavbarProps {
   setShowContactModal: React.Dispatch<React.SetStateAction<boolean>>;
   setShowPrivacyModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowAboutModal: React.Dispatch<React.SetStateAction<boolean>>;
   onMailingListClick?: () => void;
 }
 
-const Navbar = ({ setShowContactModal, setShowPrivacyModal, onMailingListClick }: NavbarProps) => {
+const Navbar = ({ setShowContactModal, setShowLFGModal, setShowPrivacyModal, setShowAboutModal, onMailingListClick }: NavbarProps) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -20,14 +21,12 @@ const Navbar = ({ setShowContactModal, setShowPrivacyModal, onMailingListClick }
         <SlapsLogo className="fill-white" />
 
         <div className="hidden md:flex items-center gap-8">
-          <a
-            href="https://www.instagram.com/we.slaps?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-            className="uppercase underline-offset-4 underline text-offwhite-slaps text-sm sm:text-base text-slaps-heading"
-            target="_blank"
-            rel="noreferrer"
+          <button
+            onClick={() => setShowAboutModal(true)}
+            className="uppercase underline-offset-4 underline text-offwhite-slaps text-sm sm:text-base text-slaps-heading cursor-pointer"
           >
             About
-          </a>
+          </button>
                     <button
             onClick={() => onMailingListClick?.()}
             className="uppercase underline-offset-4 underline text-offwhite-slaps text-sm sm:text-base text-slaps-heading"
@@ -42,12 +41,12 @@ const Navbar = ({ setShowContactModal, setShowPrivacyModal, onMailingListClick }
           >
             Instagram
           </a>
-          <button
-            onClick={() => setShowPrivacyModal(true)}
+          <a
             className="uppercase underline-offset-4 underline text-offwhite-slaps text-sm sm:text-base text-slaps-heading"
+            href="https://www.linkedin.com/company/weslaps/" target="_blank" rel="noreferrer"
           >
             LinkedIn
-          </button>
+          </a>
           <button
             onClick={() => setShowContactModal(true)}
             className="uppercase underline-offset-4 underline text-offwhite-slaps text-sm sm:text-base text-slaps-heading"
@@ -80,14 +79,12 @@ const Navbar = ({ setShowContactModal, setShowPrivacyModal, onMailingListClick }
             transition={{ duration: 0.2, ease: "easeInOut" }}
             className="absolute right-5 top-full flex flex-col items-end gap-3 pt-2"
           >
-                        <a
-              href="https://www.instagram.com/we.slaps?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-              className="uppercase underline-offset-4 underline text-offwhite-slaps text-sm sm:text-base text-slaps-heading flex items-center gap-10"
-              target="_blank"
-              rel="noreferrer"
+            <button
+              onClick={() => { setShowAboutModal(true); setOpen(false); }}
+              className="uppercase underline-offset-4 underline text-offwhite-slaps text-sm sm:text-base text-slaps-heading cursor-pointer flex items-center gap-10"
             >
               About <MenuCross className="fill-offwhite-slaps w-4"/>
-            </a>
+            </button>
             <button
               onClick={() => { onMailingListClick?.(); setOpen(false); }}
               className="uppercase underline-offset-4 underline text-offwhite-slaps text-sm sm:text-base text-slaps-heading cursor-pointer flex items-center gap-10"
@@ -102,8 +99,7 @@ const Navbar = ({ setShowContactModal, setShowPrivacyModal, onMailingListClick }
             >
               Instagram <MenuCross className="fill-offwhite-slaps w-4"/>
             </a>
-                        <a
-              onClick={() => { setShowPrivacyModal(true); setOpen(false); }}
+            <a href="https://www.linkedin.com/company/weslaps/" target="_blank" rel="noreferrer"
               className="uppercase underline-offset-4 underline text-offwhite-slaps text-sm sm:text-base text-slaps-heading cursor-pointer flex items-center gap-10"
             >
               LinkedIn <MenuCross className="fill-offwhite-slaps w-4"/>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ReactComponent as CrossIcon } from "./CrossIcon";
 
 type PortalContactUsProps = {
   onClose: () => void;
@@ -59,7 +60,7 @@ export default function PortalContactUs({ onClose }: PortalContactUsProps) {
       case "error":
         return "bg-red-300";
       default:
-        return "bg-lime-slaps";
+        return "";
     }
   };
 
@@ -69,14 +70,14 @@ export default function PortalContactUs({ onClose }: PortalContactUsProps) {
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-xl shadow-lg p-6 flex-col flex gap-4 sm:w-4/12"
+        className="bg-offwhite-slaps p-6 flex-col flex gap-4 w-11/12 max-w-lg sm:w-4/12"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex flex-row-reverse">
+        <div className="flex flex-row-reverse items-center">
           <button onClick={onClose} className="ml-2 cursor-pointer">
-            X
+            <CrossIcon />
           </button>
-          <h2 className="uppercase font-display font-medium italic text-sm sm:text-base mr-auto">
+          <h2 className="text-black-slaps text-slaps-heading uppercase font-extrabold text-sm sm:text-base mr-auto">
             Say Hello
           </h2>
         </div>
@@ -86,7 +87,7 @@ export default function PortalContactUs({ onClose }: PortalContactUsProps) {
           method="POST"
           data-netlify="true"
           onSubmit={handleSubmit}
-          className="flex flex-col uppercase font-display font-medium italic text-sm sm:text-base gap-5"
+          className="flex flex-col uppercase text-slaps-body text-sm sm:text-base gap-5"
         >
           {/* Netlify requires this hidden input */}
           <input type="hidden" name="form-name" value="contact" />
@@ -97,7 +98,7 @@ export default function PortalContactUs({ onClose }: PortalContactUsProps) {
               name="email"
               placeholder="EMAIL"
               required
-              className="border border-black-slaps bg-white rounded-sm font-mono text-[12px] pl-4 pr-20 py-2 w-full placeholder:text-black-slaps sm:text-base placeholder:text-left"
+              className="border border-black-slaps bg-offwhite-slaps text-slaps-body text-[12px] pl-4 pr-4 py-2 w-full rounded-sm placeholder:text-black-slaps sm:text-base placeholder:text-left"
             />
 
             <textarea
@@ -106,13 +107,13 @@ export default function PortalContactUs({ onClose }: PortalContactUsProps) {
               rows={4}
               maxLength={1000}
               required
-              className="border border-black-slaps bg-white rounded-sm font-mono text-[12px] pl-4 pr-20 py-2 w-full placeholder:text-black-slaps sm:text-base placeholder:text-left"
+              className="border border-black-slaps bg-offwhite-slaps text-slaps-body rounded-sm text-[12px] pl-4 pr-4 py-2 w-full placeholder:text-black-slaps sm:text-base placeholder:text-left"
             />
           </div>
 
           <button
             type="submit"
-            className={`${submissionStateColour()} transition-colors duration-300 text-black-slaps px-4 py-1 rounded-sm font-mono text-[12px] border border-black-slaps uppercase sm:text-base w-2/6 ml-auto mr-auto`}
+            className={`bg-orange-slaps ${submissionStateColour()} transition-colors duration-300 rounded-sm text-slaps-body text-offwhite-slaps px-4 py-2 text-[12px] uppercase sm:text-base w-full sm:w-2/6 sm:ml-auto sm:mr-auto outline-3 outline-offset-2 outline-double outline-orange-slaps`}
             disabled={submissionState === "submitting"}
           >
             {submissionState === "submitting"

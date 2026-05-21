@@ -1,10 +1,11 @@
 import { useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import MailingList from "./components/MailingList";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import NavBar from "./components/NavBar";
 import PortalContactUs from "./components/PortalContactUs";
 import PortalPrivacy from "./components/PortalPrivacy";
+import PortalAbout from "./components/PortalAbout";
 import Background from "./assets/landingV3hero.png";
 import {ReactComponent as SlapsBadge} from "./components/UVAUVBBadge";
 import { ReactComponent as PFMBadge } from "./components/PFMBadge";
@@ -16,14 +17,16 @@ import { ReactComponent as CrossIcon } from "./components/CrossIcon";
 export default function App() {
   const MotionDiv = motion.create("div");
   const mailingRef = useRef<HTMLDivElement>(null);
+  const crossRef = useRef<HTMLDivElement | null>(null);
   const [showContactModal, setShowContactModal] = useState(false);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
+  const [showAboutModal, setShowAboutModal] = useState(false);
 
   const scrollToMailingList = () => {
     mailingRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
   };
-
-  // 
+  const { scrollYProgress } = useScroll({ target: crossRef, offset: ["start 0.9", "end 0.3"] });
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 180]);
    
   return (
     <>
@@ -43,6 +46,7 @@ export default function App() {
             <NavBar
               setShowContactModal={setShowContactModal}
               setShowPrivacyModal={setShowPrivacyModal}
+              setShowAboutModal={setShowAboutModal}
               onMailingListClick={scrollToMailingList}
             />
             <div className="area-main flex flex-col items-center justify-center w-full h-full">
@@ -53,7 +57,9 @@ export default function App() {
           </div>
 
             <div ref={mailingRef} className="flex flex-col items-center pt-10 pb-16">
-              <CrossIcon className="fill-offwhite-slaps w-10 h-10 mb-10" />
+              <motion.div ref={crossRef} style={{ rotate }} className="mb-10">
+                <CrossIcon className="fill-offwhite-slaps w-10 h-10" />
+              </motion.div>
               <div className="mt-20 mb-[40vh] flex flex-col items-center justify-center gap-14 sm:gap-20 max-w-xl mx-auto">
                 <MailingList />
               </div>
@@ -71,6 +77,13 @@ export default function App() {
         {showPrivacyModal &&
           createPortal(
             <PortalPrivacy onClose={() => setShowPrivacyModal(false)} />,
+            document.body
+          )}
+
+        {/* About Modal */}
+        {showAboutModal &&
+          createPortal(
+            <PortalAbout onClose={() => setShowAboutModal(false)} />,
             document.body
           )}
       </div>
