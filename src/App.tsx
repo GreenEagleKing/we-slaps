@@ -24,6 +24,8 @@ export default function App() {
   const scrollToMailingList = () => {
     mailingRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
   };
+
+  // 
    
   return (
     <>
