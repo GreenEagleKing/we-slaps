@@ -1,6 +1,43 @@
 const process = require("process");
+const { google } = require("googleapis");
 
-exports.handler = async (event, context) => {
+const getGmailClient = () => {
+  const auth = new google.auth.OAuth2(
+    process.env.GMAIL_CLIENT_ID,
+    process.env.GMAIL_CLIENT_SECRET,
+    "https://developers.google.com/oauthplayground"
+  );
+  auth.setCredentials({ refresh_token: process.env.GMAIL_REFRESH_TOKEN });
+  return google.gmail({ version: "v1", auth });
+};
+
+const sendWelcomeEmail = async (to) => {
+  const gmail = getGmailClient();
+
+  const templateRes = await gmail.users.settings.canned_responses.get({
+    userId: "me",
+    id: process.env.GMAIL_TEMPLATE_ID,
+  });
+
+  const body = templateRes.data.response;
+
+  const message = [
+    `To: ${to}`,
+    `From: Slaps <${process.env.GMAIL_USER}>`,
+    `Subject: You're on the list.`,
+    `MIME-Version: 1.0`,
+    `Content-Type: text/html; charset=UTF-8`,
+    ``,
+    body,
+  ].join("\r\n");
+
+  await gmail.users.messages.send({
+    userId: "me",
+    requestBody: { raw: Buffer.from(message).toString("base64url") },
+  });
+};
+
+exports.handler = async (event) => {
   if (event.httpMethod !== "POST") {
     return {
       statusCode: 405,
@@ -25,8 +62,7 @@ exports.handler = async (event, context) => {
       return {
         statusCode: 500,
         body: JSON.stringify({
-          error:
-            "Server-side environment variables are not configured correctly.",
+          error: "Server-side environment variables are not configured correctly.",
         }),
       };
     }
@@ -42,18 +78,10 @@ exports.handler = async (event, context) => {
         parent: { database_id: MAILING_LIST_DATABASE_ID },
         properties: {
           Email: {
-            title: [
-              {
-                text: {
-                  content: email,
-                },
-              },
-            ],
+            title: [{ text: { content: email } }],
           },
           "Date Added": {
-            date: {
-              start: new Date().toISOString(),
-            },
+            date: { start: new Date().toISOString() },
           },
         },
       }),
@@ -67,6 +95,8 @@ exports.handler = async (event, context) => {
         body: JSON.stringify({ error: "Failed to submit to Notion." }),
       };
     }
+
+    await sendWelcomeEmail(email);
 
     return {
       statusCode: 200,
