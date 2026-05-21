@@ -3,7 +3,7 @@ directory = "netlify/functions"
 node_bundler = "esbuild"
 
 [build.environment]
-SECRETS_SCAN_OMIT_PATHS = "dist"
+SECRETS_SCAN_OMIT_PATHS = "dist,.netlify"
 
 [[redirects]]
 from = "/api/*"
