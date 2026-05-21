@@ -1,11 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cousine:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cousine:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import "tailwindcss";
 
 @theme {
   /* Font family */
-  --font-display: "Inter", sans-serif;
-  --font-mono: "Cousine", monospace;
+  --font-display: "owners", sans-serif;
+  --font-display-medium-it: "owners", sans-serif;
 
   /* Font sizes */
   --text-slaps-heading: 18px;
@@ -13,9 +12,22 @@
   --text-slaps-button: 12px;
 
   /* Custom colors */
-  --color-lime-slaps: #efff74;
-  --color-lilac-slaps: #9b85aa;
-  --color-black-slaps: #414141;
+  --color-orange-slaps: #f05a28;
+  --color-black-slaps: #232322;
+  --color-offwhite-slaps: #f9f8f7;
+}
+
+@layer base {
+  .text-slaps-heading {
+    font-family: "owners", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: -1px;
+  }
+  .text-slaps-body {
+    font-family: "owners", sans-serif;
+    letter-spacing: 5px;
+  }
 }
 
 @layer utilities {
