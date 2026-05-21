@@ -29,6 +29,7 @@ const sendWelcomeEmail = async (to) => {
     ``,
     body,
   ].join("\r\n");
+  
 
   await gmail.users.messages.send({
     userId: "me",
