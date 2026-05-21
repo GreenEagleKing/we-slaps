@@ -2,6 +2,9 @@
 directory = "netlify/functions"
 node_bundler = "esbuild"
 
+[build.environment]
+SECRETS_SCAN_OMIT_PATHS = "dist"
+
 [[redirects]]
 from = "/api/*"
 to = "/.netlify/functions/:splat"
