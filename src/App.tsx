@@ -4,7 +4,6 @@ import MailingList from "./components/MailingList";
 import { motion, useScroll, useTransform } from "framer-motion";
 import NavBar from "./components/NavBar";
 import PortalContactUs from "./components/PortalContactUs";
-import PortalLFG from "./components/PortalLFG";
 import PortalPrivacy from "./components/PortalPrivacy";
 import PortalAbout from "./components/PortalAbout";
 import Background from "./assets/landingV3hero.png";
@@ -20,7 +19,6 @@ export default function App() {
   const mailingRef = useRef<HTMLDivElement>(null);
   const crossRef = useRef<HTMLDivElement | null>(null);
   const [showContactModal, setShowContactModal] = useState(false);
-  const [showLFGModal, setShowLFGModal] = useState(false);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
   const [showAboutModal, setShowAboutModal] = useState(false);
 
@@ -47,7 +45,6 @@ export default function App() {
             />
             <NavBar
               setShowContactModal={setShowContactModal}
-              setShowLFGModal={setShowLFGModal}
               setShowPrivacyModal={setShowPrivacyModal}
               setShowAboutModal={setShowAboutModal}
               onMailingListClick={scrollToMailingList}
@@ -76,14 +73,6 @@ export default function App() {
             <PortalContactUs onClose={() => setShowContactModal(false)} />,
             document.body
           )}
-
-        {/* LFG Modal */}
-        {showLFGModal &&
-          createPortal(
-            <PortalLFG onClose={() => setShowLFGModal(false)} />,
-            document.body
-          )}
-
         {/* Privacy Policy Modal */}
         {showPrivacyModal &&
           createPortal(
