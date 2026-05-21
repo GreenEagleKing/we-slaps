@@ -1,42 +1,3 @@
-import { google } from "googleapis";
-
-const getGmailClient = () => {
-  const auth = new google.auth.OAuth2(
-    process.env.GMAIL_CLIENT_ID,
-    process.env.GMAIL_CLIENT_SECRET,
-    "https://developers.google.com/oauthplayground"
-  );
-  auth.setCredentials({ refresh_token: process.env.GMAIL_REFRESH_TOKEN });
-  return google.gmail({ version: "v1", auth });
-};
-
-const sendWelcomeEmail = async (to) => {
-  const gmail = getGmailClient();
-
-  const templateRes = await gmail.users.settings.canned_responses.get({
-    userId: "me",
-    id: process.env.GMAIL_TEMPLATE_ID,
-  });
-
-  const body = templateRes.data.response;
-
-  const message = [
-    `To: ${to}`,
-    `From: Slaps <${process.env.GMAIL_USER}>`,
-    `Subject: You're on the list.`,
-    `MIME-Version: 1.0`,
-    `Content-Type: text/html; charset=UTF-8`,
-    ``,
-    body,
-  ].join("\r\n");
-  
-
-  await gmail.users.messages.send({
-    userId: "me",
-    requestBody: { raw: Buffer.from(message).toString("base64url") },
-  });
-};
-
 export const handler = async (event) => {
   if (event.httpMethod !== "POST") {
     return {
@@ -47,6 +8,7 @@ export const handler = async (event) => {
 
   try {
     const { email } = JSON.parse(event.body);
+    console.log("Function invoked for:", email);
 
     if (!email) {
       return {
@@ -59,11 +21,10 @@ export const handler = async (event) => {
     const MAILING_LIST_DATABASE_ID = process.env.MAILING_LIST_DATABASE_ID;
 
     if (!NOTION_API_KEY || !MAILING_LIST_DATABASE_ID) {
+      console.error("Missing Notion env vars");
       return {
         statusCode: 500,
-        body: JSON.stringify({
-          error: "Server-side environment variables are not configured correctly.",
-        }),
+        body: JSON.stringify({ error: "Server-side environment variables are not configured correctly." }),
       };
     }
 
@@ -96,8 +57,7 @@ export const handler = async (event) => {
       };
     }
 
-    await sendWelcomeEmail(email);
-
+    console.log("Notion write succeeded, email send skipped for testing");
     return {
       statusCode: 200,
       body: JSON.stringify({ status: "success" }),
