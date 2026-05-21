@@ -4,7 +4,6 @@ import MailingList from "./components/MailingList";
 import { motion, useScroll, useTransform } from "framer-motion";
 import NavBar from "./components/NavBar";
 import PortalContactUs from "./components/PortalContactUs";
-import PortalPrivacy from "./components/PortalPrivacy";
 import PortalAbout from "./components/PortalAbout";
 import Background from "./assets/landingV3hero.png";
 import {ReactComponent as SlapsBadge} from "./components/UVAUVBBadge";
@@ -19,7 +18,6 @@ export default function App() {
   const mailingRef = useRef<HTMLDivElement>(null);
   const crossRef = useRef<HTMLDivElement | null>(null);
   const [showContactModal, setShowContactModal] = useState(false);
-  const [showPrivacyModal, setShowPrivacyModal] = useState(false);
   const [showAboutModal, setShowAboutModal] = useState(false);
 
   const scrollToMailingList = () => {
@@ -45,14 +43,13 @@ export default function App() {
             />
             <NavBar
               setShowContactModal={setShowContactModal}
-              setShowPrivacyModal={setShowPrivacyModal}
               setShowAboutModal={setShowAboutModal}
               onMailingListClick={scrollToMailingList}
             />
             <div className="area-main flex flex-col items-center justify-center w-full h-full">
-              <SlapsBadge className="relative right-80 top--200 fill-offwhite-slaps w-8 " />
-              <PFMBadge className="mix-blend-difference text-white w-180" />
-              <SPF50Plus className="fill-orange-slaps w-90 ml-90 mt-3" />
+              <SlapsBadge className="relative right-10 sm:right-80 fill-offwhite-slaps w-8" />
+              <PFMBadge className="mix-blend-difference text-white w-[90vw] sm:w-180" />
+              <SPF50Plus className="fill-orange-slaps w-[45vw] sm:w-90 ml-[45vw] sm:ml-90 mt-3" />
             </div>
           </div>
 
@@ -73,13 +70,6 @@ export default function App() {
             <PortalContactUs onClose={() => setShowContactModal(false)} />,
             document.body
           )}
-        {/* Privacy Policy Modal */}
-        {showPrivacyModal &&
-          createPortal(
-            <PortalPrivacy onClose={() => setShowPrivacyModal(false)} />,
-            document.body
-          )}
-
         {/* About Modal */}
         {showAboutModal &&
           createPortal(

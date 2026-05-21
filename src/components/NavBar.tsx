@@ -7,12 +7,11 @@ import { ReactComponent as MenuCross } from "./MenuCross";
 
 interface NavbarProps {
   setShowContactModal: React.Dispatch<React.SetStateAction<boolean>>;
-  setShowPrivacyModal: React.Dispatch<React.SetStateAction<boolean>>;
   setShowAboutModal: React.Dispatch<React.SetStateAction<boolean>>;
   onMailingListClick?: () => void;
 }
 
-const Navbar = ({ setShowContactModal, setShowLFGModal, setShowPrivacyModal, setShowAboutModal, onMailingListClick }: NavbarProps) => {
+const Navbar = ({ setShowContactModal, setShowAboutModal, onMailingListClick }: NavbarProps) => {
   const [open, setOpen] = useState(false);
 
   return (
