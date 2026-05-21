@@ -4,25 +4,25 @@ interface FooterProps {
   setShowContactModal: React.Dispatch<React.SetStateAction<boolean>>;
   setShowLFGModal: React.Dispatch<React.SetStateAction<boolean>>;
   setShowPrivacyModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowAboutModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Footer = ({
   setShowContactModal,
   setShowLFGModal,
   setShowPrivacyModal,
+  setShowAboutModal,
 }: FooterProps) => {
   return (
     <div className="flex justify-between items-center px-5 py-4">
       <SlapsLogo className="fill-offwhite-slaps" />
       <div className="flex items-center gap-8">
-        <a
-          href="https://www.instagram.com/we.slaps?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-          className="uppercase underline-offset-4 underline text-offwhite-slaps text-sm sm:text-base"
-          target="_blank"
-          rel="noreferrer"
+        <button
+          onClick={() => setShowAboutModal(true)}
+          className="uppercase underline-offset-4 underline text-offwhite-slaps text-sm sm:text-base cursor-pointer"
         >
           About
-        </a>
+        </button>
         <button
           onClick={() => setShowLFGModal(true)}
           className="uppercase underline-offset-4 underline text-offwhite-slaps text-sm sm:text-base cursor-pointer"
