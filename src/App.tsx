@@ -4,7 +4,6 @@ import MailingList from "./components/MailingList";
 import { motion } from "framer-motion";
 import NavBar from "./components/NavBar";
 import PortalContactUs from "./components/PortalContactUs";
-import PortalLFG from "./components/PortalLFG";
 import PortalPrivacy from "./components/PortalPrivacy";
 import Background from "./assets/landingV3hero.png";
 import {ReactComponent as SlapsBadge} from "./components/UVAUVBBadge";
@@ -18,7 +17,6 @@ export default function App() {
   const MotionDiv = motion.create("div");
   const mailingRef = useRef<HTMLDivElement>(null);
   const [showContactModal, setShowContactModal] = useState(false);
-  const [showLFGModal, setShowLFGModal] = useState(false);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
 
   const scrollToMailingList = () => {
@@ -44,7 +42,6 @@ export default function App() {
             />
             <NavBar
               setShowContactModal={setShowContactModal}
-              setShowLFGModal={setShowLFGModal}
               setShowPrivacyModal={setShowPrivacyModal}
               onMailingListClick={scrollToMailingList}
             />
@@ -70,14 +67,6 @@ export default function App() {
             <PortalContactUs onClose={() => setShowContactModal(false)} />,
             document.body
           )}
-
-        {/* LFG Modal */}
-        {showLFGModal &&
-          createPortal(
-            <PortalLFG onClose={() => setShowLFGModal(false)} />,
-            document.body
-          )}
-
         {/* Privacy Policy Modal */}
         {showPrivacyModal &&
           createPortal(
