@@ -14,20 +14,49 @@ const getAccessToken = async () => {
   return data.access_token;
 };
 
-const sendWelcomeEmail = async (to) => {
-  const token = await getAccessToken();
-  const userId = "me";
+const extractHtmlBody = (payload) => {
+  if (payload.mimeType === "text/html" && payload.body?.data) {
+    return Buffer.from(payload.body.data, "base64url").toString("utf-8");
+  }
+  if (payload.parts) {
+    for (const part of payload.parts) {
+      const found = extractHtmlBody(part);
+      if (found) return found;
+    }
+  }
+  if (payload.mimeType === "text/plain" && payload.body?.data) {
+    return Buffer.from(payload.body.data, "base64url").toString("utf-8");
+  }
+  return null;
+};
 
-  const templateRes = await fetch(
-    `https://gmail.googleapis.com/gmail/v1/users/${userId}/settings/canned_responses/${encodeURIComponent(process.env.GMAIL_TEMPLATE_ID)}`,
+const getDraftBody = async (token) => {
+  const subject = process.env.GMAIL_TEMPLATE_ID;
+
+  const listRes = await fetch(
+    `https://gmail.googleapis.com/gmail/v1/users/me/drafts?q=${encodeURIComponent(`subject:"${subject}"`)}`,
     { headers: { Authorization: `Bearer ${token}` } }
   );
+  const listData = await listRes.json();
 
-  if (!templateRes.ok) {
-    throw new Error(`Failed to fetch template: ${await templateRes.text()}`);
+  if (!listData.drafts?.length) {
+    throw new Error(`No draft found with subject: "${subject}"`);
   }
 
-  const { response: body } = await templateRes.json();
+  const draftRes = await fetch(
+    `https://gmail.googleapis.com/gmail/v1/users/me/drafts/${listData.drafts[0].id}?format=full`,
+    { headers: { Authorization: `Bearer ${token}` } }
+  );
+  const draft = await draftRes.json();
+
+  const body = extractHtmlBody(draft.message.payload);
+  if (!body) throw new Error("Could not extract body from draft");
+  return body;
+};
+
+const sendWelcomeEmail = async (to) => {
+  const token = await getAccessToken();
+  const body = await getDraftBody(token);
 
   const message = [
     `To: ${to}`,
@@ -40,7 +69,7 @@ const sendWelcomeEmail = async (to) => {
   ].join("\r\n");
 
   const sendRes = await fetch(
-    `https://gmail.googleapis.com/gmail/v1/users/${userId}/messages/send`,
+    `https://gmail.googleapis.com/gmail/v1/users/me/messages/send`,
     {
       method: "POST",
       headers: {
