@@ -1,24 +1,30 @@
-import { google } from "googleapis";
+import { OAuth2Client } from "google-auth-library";
 
-const getGmailClient = () => {
-  const auth = new google.auth.OAuth2(
+const getAccessToken = async () => {
+  const auth = new OAuth2Client(
     process.env.GMAIL_CLIENT_ID,
     process.env.GMAIL_CLIENT_SECRET,
     "https://developers.google.com/oauthplayground"
   );
   auth.setCredentials({ refresh_token: process.env.GMAIL_REFRESH_TOKEN });
-  return google.gmail({ version: "v1", auth });
+  const { token } = await auth.getAccessToken();
+  return token;
 };
 
 const sendWelcomeEmail = async (to) => {
-  const gmail = getGmailClient();
+  const token = await getAccessToken();
+  const userId = "me";
 
-  const templateRes = await gmail.users.settings.canned_responses.get({
-    userId: "me",
-    id: process.env.GMAIL_TEMPLATE_ID,
-  });
+  const templateRes = await fetch(
+    `https://gmail.googleapis.com/gmail/v1/users/${userId}/settings/canned_responses/${encodeURIComponent(process.env.GMAIL_TEMPLATE_ID)}`,
+    { headers: { Authorization: `Bearer ${token}` } }
+  );
 
-  const body = templateRes.data.response;
+  if (!templateRes.ok) {
+    throw new Error(`Failed to fetch template: ${await templateRes.text()}`);
+  }
+
+  const { response: body } = await templateRes.json();
 
   const message = [
     `To: ${to}`,
@@ -30,10 +36,21 @@ const sendWelcomeEmail = async (to) => {
     body,
   ].join("\r\n");
 
-  await gmail.users.messages.send({
-    userId: "me",
-    requestBody: { raw: Buffer.from(message).toString("base64url") },
-  });
+  const sendRes = await fetch(
+    `https://gmail.googleapis.com/gmail/v1/users/${userId}/messages/send`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ raw: Buffer.from(message).toString("base64url") }),
+    }
+  );
+
+  if (!sendRes.ok) {
+    throw new Error(`Failed to send email: ${await sendRes.text()}`);
+  }
 };
 
 export const handler = async (event) => {
@@ -99,7 +116,7 @@ export const handler = async (event) => {
       await sendWelcomeEmail(email);
       console.log("Welcome email sent to:", email);
     } catch (emailError) {
-      console.error("Gmail send error:", emailError);
+      console.error("Gmail send error:", emailError.message);
     }
 
     return {
