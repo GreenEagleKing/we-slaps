@@ -1,115 +1,87 @@
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import MailingList from "./components/MailingList";
-import { ReactComponent as SlapsLogo } from "./components/SlapsLogo";
 import { motion } from "framer-motion";
-import Footer from "./components/Footer";
+import NavBar from "./components/NavBar";
 import PortalContactUs from "./components/PortalContactUs";
 import PortalLFG from "./components/PortalLFG";
 import PortalPrivacy from "./components/PortalPrivacy";
-import PFMRotateMac from "./assets/PFMRotateOnlyMac-1.mov";
-import PFMRotateWin from "./assets/PFMRotateOnlyWinWebM.webm";
-import ldnMarathon from "./assets/ldnMarathon2025-105.jpg";
+import Background from "./assets/landingV3hero.png";
+import {ReactComponent as SlapsBadge} from "./components/UVAUVBBadge";
+import { ReactComponent as PFMBadge } from "./components/PFMBadge";
+import { ReactComponent as SPF50Plus } from "./components/SPF50Plus";
+import { ReactComponent as CrossIcon } from "./components/CrossIcon";
+
+
 
 export default function App() {
   const MotionDiv = motion.create("div");
-  const [isAppleDevice, setIsAppleDevice] = useState(false);
+  const mailingRef = useRef<HTMLDivElement>(null);
   const [showContactModal, setShowContactModal] = useState(false);
   const [showLFGModal, setShowLFGModal] = useState(false);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
 
-  useEffect(() => {
-    const userAgent = navigator.userAgent;
-    const isIOS = /iPad|iPhone|iPod/.test(userAgent);
-    const isMacSafari =
-      /Macintosh/.test(userAgent) &&
-      /Safari/.test(userAgent) &&
-      !/Chrome|Firefox|Edg/.test(userAgent);
-
-    setIsAppleDevice(isIOS || isMacSafari);
-  }, []);
-
+  const scrollToMailingList = () => {
+    mailingRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+   
   return (
     <>
-      <div className="relative min-h-[100dvh]">
+      <div className="relative min-h-screen flex flex-col">
         <MotionDiv
+          className="flex-1"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <div className="relative w-full min-h-[100dvh] bg-black">
+          <div className="relative w-full h-[90vh]">
             <img
-              src={ldnMarathon}
-              alt="London Marathon"
-              className="absolute top-0 left-0 w-full h-full object-cover opacity-85 bg-blend-multiply"
+              src={Background}
+              alt="Background"
+              className="fixed inset-0 w-full h-full object-cover -z-10"
             />
-
-            <div
-              className="relative w-full min-h-[100dvh] grid grid-rows-[auto_1fr_auto] grid-cols-1 
-             grid-areas-layout bg-[linear-gradient(to_right,rgba(255,255,255,0.2)_2px,transparent_2px),linear-gradient(to_bottom,rgba(255,255,255,0.2)_2px,transparent_2px)] bg-[size:1.3rem_1.3rem]"
-            >
-              <div className="area-logo flex sm:mt-16 justify-center mt-4 pl-1">
-                <SlapsLogo />
-              </div>
-              <div className="area-main flex flex-col items-center justify-center gap-14 sm:gap-20 max-w-xl mx-auto lg:mt-5 mt-5">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className=" w-10/12 max-w-lg my-[-50px] sm:my-[-70px]"
-                >
-                  {isAppleDevice ? (
-                    <source src={PFMRotateMac} type="video/mp4; codecs=hvc1" />
-                  ) : (
-                    <source src={PFMRotateWin} type="video/webm" />
-                  )}
-                  Your browser does not support the video tag.
-                </video>
-                <div className="flex flex-col gap-8 justify-center items-center">
-                  <p className="uppercase text-center max-w-[300px] sm:max-w-[450px] font-display font-medium italic  text-white text-sm sm:text-base">
-                    This is sun protection for movement.
-                  </p>
-                  <p className="uppercase text-center max-w-[320px] sm:max-w-[470px] font-display font-medium italic  text-white text-sm sm:text-base">
-                    SLAPS IS FOR OUTDOOR PEOPLE, ADVENTURERS, AND EVERYDAY
-                    ATHLETES ALIKE. THROUGH BETTER DESIGN, REAL STORIES, AND
-                    SHARED EXPERIENCES, WE'RE BRIDGING THE GAP BETWEEN HEALTH
-                    AND SKIN HEALTH.
-                  </p>
-                </div>
-
-                <MailingList />
-              </div>
-              <div className="area-footer sm:mb-16 mb-10 lg:mt-5 mt-10 flex justify-center">
-                <Footer
-                  setShowContactModal={setShowContactModal}
-                  setShowLFGModal={setShowLFGModal}
-                  setShowPrivacyModal={setShowPrivacyModal}
-                />
-              </div>
+            <NavBar
+              setShowContactModal={setShowContactModal}
+              setShowLFGModal={setShowLFGModal}
+              setShowPrivacyModal={setShowPrivacyModal}
+              onMailingListClick={scrollToMailingList}
+            />
+            <div className="area-main flex flex-col items-center justify-center w-full h-full">
+              <SlapsBadge className="relative right-80 top--200 fill-offwhite-slaps w-8 " />
+              <PFMBadge className="mix-blend-difference text-white w-180" />
+              <SPF50Plus className="fill-orange-slaps w-90 ml-90 mt-3" />
             </div>
           </div>
-          {/* Contact Modal */}
-          {showContactModal &&
-            createPortal(
-              <PortalContactUs onClose={() => setShowContactModal(false)} />,
-              document.body
-            )}
 
-          {/* LFG Modal */}
-          {showLFGModal &&
-            createPortal(
-              <PortalLFG onClose={() => setShowLFGModal(false)} />,
-              document.body
-            )}
-
-          {/* Privacy Policy Modal */}
-          {showPrivacyModal &&
-            createPortal(
-              <PortalPrivacy onClose={() => setShowPrivacyModal(false)} />,
-              document.body
-            )}
+            <div ref={mailingRef} className="flex flex-col items-center pt-10 pb-16">
+              <CrossIcon className="fill-offwhite-slaps w-10 h-10 mb-10" />
+              <div className="mt-20 mb-[40vh] flex flex-col items-center justify-center gap-14 sm:gap-20 max-w-xl mx-auto">
+                <MailingList />
+              </div>
+            </div>
+         
         </MotionDiv>
+
+        {/* Contact Modal */}
+        {showContactModal &&
+          createPortal(
+            <PortalContactUs onClose={() => setShowContactModal(false)} />,
+            document.body
+          )}
+
+        {/* LFG Modal */}
+        {showLFGModal &&
+          createPortal(
+            <PortalLFG onClose={() => setShowLFGModal(false)} />,
+            document.body
+          )}
+
+        {/* Privacy Policy Modal */}
+        {showPrivacyModal &&
+          createPortal(
+            <PortalPrivacy onClose={() => setShowPrivacyModal(false)} />,
+            document.body
+          )}
       </div>
     </>
   );
