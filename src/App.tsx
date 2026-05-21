@@ -29,6 +29,8 @@ export default function App() {
     setIsAppleDevice(isIOS || isMacSafari);
   }, []);
 
+  //
+
   return (
     <>
       <div className="relative min-h-[100dvh]">
