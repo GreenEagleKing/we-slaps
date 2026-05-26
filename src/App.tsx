@@ -6,6 +6,8 @@ import NavBar from "./components/NavBar";
 import PortalContactUs from "./components/PortalContactUs";
 import PortalAbout from "./components/PortalAbout";
 import Background from "./assets/landingV3hero.png";
+import draftAnimationMov from "./assets/pouch-360-ios.mov";
+import draftAnimationWebm from "./assets/pouch-360-chrome.webm";
 import {ReactComponent as SlapsBadge} from "./components/UVAUVBBadge";
 import { ReactComponent as PFMBadge } from "./components/PFMBadge";
 import { ReactComponent as SPF50Plus } from "./components/SPF50Plus";
@@ -46,11 +48,21 @@ export default function App() {
               setShowAboutModal={setShowAboutModal}
               onMailingListClick={scrollToMailingList}
             />
-            <div className="area-main flex flex-col items-center justify-center w-full h-full">
-              <SlapsBadge className="relative right-10 sm:right-80 fill-offwhite-slaps w-8" />
-              <PFMBadge className="mix-blend-difference text-white w-[90vw] sm:w-180" />
-              <SPF50Plus className="fill-orange-slaps w-[45vw] sm:w-90 ml-[45vw] sm:ml-90 mt-3" />
-            </div>
+            <section className="area-main flex flex-col items-center justify-center w-full h-full relative">
+              <SlapsBadge className="relative right-10 bottom-30 sm:right-80 fill-offwhite-slaps w-8 z-1" />
+              <PFMBadge className="mix-blend-difference text-white w-[90vw] sm:w-180 z-1" />
+              <SPF50Plus className="fill-orange-slaps w-[45vw] sm:w-90 ml-[45vw] sm:ml-80 mt-3 z-1" />
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full max-w-[35%] absolute z-0"
+              >
+                <source src={draftAnimationMov} type='video/mp4; codecs="hvc1"' />
+                <source src={draftAnimationWebm} type="video/webm" />
+              </video>
+            </section>
           </div>
 
             <div ref={mailingRef} className="flex flex-col items-center pt-10 pb-16">
