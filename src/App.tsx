@@ -6,7 +6,7 @@ import NavBar from "./components/NavBar";
 import PortalContactUs from "./components/PortalContactUs";
 import PortalAbout from "./components/PortalAbout";
 import Background from "./assets/landingV3hero.png";
-import draftAnimationMov from "./assets/pouch-360-safari.mov";
+import draftAnimationMov from "./assets/pouch-360-safari-mac.mov";
 import draftAnimationWebm from "./assets/pouch-360-chrome.webm";
 import {ReactComponent as SlapsBadge} from "./components/UVAUVBBadge";
 import { ReactComponent as PFMBadge } from "./components/PFMBadge";
