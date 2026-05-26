@@ -6,8 +6,6 @@ import NavBar from "./components/NavBar";
 import PortalContactUs from "./components/PortalContactUs";
 import PortalAbout from "./components/PortalAbout";
 import Background from "./assets/landingV3hero.png";
-import draftAnimationMov from "./assets/pouch-360-safari2.mp4";
-import draftAnimationWebm from "./assets/pouch-360-chrome.webm";
 import {ReactComponent as SlapsBadge} from "./components/UVAUVBBadge";
 import { ReactComponent as PFMBadge } from "./components/PFMBadge";
 import { ReactComponent as SPF50Plus } from "./components/SPF50Plus";
@@ -59,8 +57,8 @@ export default function App() {
                 playsInline
                 className="w-full max-w-[35%] absolute z-0"
               >
-                <source src={draftAnimationWebm} type="video/webm" />
-                <source src={draftAnimationMov} type='video/mp4; codecs="hvc1"' />
+              <source src="/pouch-360-chrome.webm" type="video/webm" />
+              <source src="/pouch-360-safari2.mp4" type='video/mp4; codecs="hvc1"' />
               </video>
             </section>
           </div>
