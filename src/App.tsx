@@ -59,8 +59,8 @@ export default function App() {
                 playsInline
                 className="w-full max-w-[35%] absolute z-0"
               >
-                <source src={draftAnimationMov} type='video/mp4; codecs="hvc1"' />
                 <source src={draftAnimationWebm} type="video/webm" />
+                <source src={draftAnimationMov} type="video/quicktime" />
               </video>
             </section>
           </div>
