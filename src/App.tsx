@@ -60,7 +60,7 @@ export default function App() {
                 className="w-full max-w-[35%] absolute z-0"
               >
                 <source src={draftAnimationWebm} type="video/webm" />
-                <source src={draftAnimationMov} type="video/quicktime" />
+                <source src={draftAnimationMov} type='video/mp4; codecs="hvc1"' />
               </video>
             </section>
           </div>
