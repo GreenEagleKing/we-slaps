@@ -67,21 +67,21 @@ const MailingList: React.FC = () => {
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
         <div>
-          <h2 className="text-2xl sm:text-3xl text-center text-offwhite-slaps text-slaps-heading uppercase font-extrabold">Join Mailing List</h2>
+          <h2 className="text-2xl sm:text-3xl text-center text-black-slaps text-slaps-heading uppercase">Join Mailing List</h2>
         </div>
         <form
           onSubmit={submitEmail}
-          className="flex flex-col justify-between gap-3 mx-2"
+          className="flex flex-col justify-between gap-3 w-[80vw] sm:w-auto"
         >
           <input
-            className="bg-transparent text-slaps-body text-offwhite-slaps w-full text-center sm:w-[400px] outline-2 outline-offwhite-slaps rounded-sm text-[14px] py-2 flex-grow placeholder:text-offwhite-slaps sm:text-base placeholder:text-center focus:outline-orange-slaps"
+            className="bg-transparent text-slaps-body text-black-slaps w-full text-center sm:w-[400px] outline-2 outline-offwhite-slaps rounded-sm text-[14px] py-2 flex-grow placeholder:text-black-slaps sm:text-base placeholder:text-center focus:outline-offwhite-slaps hover:outline-orange-slaps"
             placeholder="YOUR EMAIL"
             name="email"
             type="email"
             required
           />
           <button
-            className="text-slaps-body bg-orange-slaps text-offwhite-slaps px-4 py-8 rounded-sm text-[24px] outline-3 outline-offset-2 outline-double outline-orange-slaps uppercase sm:text-base"
+            className="text-slaps-medium bg-offwhite-slaps text-black-slaps px-4 py-8 rounded-sm text-[24px] outline-3 outline-offset-2 outline-double outline-offwhite-slaps uppercase sm:text-base hover:outline-orange-slaps"
             type="submit"
             disabled={mailingSubmissionState === "submitting"}
           >
@@ -91,7 +91,7 @@ const MailingList: React.FC = () => {
               ? "Subscribed!"
               : mailingSubmissionState === "error"
               ? "Try again"
-              : "Get Slaps First"}
+              : "Let's Go"}
           </button>
         </form>
       </MotionDiv>

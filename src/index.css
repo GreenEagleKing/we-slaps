@@ -15,17 +15,20 @@
   --color-orange-slaps: #f05a28;
   --color-black-slaps: #232322;
   --color-offwhite-slaps: #f9f8f7;
+  --color-white-slaps: #ffffff;
+
 }
 
 @layer base {
   .text-slaps-heading {
     font-family: "owners", sans-serif;
-    font-weight: 500;
-    letter-spacing: 2px;
+    line-height: 26.5pt;
+    letter-spacing: 0;
+    font-style: medium;
   }
   .text-slaps-body {
     font-family: "owners", sans-serif;
-    letter-spacing: 5px;
+    font-style: light;
   }
 }
 
@@ -45,4 +48,5 @@
   .area-footer {
     grid-area: footer;
   }
+
 }
