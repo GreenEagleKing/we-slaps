@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ReactComponent as CrossIcon } from "./CrossIcon";
 
 type PortalContactUsProps = {
-  onClose: () => void;
+  onClose?: () => void;
 };
 
 export default function PortalContactUs({ onClose }: PortalContactUsProps) {
@@ -65,67 +65,60 @@ export default function PortalContactUs({ onClose }: PortalContactUsProps) {
   };
 
   return (
-    <div
-      className="fixed inset-0 flex items-center justify-center z-50 bg-black/70"
-      onClick={onClose}
-    >
-      <div
-        className="bg-offwhite-slaps p-6 flex-col flex gap-4 w-11/12 max-w-lg sm:w-4/12"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="flex flex-row-reverse items-center">
-          <button onClick={onClose} className="ml-2 cursor-pointer">
-            <CrossIcon />
+    <div className="flex flex-col gap-4 w-full max-w-sm px-6">
+      <div className="flex items-center justify-between">
+        <h2 className="text-black-slaps text-slaps-heading uppercase font-extrabold text-sm sm:text-base">
+          Say Hello
+        </h2>
+        {onClose && (
+          <button onClick={onClose} className="cursor-pointer ml-4">
+            <CrossIcon className="fill-black-slaps hover:fill-orange-slaps" />
           </button>
-          <h2 className="text-black-slaps text-slaps-heading uppercase font-extrabold text-sm sm:text-base mr-auto">
-            Say Hello
-          </h2>
+        )}
+      </div>
+
+      <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        onSubmit={handleSubmit}
+        className="flex flex-col uppercase text-slaps-body text-sm sm:text-base gap-5"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+
+        <div className="flex flex-col gap-6 flex-nowrap">
+          <input
+            type="email"
+            name="email"
+            placeholder="EMAIL"
+            required
+            className="border border-black-slaps bg-white-slaps text-slaps-body text-[12px] pl-4 pr-4 py-2 w-full rounded-sm placeholder:text-black-slaps sm:text-base placeholder:text-left"
+          />
+
+          <textarea
+            name="message"
+            placeholder="MESSAGE..."
+            rows={4}
+            maxLength={1000}
+            required
+            className="border border-black-slaps bg-white-slaps text-slaps-body rounded-sm text-[12px] pl-4 pr-4 py-2 w-full placeholder:text-black-slaps sm:text-base placeholder:text-left"
+          />
         </div>
 
-        <form
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          onSubmit={handleSubmit}
-          className="flex flex-col uppercase text-slaps-body text-sm sm:text-base gap-5"
+        <button
+          type="submit"
+          className={`bg-orange-slaps ${submissionStateColour()} transition-colors duration-300 rounded-sm text-slaps-body text-offwhite-slaps px-4 py-2 text-[12px] uppercase sm:text-base sm:w-full sm:w-2/6 sm:ml-auto sm:mr-auto outline-3 outline-offset-2 outline-double outline-orange-slaps`}
+          disabled={submissionState === "submitting"}
         >
-          {/* Netlify requires this hidden input */}
-          <input type="hidden" name="form-name" value="contact" />
-
-          <div className="flex flex-col gap-6 flex-nowrap">
-            <input
-              type="email"
-              name="email"
-              placeholder="EMAIL"
-              required
-              className="border border-black-slaps bg-offwhite-slaps text-slaps-body text-[12px] pl-4 pr-4 py-2 w-full rounded-sm placeholder:text-black-slaps sm:text-base placeholder:text-left"
-            />
-
-            <textarea
-              name="message"
-              placeholder="MESSAGE..."
-              rows={4}
-              maxLength={1000}
-              required
-              className="border border-black-slaps bg-offwhite-slaps text-slaps-body rounded-sm text-[12px] pl-4 pr-4 py-2 w-full placeholder:text-black-slaps sm:text-base placeholder:text-left"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className={`bg-orange-slaps ${submissionStateColour()} transition-colors duration-300 rounded-sm text-slaps-body text-offwhite-slaps px-4 py-2 text-[12px] uppercase sm:text-base w-full sm:w-2/6 sm:ml-auto sm:mr-auto outline-3 outline-offset-2 outline-double outline-orange-slaps`}
-            disabled={submissionState === "submitting"}
-          >
-            {submissionState === "submitting"
-              ? "Sending..."
-              : submissionState === "success"
-              ? "Sent!"
-              : submissionState === "error"
-              ? "Try again"
-              : "Send"}
-          </button>
-        </form>
-      </div>
+          {submissionState === "submitting"
+            ? "Sending..."
+            : submissionState === "success"
+            ? "Sent!"
+            : submissionState === "error"
+            ? "Try again"
+            : "Send"}
+        </button>
+      </form>
     </div>
   );
 }
