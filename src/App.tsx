@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import NavBar from "./components/NavBar";
 import PortalContactUs from "./components/PortalContactUs";
 import PortalAbout from "./components/PortalAbout";
-import Background from "./assets/landingV3B.png";
+import Background from "./assets/landingV3BSmall.jpg";
 import { ReactComponent as PFMHorizontal } from "./components/PFMHorizontal.tsx";
 
 
@@ -30,6 +30,7 @@ export default function App() {
           onAboutClick={() => togglePanel("about")}
           onContactClick={() => togglePanel("contact")}
           onMailingListClick={scrollToMailingList}
+          onLogoClick={() => setActivePanel(null)}
         />
         <MotionDiv
           className="flex-1"
@@ -49,9 +50,9 @@ export default function App() {
               </div>
               <div className="w-full overflow-hidden mt-50">
                 <motion.div
-                  className="flex mix-blend-difference text-offwhite w-max"
+                  className="flex mix-blend-difference text-white w-max"
                   animate={{ x: ["0%", "-50%"] }}
-                  transition={{ duration: 20, ease: "linear", repeat: Infinity, repeatType: "loop" }}
+                  transition={{ duration: 10, ease: "linear", repeat: Infinity, repeatType: "loop" }}
                 >
                   <PFMHorizontal className="h-10 w-auto flex-shrink-0" style={{ marginRight: '200px' }} />
                   <PFMHorizontal className="h-10 w-auto flex-shrink-0" style={{ marginRight: '200px' }} />

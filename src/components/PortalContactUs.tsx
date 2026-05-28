@@ -54,12 +54,12 @@ export default function PortalContactUs({ onClose }: PortalContactUsProps) {
   return (
     <div className="flex flex-col gap-4 w-full max-w-sm px-6">
       <div className="flex items-center justify-between">
-        <h2 className="text-black-slaps text-slaps-heading uppercase font-extrabold text-sm sm:text-base">
+        <h2 className="text-black-slaps text-slaps-heading uppercase text-lg sm:text-md">
           Say Hello
         </h2>
         {onClose && (
           <button onClick={onClose} className="cursor-pointer ml-4">
-            <CrossIcon className="fill-black-slaps hover:fill-orange-slaps" />
+            <span className="text-black-slaps hover:text-orange-slaps">X</span>
           </button>
         )}
       </div>
