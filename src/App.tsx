@@ -70,7 +70,7 @@ export default function App() {
                   animate={{ y: 0 }}
                   exit={{ y: "-100%" }}
                   transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="absolute inset-0 bg-offwhite-slaps flex flex-col items-center justify-center z-10"
+                  className="absolute inset-0 bg-offwhite-slaps flex flex-col items-center justify-center z-10 sm:pb-20 pb-[20vh]"
                 >
                   {activePanel === "about" && <PortalAbout onClose={() => setActivePanel(null)} />}
                   {activePanel === "contact" && <PortalContactUs onClose={() => setActivePanel(null)} />}
