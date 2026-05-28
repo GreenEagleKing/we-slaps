@@ -92,7 +92,7 @@ export default function PortalContactUs({ onClose }: PortalContactUsProps) {
             name="email"
             placeholder="EMAIL"
             required
-            className="border border-black-slaps bg-white-slaps text-slaps-body text-[12px] pl-4 pr-4 py-2 w-full rounded-sm placeholder:text-black-slaps sm:text-base placeholder:text-left"
+            className="border border-black-slaps bg-white-slaps text-slaps-body text-[12px] pl-4 pr-4 py-2 w-full rounded-sm placeholder:text-black-slaps sm:text-base placeholder:text-left hover:outline-orange-slaps"
           />
 
           <textarea
@@ -101,13 +101,13 @@ export default function PortalContactUs({ onClose }: PortalContactUsProps) {
             rows={4}
             maxLength={1000}
             required
-            className="border border-black-slaps bg-white-slaps text-slaps-body rounded-sm text-[12px] pl-4 pr-4 py-2 w-full placeholder:text-black-slaps sm:text-base placeholder:text-left"
+            className="border border-black-slaps bg-white-slaps text-slaps-body rounded-sm text-[12px] pl-4 pr-4 py-2 w-full placeholder:text-black-slaps sm:text-base placeholder:text-left hover:outline-orange-slaps"
           />
         </div>
 
         <button
           type="submit"
-          className={`bg-orange-slaps ${submissionStateColour()} transition-colors duration-300 rounded-sm text-slaps-body text-offwhite-slaps px-4 py-2 text-[12px] uppercase sm:text-base sm:w-full sm:w-2/6 sm:ml-auto sm:mr-auto outline-3 outline-offset-2 outline-double outline-orange-slaps`}
+          className={`bg-offwhite-slaps transition-colors duration-300 rounded-sm text-slaps-body text-black-slaps px-4 py-2 text-[12px] uppercase sm:text-base sm:w-full sm:w-2/6 sm:ml-auto sm:mr-auto outline-3 outline-offset-2 outline-double outline-black-slaps hover:outline-orange-slaps`}
           disabled={submissionState === "submitting"}
         >
           {submissionState === "submitting"

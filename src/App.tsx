@@ -37,11 +37,11 @@ export default function App() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <div className="relative w-full h-full overflow-hidden rounded-lg border-b-[15px] border-r-[15px] border-l-[15px] border-white-slaps">
+          <div className="relative w-full h-full overflow-hidden border-b-[15px] border-r-[15px] border-l-[15px] border-white-slaps">
             <img
               src={Background}
               alt="Background"
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover rounded-lg"
             />
             <section className="area-main relative flex flex-col items-center justify-center w-full h-full pt-[60px]">
               <div ref={mailingRef} className="flex flex-col items-center justify-center gap-14 sm:gap-20 max-w-xl mx-auto">
