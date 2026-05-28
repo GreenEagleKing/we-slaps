@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { ReactComponent as CrossIcon } from "./CrossIcon";
 
 type PortalContactUsProps = {
   onClose?: () => void;

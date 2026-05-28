@@ -1,5 +1,3 @@
-import { ReactComponent as CrossIcon } from "./CrossIcon";
-
 type PortalAboutProps = {
   onClose?: () => void;
 };
