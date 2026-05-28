@@ -42,22 +42,22 @@ export default function App() {
             <img
               src={Background}
               alt="Background"
-              className="absolute inset-0 w-full h-full object-cover rounded-lg"
+              className="absolute inset-0 w-full h-full object-cover object-[30%_50%] rounded-lg"
             />
-            <section className="area-main relative flex flex-col items-center justify-center w-full h-full pt-[60px]">
+            <section className="area-main relative flex flex-col items-center justify-center w-full h-full pt-[100px] sm:pt-[80px">
               <div ref={mailingRef} className="flex flex-col items-center justify-center gap-14 sm:gap-20 max-w-xl mx-auto">
                 <MailingList />
               </div>
-              <div className="w-full overflow-hidden mt-50">
+              <div className="w-full overflow-hidden mt-30">
                 <motion.div
                   className="flex mix-blend-difference text-white w-max"
                   animate={{ x: ["0%", "-50%"] }}
                   transition={{ duration: 10, ease: "linear", repeat: Infinity, repeatType: "loop" }}
                 >
-                  <PFMHorizontal className="h-10 w-auto flex-shrink-0" style={{ marginRight: '200px' }} />
-                  <PFMHorizontal className="h-10 w-auto flex-shrink-0" style={{ marginRight: '200px' }} />
-                  <PFMHorizontal className="h-10 w-auto flex-shrink-0" style={{ marginRight: '200px' }} />
-                  <PFMHorizontal className="h-10 w-auto flex-shrink-0" style={{ marginRight: '200px' }} />
+                  <PFMHorizontal className="h-8 w-auto flex-shrink-0" style={{ marginRight: '200px' }} />
+                  <PFMHorizontal className="h-8 w-auto flex-shrink-0" style={{ marginRight: '200px' }} />
+                  <PFMHorizontal className="h-8 w-auto flex-shrink-0" style={{ marginRight: '200px' }} />
+                  <PFMHorizontal className="h-8 w-auto flex-shrink-0" style={{ marginRight: '200px' }} />
                 </motion.div>
               </div>
             </section>

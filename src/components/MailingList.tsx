@@ -67,21 +67,21 @@ const MailingList: React.FC = () => {
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
         <div>
-          <h2 className="text-3xl sm:text-4xl text-center text-black-slaps text-slaps-heading uppercase mb-3">Join Mailing List</h2>
+          <h2 className="text-3xl md:text-3xl lg:text-4xl text-center text-black-slaps text-slaps-heading uppercase mb-3">Join Mailing List</h2>
         </div>
         <form
           onSubmit={submitEmail}
           className="flex flex-col justify-between gap-3 w-[80vw] sm:w-auto"
         >
           <input
-            className="bg-transparent text-slaps-body text-black-slaps text-[20px] w-full text-center sm:w-[400px] outline-2 outline-offwhite-slaps rounded-sm py-2 flex-grow placeholder:text-black-slaps sm:text-sm placeholder:text-center focus:outline-offwhite-slaps hover:outline-orange-slaps"
+            className="bg-transparent text-slaps-body text-black-slaps text-[14px] md:text-[16px] w-full text-center sm:w-[400px] outline-2 outline-offwhite-slaps rounded-sm py-2 flex-grow placeholder:text-black-slaps sm:text-sm placeholder:text-center focus:outline-offwhite-slaps hover:outline-orange-slaps"
             placeholder="YOUR EMAIL"
             name="email"
             type="email"
             required
           />
           <button
-            className="text-slaps-heading bg-offwhite-slaps text-black-slaps px-4 py-8 rounded-sm outline-3 outline-offset-2 outline-double outline-offwhite-slaps uppercase sm:text-3xl hover:outline-orange-slaps"
+            className="text-slaps-heading bg-offwhite-slaps text-black-slaps px-4 py-8 rounded-sm outline-3 outline-offset-2 outline-double outline-offwhite-slaps uppercase md:text-3xl text-2xl hover:outline-orange-slaps"
             type="submit"
             disabled={mailingSubmissionState === "submitting"}
           >

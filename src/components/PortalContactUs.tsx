@@ -78,7 +78,7 @@ export default function PortalContactUs({ onClose }: PortalContactUsProps) {
             name="email"
             placeholder="EMAIL"
             required
-            className="border border-black-slaps bg-offwhite-slaps text-slaps-body text-[12px] pl-4 pr-4 py-2 w-full rounded-sm placeholder:text-black-slaps sm:text-base placeholder:text-left hover:outline-orange-slaps"
+            className="border border-black-slaps bg-offwhite-slaps text-slaps-body text-sm pl-4 pr-4 py-2 w-full rounded-sm placeholder:text-black-slaps sm:text-base placeholder:text-left hover:outline-orange-slaps"
           />
 
           <textarea
@@ -87,7 +87,7 @@ export default function PortalContactUs({ onClose }: PortalContactUsProps) {
             rows={4}
             maxLength={1000}
             required
-            className="border border-black-slaps bg-offwhite-slaps text-slaps-body rounded-sm text-[12px] pl-4 pr-4 py-2 w-full placeholder:text-black-slaps sm:text-base placeholder:text-left hover:outline-orange-slaps"
+            className="border border-black-slaps bg-offwhite-slaps text-slaps-body rounded-sm text-sm pl-4 pr-4 py-2 w-full placeholder:text-black-slaps sm:text-base placeholder:text-left hover:outline-orange-slaps"
           />
         </div>
 
