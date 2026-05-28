@@ -51,19 +51,6 @@ export default function PortalContactUs({ onClose }: PortalContactUsProps) {
     }, 1500);
   };
 
-  const submissionStateColour = (): string => {
-    switch (submissionState) {
-      case "success":
-        return "bg-green-300";
-      case "submitting":
-        return "bg-orange-300";
-      case "error":
-        return "bg-red-300";
-      default:
-        return "";
-    }
-  };
-
   return (
     <div className="flex flex-col gap-4 w-full max-w-sm px-6">
       <div className="flex items-center justify-between">
