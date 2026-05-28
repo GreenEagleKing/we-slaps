@@ -6,10 +6,6 @@
   --font-display: "owners", sans-serif;
   --font-display-medium-it: "owners", sans-serif;
 
-  /* Font sizes */
-  --text-slaps-heading: 18px;
-  --text-slaps-body: 14px;
-  --text-slaps-button: 12px;
 
   /* Custom colors */
   --color-orange-slaps: #f05a28;
@@ -19,16 +15,21 @@
 
 }
 
-@layer base {
+@layer utilities {
   .text-slaps-heading {
-    font-family: "owners", sans-serif;
-    line-height: 26.5pt;
+    font-family: "owners-wide", sans-serif;
     letter-spacing: 0;
-    font-style: medium;
+    font-weight: 500;
+  }
+  .text-slaps-menu {
+    font-family: "owners-wide", sans-serif;
+    letter-spacing: 0;
+    font-weight: 500;
   }
   .text-slaps-body {
-    font-family: "owners", sans-serif;
-    font-style: light;
+    font-family: "owners-wide", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
   }
 }
 
