@@ -81,7 +81,7 @@ const MailingList: React.FC = () => {
             required
           />
           <button
-            className="text-slaps-medium bg-offwhite-slaps text-black-slaps px-4 py-8 rounded-sm text-[24px] outline-3 outline-offset-2 outline-double outline-offwhite-slaps uppercase sm:text-base hover:outline-orange-slaps"
+            className="text-slaps-heading bg-offwhite-slaps text-black-slaps px-4 py-8 rounded-sm outline-3 outline-offset-2 outline-double outline-offwhite-slaps uppercase sm:text-3xl hover:outline-orange-slaps"
             type="submit"
             disabled={mailingSubmissionState === "submitting"}
           >
