@@ -91,7 +91,7 @@ const MailingList: React.FC = () => {
               ? "Subscribed!"
               : mailingSubmissionState === "error"
               ? "Try again"
-              : "Let's Go"}
+              : "Get Slaps First"}
           </button>
         </form>
       </MotionDiv>

@@ -25,7 +25,7 @@ export default function App() {
 
   return (
     <>
-      <div className="relative h-screen overflow-hidden flex flex-col bg-white-slaps">
+      <div className="relative h-screen overflow-hidden flex flex-col bg-offwhite-slaps">
         <NavBar
           onAboutClick={() => togglePanel("about")}
           onContactClick={() => togglePanel("contact")}
@@ -37,7 +37,7 @@ export default function App() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <div className="relative w-full h-full overflow-hidden border-b-[15px] border-r-[15px] border-l-[15px] border-white-slaps">
+          <div className="relative w-full h-full overflow-hidden border-b-[15px] border-r-[15px] border-l-[15px] border-offwhite-slaps">
             <img
               src={Background}
               alt="Background"
@@ -49,7 +49,7 @@ export default function App() {
               </div>
               <div className="w-full overflow-hidden mt-50">
                 <motion.div
-                  className="flex mix-blend-difference text-white w-max"
+                  className="flex mix-blend-difference text-offwhite w-max"
                   animate={{ x: ["0%", "-50%"] }}
                   transition={{ duration: 20, ease: "linear", repeat: Infinity, repeatType: "loop" }}
                 >
@@ -69,7 +69,7 @@ export default function App() {
                   animate={{ y: 0 }}
                   exit={{ y: "-100%" }}
                   transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="absolute inset-0 bg-white-slaps flex flex-col items-center justify-center z-10"
+                  className="absolute inset-0 bg-offwhite-slaps flex flex-col items-center justify-center z-10"
                 >
                   {activePanel === "about" && <PortalAbout onClose={() => setActivePanel(null)} />}
                   {activePanel === "contact" && <PortalContactUs onClose={() => setActivePanel(null)} />}

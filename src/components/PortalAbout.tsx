@@ -18,7 +18,7 @@ export default function PortalAbout({ onClose }: PortalAboutProps) {
         )}
       </div>
       <section className="flex flex-col gap-4">
-        <p>SLAPS PROTECTION FOR MOVEMENT is sunscreen built specifically for the new wave of sports, wellness and movement.
+        <p>SLAPS - PROTECTION FOR MOVEMENT is sunscreen built specifically for the new wave of sports, wellness and movement.
         </p>
         <p>We’re working on a product developed for and with the movment community.
         </p>

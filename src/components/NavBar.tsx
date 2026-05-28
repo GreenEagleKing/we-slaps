@@ -16,7 +16,7 @@ const Navbar = ({ onContactClick, onAboutClick, onMailingListClick }: NavbarProp
 
   return (
     <div className="w-full relative z-20">
-      <nav className="flex justify-between items-center px-7 py-6 bg-white-slaps">
+      <nav className="flex justify-between items-center px-7 py-6 bg-offwhite-slaps">
         <SlapsLogo className="fill-black-slaps shrink-0" />
 
         <div className="hidden md:flex items-center gap-6 lg:gap-12 xl:gap-26">
@@ -64,7 +64,7 @@ const Navbar = ({ onContactClick, onAboutClick, onMailingListClick }: NavbarProp
             animate={{ rotate: open ? 45 : 0 }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
           >
-            <CrossIcon className="fill-black-slaps" />
+            <CrossIcon className="fill-orange-slaps" />
           </motion.div>
         </button>
       </nav>
@@ -76,7 +76,7 @@ const Navbar = ({ onContactClick, onAboutClick, onMailingListClick }: NavbarProp
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
-            className="absolute right-0 top-full w-2/3 min-h-[50vh] bg-white-slaps flex flex-col items-end justify-center gap-8 px-8 py-10"
+            className="absolute right-0 top-full w-2/3 min-h-[50vh] bg-offwhite-slaps flex flex-col items-end justify-center gap-8 px-8 py-10"
           >
             <button
               onClick={() => { onAboutClick(); setOpen(false); }}
