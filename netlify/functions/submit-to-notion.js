@@ -144,12 +144,12 @@ export const handler = async (event) => {
       };
     }
 
-    try {
-      await sendWelcomeEmail(email);
-      console.log("Welcome email sent to:", email);
-    } catch (emailError) {
-      console.error("Gmail send error:", emailError.message);
-    }
+    // try {
+    //   await sendWelcomeEmail(email);
+    //   console.log("Welcome email sent to:", email);
+    // } catch (emailError) {
+    //   console.error("Gmail send error:", emailError.message);
+    // }
 
     return {
       statusCode: 200,
