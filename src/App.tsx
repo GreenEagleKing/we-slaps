@@ -54,10 +54,10 @@ export default function App() {
                   animate={{ x: ["0%", "-50%"] }}
                   transition={{ duration: 10, ease: "linear", repeat: Infinity, repeatType: "loop" }}
                 >
-                  <PFMHorizontal className="h-8 w-auto flex-shrink-0" style={{ marginRight: '200px' }} />
-                  <PFMHorizontal className="h-8 w-auto flex-shrink-0" style={{ marginRight: '200px' }} />
-                  <PFMHorizontal className="h-8 w-auto flex-shrink-0" style={{ marginRight: '200px' }} />
-                  <PFMHorizontal className="h-8 w-auto flex-shrink-0" style={{ marginRight: '200px' }} />
+                  <PFMHorizontal className="h-6 sm:h-8 w-auto flex-shrink-0" style={{ marginRight: '200px' }} />
+                  <PFMHorizontal className="h-6 sm:h-8 w-auto flex-shrink-0" style={{ marginRight: '200px' }} />
+                  <PFMHorizontal className="h-6 sm:h-8 w-auto flex-shrink-0" style={{ marginRight: '200px' }} />
+                  <PFMHorizontal className="h-6 sm:h-8 w-auto flex-shrink-0" style={{ marginRight: '200px' }} />
                 </motion.div>
               </div>
             </section>
