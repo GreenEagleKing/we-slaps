@@ -16,11 +16,11 @@ export default function PortalAbout({ onClose }: PortalAboutProps) {
         )}
       </div>
       <section className="flex flex-col gap-4 text-black-slaps text-slaps-body text-justify text-sm ">
-        <p>SLAPS - PROTECTION FOR MOVEMENT is sunscreen built specifically for the new wave of sports, wellness and movement.
+        <p>We make sun protection for movement, built for the new wave of sport and wellness. Guided by performance, product innovation and cultural alignment in the growing world of health and fitness, our mission is to make SPF the norm - trusted by pros and a core piece of kit for any casual athlete. We’re optimising products that fit effortlessly into active lifestyles and support skin health.
         </p>
-        <p>We’re working on a product developed for and with the movment community.
+        <p>Sun protection has been left behind and we’re bringing it up to speed. No longer a chore, but an experience.
         </p>
-        <p>Through better design, real stories, and shared experiences, we’re bridging the gap between health and skin health.
+        <p>We’re working on it and exciting things are happening. For now, join our mailing list and join us on this journey building SLAPS.
         </p>
       </section>
     </div>
