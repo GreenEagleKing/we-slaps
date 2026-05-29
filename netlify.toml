@@ -1,6 +1,10 @@
 [functions]
 directory = "netlify/functions"
-node_bundler = "esbuild"
+node_bundler = "nft"
+
+[build.environment]
+SECRETS_SCAN_OMIT_PATHS = "dist,.netlify"
+SECRETS_SCAN_OMIT_KEYS = "GMAIL_USER"
 
 [[redirects]]
 from = "/api/*"

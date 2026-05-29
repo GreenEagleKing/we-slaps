@@ -9,7 +9,7 @@ export default function PortalPrivacy({ onClose }: PortalPrivacyProps) {
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-xl shadow-lg p-6 flex-col flex gap-4 sm:w-1/2 w-3/4 md:w-1/2 max-h-[90dvh] overflow-y-auto text-sm sm:text-base"
+        className="bg-offwhite rounded-xl shadow-lg p-6 flex-col flex gap-4 sm:w-1/2 w-3/4 md:w-1/2 max-h-[90dvh] overflow-y-auto text-sm sm:text-base"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex flex-row-reverse">
