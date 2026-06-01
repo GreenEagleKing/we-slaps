@@ -10,9 +10,10 @@ interface NavbarProps {
   onAboutClick: () => void;
   onMailingListClick?: () => void;
   onLogoClick?: () => void;
+  onPrivacyClick: () => void;
 }
 
-const Navbar = ({ onContactClick, onAboutClick, onMailingListClick, onLogoClick }: NavbarProps) => {
+const Navbar = ({ onContactClick, onAboutClick, onMailingListClick, onLogoClick, onPrivacyClick }: NavbarProps) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -49,6 +50,12 @@ const Navbar = ({ onContactClick, onAboutClick, onMailingListClick, onLogoClick 
           >
             LinkedIn
           </a>
+           <button
+            onClick={() => onPrivacyClick()}
+            className="uppercase text-black-slaps text-sm sm:text-base text-slaps-menu cursor-pointer hover:text-orange-slaps"
+          >
+            Privacy
+          </button>
           <button
             onClick={() => onContactClick()}
             className="uppercase text-black-slaps text-sm sm:text-base text-slaps-menu cursor-pointer hover:text-orange-slaps"
@@ -115,6 +122,12 @@ const Navbar = ({ onContactClick, onAboutClick, onMailingListClick, onLogoClick 
             >
               LinkedIn <MenuCross className="fill-black-slaps w-4"/>
             </a>
+            <button
+              onClick={() => { onPrivacyClick(); setOpen(false); }}
+              className="uppercase text-black-slaps text-sm sm:text-base text-slaps-heading cursor-pointer flex items-center gap-10 hover:text-orange-slaps"
+            >
+              Privacy <MenuCross className="fill-black-slaps w-4"/>
+            </button>
             <a
               onClick={() => { onContactClick(); setOpen(false); }}
               className="uppercase text-black-slaps text-sm sm:text-base text-slaps-heading cursor-pointer flex items-center gap-10 hover:text-orange-slaps"
