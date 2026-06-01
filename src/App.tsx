@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import NavBar from "./components/NavBar";
 import PortalContactUs from "./components/PortalContactUs";
 import PortalAbout from "./components/PortalAbout";
+import PortalPrivacy from "./components/PortalPrivacy";
 import Background from "./assets/landingV3BSmall.jpg";
 import { ReactComponent as PFMHorizontal } from "./components/PFMHorizontal.tsx";
 
@@ -13,14 +14,14 @@ import { ReactComponent as PFMHorizontal } from "./components/PFMHorizontal.tsx"
 export default function App() {
   const MotionDiv = motion.create("div");
   const mailingRef = useRef<HTMLDivElement>(null);
-  const [activePanel, setActivePanel] = useState<null | "about" | "contact">(null);
+  const [activePanel, setActivePanel] = useState<null | "about" | "contact" | "privacy">(null);
 
   const scrollToMailingList = () => {
     setActivePanel(null);
     mailingRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
-  const togglePanel = (panel: "about" | "contact") =>
+  const togglePanel = (panel: "about" | "contact" | "privacy") =>
     setActivePanel((p) => (p === panel ? null : panel));
 
   return (
@@ -29,6 +30,7 @@ export default function App() {
         <NavBar
           onAboutClick={() => togglePanel("about")}
           onContactClick={() => togglePanel("contact")}
+          onPrivacyClick={() => togglePanel("privacy")}
           onMailingListClick={scrollToMailingList}
           onLogoClick={() => setActivePanel(null)}
         />
@@ -74,6 +76,7 @@ export default function App() {
                 >
                   {activePanel === "about" && <PortalAbout onClose={() => setActivePanel(null)} />}
                   {activePanel === "contact" && <PortalContactUs onClose={() => setActivePanel(null)} />}
+                  {activePanel === "privacy" && <PortalPrivacy onClose={() => setActivePanel(null)} />}
                 </motion.div>
               )}
             </AnimatePresence>
