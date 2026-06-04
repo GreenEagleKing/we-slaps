@@ -8,9 +8,6 @@ import PortalPrivacy from "./components/PortalPrivacy";
 import Background from "./assets/landingV3BSmall.jpg";
 import { ReactComponent as PFMHorizontal } from "./components/PFMHorizontal.tsx";
 
-
-
-
 export default function App() {
   const MotionDiv = motion.create("div");
   const mailingRef = useRef<HTMLDivElement>(null);
