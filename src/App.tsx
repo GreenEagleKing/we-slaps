@@ -40,7 +40,7 @@ export default function App() {
           <div className="relative w-full h-full overflow-hidden border-b-[15px] border-r-[15px] border-l-[15px] border-offwhite-slaps">
             <img
               src={Background}
-              alt="Background"
+              alt="Two people running on tarmac, image cropped to show only their legs and feet, with a motion blur effect"
               className="absolute inset-0 w-full h-full object-cover object-[30%_50%] rounded-lg"
             />
             <section className="area-main relative flex flex-col items-center justify-center w-full h-full pt-[100px] sm:pt-[80px">
