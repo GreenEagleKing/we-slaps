@@ -20,7 +20,7 @@ const Navbar = ({ onContactClick, onAboutClick, onMailingListClick, onLogoClick,
     <div className="w-full relative z-20">
       <nav className="relative z-20 flex justify-between items-center px-7 py-6 bg-white-slaps">
         <button onClick={onLogoClick} aria-label="Go to homepage" className="cursor-pointer">
-          <SlapsLogo className="fill-black-slaps shrink-0" />
+          <SlapsLogo className="fill-black-slaps shrink-0 h-6 sm:h-10" />
         </button>
 
         <div className="hidden md:flex items-center gap-6 lg:gap-12 xl:gap-26">
