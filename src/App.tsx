@@ -2,10 +2,12 @@ import { useRef, useState } from "react";
 import MailingList from "./components/MailingList";
 import { motion, AnimatePresence } from "framer-motion";
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 import PortalContactUs from "./components/PortalContactUs";
 import PortalAbout from "./components/PortalAbout";
 import PortalPrivacy from "./components/PortalPrivacy";
 import Background from "./assets/landingV3BSmall.jpg";
+import Pouch from "./assets/pouchWebRotateWide3.mp4";
 import { ReactComponent as PFMHorizontal } from "./components/PFMHorizontal.tsx";
 
 export default function App() {
@@ -23,7 +25,7 @@ export default function App() {
 
   return (
     <>
-      <div className="relative h-screen overflow-hidden flex flex-col bg-offwhite-slaps">
+      <div className="relative min-h-screen overflow-x-hidden overflow-y-auto flex flex-col bg-white-slaps">
         <NavBar
           onAboutClick={() => togglePanel("about")}
           onContactClick={() => togglePanel("contact")}
@@ -32,34 +34,89 @@ export default function App() {
           onLogoClick={() => setActivePanel(null)}
         />
         <MotionDiv
-          className="flex-1"
+          className="flex-none"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <div className="relative w-full h-full overflow-hidden border-b-[15px] border-r-[15px] border-l-[15px] border-offwhite-slaps">
-            <img
-              src={Background}
-              alt="Two people running on tarmac, image cropped to show only their legs and feet, with a motion blur effect"
-              className="absolute inset-0 w-full h-full object-cover object-[30%_50%] rounded-lg"
-            />
-            <section className="area-main relative flex flex-col items-center justify-center w-full h-full pt-[100px] sm:pt-[80px">
-              <div ref={mailingRef} className="flex flex-col items-center justify-center gap-14 sm:gap-20 max-w-xl mx-auto">
+          <div className="relative w-full border-r-[15px] border-l-[15px] border-white-slaps">
+            <section className="area-main relative flex flex-col items-center w-full md:h-screen md:justify-center md:pt-[80px]">
+              {/* Mobile: video in flow; Desktop: absolute background */}
+              <video
+                src={Pouch}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-[80%] sm:w-[46%] mx-auto h-[80vh] md:h-[40vh] object-cover md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-[55%] lg:w-[30%] md:h-auto md:object-contain md:z-0 md:pb-10 -mt-10"
+              />
+
+              {/* Desktop-only: original two-column overlay */}
+              <div className="hidden md:flex relative z-10 w-full h-full">
+                <div className="w-1/2 flex flex-col items-end justify-center gap-4 mr-[4vw]">
+                  <h1 className="text-gold-slaps uppercase text-slaps-h1 text-center text-[clamp(28px,4vw,56px)]">This is suncare</h1>
+                  <div className="flex justify-end gap-[clamp(4px,0.5vw,16px)]">
+                    <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-[clamp(6px,1.2vw,40px)] py-1 whitespace-nowrap text-[clamp(8px,1.1vw,14px)]">Broad Spectrum</span>
+                    <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-[clamp(6px,1.2vw,40px)] py-1 whitespace-nowrap text-[clamp(8px,1.1vw,14px)]">Advanced Formula</span>
+                    <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-[clamp(6px,1.2vw,40px)] py-1 whitespace-nowrap text-[clamp(8px,1.1vw,14px)]">High Protection</span>
+                  </div>
+                </div>
+                <div className="w-1/2 flex flex-col items-start justify-center gap-4 ml-[4vw]">
+                  <h1 className="text-gold-slaps uppercase text-slaps-h1 text-center text-[clamp(28px,4vw,56px)]">built to move.</h1>
+                  <div className="flex gap-[clamp(4px,0.5vw,16px)]">
+                    <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-[clamp(6px,1.2vw,40px)] py-1 whitespace-nowrap text-[clamp(8px,1.1vw,14px)]">Sweat Resistant</span>
+                    <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-[clamp(6px,1.2vw,40px)] py-1 whitespace-nowrap text-[clamp(8px,1.1vw,14px)]">Super-Lightweight</span>
+                    <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-[clamp(6px,1.2vw,40px)] py-1 whitespace-nowrap text-[clamp(8px,1.1vw,14px)]">Built-in Hydration</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mobile-only: stacked headings + pill grid */}
+              <div className="flex flex-col items-center gap-6 w-full md:px-4 py-8 md:hidden pt-0 -mt-24 relative z-10">
+                <h1 className="text-gold-slaps uppercase text-slaps-h1 text-start md:text-[50px] text-[50px] leading-[45px] sm:pr-40 pl-10 pr-20">This is suncare built to move.</h1>
+              </div>
+
+              {/* Early access marquee — both viewports */}
+              <div className="mt-6 md:mt-20 flex flex-col items-center z-10">
+                <span className="bg-offwhite2-slaps rounded-t-lg md:px-10 pl-6 pr-4 py-2 text-black-slaps text-slaps-body uppercase text-xs md:text-base">Early Access <span className="ml-2 mr-0">▼</span></span>
+                <div className="border-2 border-offwhite2-slaps bg-white-slaps">
+                  <div className="w-full overflow-hidden my-6">
+                    <div className="flex flex-shrink-0 animate-marquee">
+                      <PFMHorizontal className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-offwhite2-slaps" />
+                      <PFMHorizontal className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-gold-slaps" />
+                      <PFMHorizontal className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-offwhite2-slaps" />
+                      <PFMHorizontal className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-gold-slaps" />
+                      <PFMHorizontal className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-offwhite2-slaps" aria-hidden="true" />
+                      <PFMHorizontal className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-gold-slaps" aria-hidden="true" />
+                      <PFMHorizontal className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-offwhite2-slaps" aria-hidden="true" />
+                      <PFMHorizontal className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-gold-slaps" aria-hidden="true" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mobile-only: stacked headings + pill grid, below marquee */}
+              {/* <div className="flex flex-col items-center gap-6 w-full px-4 py-8 md:hidden">
+                <div className="grid grid-cols-2 gap-2 w-full text-nowrap">
+                  <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-1 sm:px-2 py-1 text-center text-[9px] sm:text-[11px] whitespace-nowrap">Broad Spectrum</span>
+                  <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-1 sm:px-2 py-1 text-center text-[9px] sm:text-[11px] whitespace-nowrap">Advanced Formula</span>
+                  <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-1 sm:px-2 py-1 text-center text-[9px] sm:text-[11px] whitespace-nowrap">High Protection</span>
+                  <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-1 sm:px-2 py-1 text-center text-[9px] sm:text-[11px] whitespace-nowrap">Sweat Resistant</span>
+                  <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-1 sm:px-2 py-1 text-center text-[9px] sm:text-[11px] whitespace-nowrap">Super-Lightweight</span>
+                  <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-1 sm:px-2 py-1 text-center text-[9px] sm:text-[11px] whitespace-nowrap">Built-in Hydration</span>
+                </div>
+              </div> */}
+            </section>
+            <div className="md:ml-6 md:mt-30 mt-10 mb-5">
+              <h2 className="text-slaps-h2 md:text-[28px] text-[16px] text-black-slaps uppercase text-start md:text-left">Join Mailing List For Early Access</h2>
+            </div>
+            <section className="relative h-[50vh] overflow-hidden mb-[20vh] rounded-lg">
+              <img src={Background} alt="Background" className="absolute inset-0 w-full h-full object-cover" />
+              <div ref={mailingRef} className="absolute inset-0 flex flex-col items-center justify-center gap-14 sm:gap-20 max-w-xl mx-auto">
                 <MailingList />
               </div>
-              <div className="w-full overflow-hidden mt-30">
-                <motion.div
-                  className="flex mix-blend-difference text-white w-max"
-                  animate={{ x: ["0%", "-50%"] }}
-                  transition={{ duration: 10, ease: "linear", repeat: Infinity, repeatType: "loop" }}
-                >
-                  <PFMHorizontal className="h-6 sm:h-8 w-auto flex-shrink-0" style={{ marginRight: '200px' }} />
-                  <PFMHorizontal className="h-6 sm:h-8 w-auto flex-shrink-0" style={{ marginRight: '200px' }} />
-                  <PFMHorizontal className="h-6 sm:h-8 w-auto flex-shrink-0" style={{ marginRight: '200px' }} />
-                  <PFMHorizontal className="h-6 sm:h-8 w-auto flex-shrink-0" style={{ marginRight: '200px' }} />
-                </motion.div>
-              </div>
             </section>
+
 
             <AnimatePresence>
               {activePanel && (
@@ -69,7 +126,7 @@ export default function App() {
                   animate={{ y: 0 }}
                   exit={{ y: "-100%" }}
                   transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="absolute inset-0 bg-offwhite-slaps flex flex-col items-center justify-center z-10 sm:pb-20 pb-10"
+                  className="absolute top-0 left-0 right-0 min-h-screen bg-white-slaps flex flex-col items-center justify-start pt-[20dvh] z-10 sm:pb-20 pb-10 w-full"
                 >
                   {activePanel === "about" && <PortalAbout onClose={() => setActivePanel(null)} />}
                   {activePanel === "contact" && <PortalContactUs onClose={() => setActivePanel(null)} />}
@@ -79,6 +136,7 @@ export default function App() {
             </AnimatePresence>
           </div>
         </MotionDiv>
+        <Footer />
       </div>
     </>
   );

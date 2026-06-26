@@ -58,7 +58,7 @@ export default function PortalContactUs({ onClose }: PortalContactUsProps) {
         </h2>
         {onClose && (
           <button onClick={onClose} className="cursor-pointer ml-4">
-            <span className="text-black-slaps hover:text-orange-slaps">X</span>
+            <span className="text-black-slaps hover:text-gold-slaps">X</span>
           </button>
         )}
       </div>
@@ -78,7 +78,7 @@ export default function PortalContactUs({ onClose }: PortalContactUsProps) {
             name="email"
             placeholder="EMAIL"
             required
-            className="border border-black-slaps bg-offwhite-slaps text-slaps-body text-sm pl-4 pr-4 py-2 w-full rounded-sm placeholder:text-black-slaps sm:text-base placeholder:text-left hover:outline-orange-slaps"
+            className="border border-black-slaps bg-white-slaps text-slaps-body text-sm pl-4 pr-4 py-2 w-full rounded-sm placeholder:text-black-slaps sm:text-base placeholder:text-left hover:outline-gold-slaps"
           />
 
           <textarea
@@ -87,13 +87,13 @@ export default function PortalContactUs({ onClose }: PortalContactUsProps) {
             rows={4}
             maxLength={1000}
             required
-            className="border border-black-slaps bg-offwhite-slaps text-slaps-body rounded-sm text-sm pl-4 pr-4 py-2 w-full placeholder:text-black-slaps sm:text-base placeholder:text-left hover:outline-orange-slaps"
+            className="border border-black-slaps bg-white-slaps text-slaps-body rounded-sm text-sm pl-4 pr-4 py-2 w-full placeholder:text-black-slaps sm:text-base placeholder:text-left hover:outline-gold-slaps"
           />
         </div>
 
         <button
           type="submit"
-          className={`bg-offwhite-slaps transition-colors duration-300 rounded-sm text-slaps-body text-black-slaps px-4 py-2 text-[12px] uppercase sm:text-base sm:w-full sm:w-2/6 sm:ml-auto sm:mr-auto outline-3 outline-offset-2 outline-double outline-black-slaps hover:outline-orange-slaps`}
+          className={`bg-white-slaps transition-colors duration-300 rounded-sm text-slaps-body text-black-slaps px-4 py-2 text-[12px] uppercase sm:text-base sm:w-full sm:w-2/6 sm:ml-auto sm:mr-auto outline-3 outline-offset-2 outline-black-slaps hover:outline-gold-slaps`}
           disabled={submissionState === "submitting"}
         >
           {submissionState === "submitting"
