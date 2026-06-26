@@ -7,7 +7,7 @@ import PortalContactUs from "./components/PortalContactUs";
 import PortalAbout from "./components/PortalAbout";
 import PortalPrivacy from "./components/PortalPrivacy";
 import Background from "./assets/landingV3BSmall.jpg";
-import Pouch from "./assets/pouchWebRotateWide.mp4";
+import Pouch from "./assets/pouchWebRotateWide3.mp4";
 import { ReactComponent as PFMHorizontal } from "./components/PFMHorizontal.tsx";
 
 export default function App() {
@@ -48,7 +48,7 @@ export default function App() {
                 muted
                 loop
                 playsInline
-                className="w-[60%] sm:w-[46%] mx-auto h-[70vh] md:h-[40vh] object-cover md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-[55%] lg:w-[30%] md:h-auto md:object-contain md:z-0 md:pb-10 -mt-10"
+                className="w-[80%] sm:w-[46%] mx-auto h-[80vh] md:h-[40vh] object-cover md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-[55%] lg:w-[30%] md:h-auto md:object-contain md:z-0 md:pb-10 -mt-10"
               />
 
               {/* Desktop-only: original two-column overlay */}
@@ -72,7 +72,7 @@ export default function App() {
               </div>
 
               {/* Mobile-only: stacked headings + pill grid */}
-              <div className="flex flex-col items-center gap-6 w-full md:px-4 py-8 md:hidden pt-0 -mt-16 relative z-10">
+              <div className="flex flex-col items-center gap-6 w-full md:px-4 py-8 md:hidden pt-0 -mt-24 relative z-10">
                 <h1 className="text-gold-slaps uppercase text-slaps-h1 text-start md:text-[50px] text-[50px] leading-[45px] sm:pr-40 pl-10 pr-20">This is suncare built to move.</h1>
               </div>
 
