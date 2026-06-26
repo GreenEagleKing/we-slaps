@@ -1,55 +1,57 @@
 import { ReactComponent as SlapsLogo } from "./SlapsLogo";
+// import { ReactComponent as InstagramIcon } from "./socialIcons/InstagramIcon";
+// import { ReactComponent as FacebookIcon } from "./socialIcons/FacebookIcon";
+// import { ReactComponent as SpotifyIcon } from "./socialIcons/SpotifyIcon";
+// import { ReactComponent as YoutubeIcon } from "./socialIcons/YoutubeIcon";
 
-interface FooterProps {
-  setShowContactModal: React.Dispatch<React.SetStateAction<boolean>>;
-  setShowLFGModal: React.Dispatch<React.SetStateAction<boolean>>;
-  setShowPrivacyModal: React.Dispatch<React.SetStateAction<boolean>>;
-  setShowAboutModal: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-const Footer = ({
-  setShowContactModal,
-  setShowLFGModal,
-  setShowPrivacyModal,
-  setShowAboutModal,
-}: FooterProps) => {
+const Footer = () => {
   return (
-    <div className="flex justify-between items-center px-5 py-4">
-      <SlapsLogo className="fill-offwhite-slaps" />
-      <div className="flex items-center gap-8">
-        <button
-          onClick={() => setShowAboutModal(true)}
-          className="uppercase underline-offset-4 underline text-offwhite-slaps text-sm sm:text-base cursor-pointer"
-        >
-          About
-        </button>
-        <button
-          onClick={() => setShowLFGModal(true)}
-          className="uppercase underline-offset-4 underline text-offwhite-slaps text-sm sm:text-base cursor-pointer"
-        >
-          Mailing List
-        </button>
+    <div className="bg-white-slaps flex justify-center items-center px-5 py-4 pt-[10vh] gap-4">
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        aria-label="Back to top"
+        className="cursor-pointer text-black-slaps hover:text-gold-slaps transition-colors"
+      >
+        <SlapsLogo className="fill-current mb-10" />
+      </button>
+      {/* <div className="flex items-center gap-6 mr-10">
         <a
           href="https://www.instagram.com/we.slaps?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-          className="uppercase underline-offset-4 underline text-offwhite-slaps text-sm sm:text-base"
           target="_blank"
           rel="noreferrer"
+          aria-label="Instagram"
+          className="text-white-slaps hover:text-gold-slaps transition-colors"
         >
-          Instagram
+          <InstagramIcon className="w-6 h-6" />
         </a>
-        <button
-          onClick={() => setShowPrivacyModal(true)}
-          className="uppercase underline-offset-4 underline text-offwhite-slaps text-sm sm:text-base cursor-pointer"
+        <a
+          href="https://www.facebook.com/profile.php?id=61580049231291"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Facebook"
+          className="text-white-slaps hover:text-gold-slaps transition-colors"
         >
-          Privacy
-        </button>
-        <button
-          onClick={() => setShowContactModal(true)}
-          className="uppercase underline-offset-4 underline text-offwhite-slaps text-sm sm:text-base cursor-pointer"
+          <FacebookIcon className="w-6 h-6" />
+        </a>
+        <a
+          href="https://www.spotify.com"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Spotify"
+          className="text-white-slaps hover:text-gold-slaps transition-colors"
         >
-          Contact
-        </button>
-      </div>
+          <SpotifyIcon className="w-6 h-6" />
+        </a>
+        <a
+          href="https://www.youtube.com"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="YouTube"
+          className="text-white-slaps hover:text-gold-slaps transition-colors"
+        >
+          <YoutubeIcon className="w-6 h-6" />
+        </a>
+      </div> */}
     </div>
   );
 };
