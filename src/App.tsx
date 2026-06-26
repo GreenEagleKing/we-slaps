@@ -48,7 +48,7 @@ export default function App() {
                 muted
                 loop
                 playsInline
-                className="w-full h-[40vh] sm:h-[52vh] object-cover md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:h-full md:min-w-full md:w-auto md:z-0"
+                className="w-full h-[55vh] sm:h-[65vh] object-cover md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:h-full md:min-w-full md:w-auto md:z-0"
               />
 
               {/* Desktop-only: original two-column overlay */}
@@ -72,14 +72,14 @@ export default function App() {
               </div>
 
               {/* Mobile-only: stacked headings + pill grid */}
-              <div className="flex flex-col items-center gap-6 w-full md:px-4 py-8 md:hidden pt-0">
+              <div className="flex flex-col items-center gap-6 w-full md:px-4 py-8 md:hidden pt-0 -mt-16 relative z-10">
                 <h1 className="text-gold-slaps uppercase text-slaps-h1 text-start md:text-[50px] text-[50px] leading-[45px] sm:pr-40 pl-10 pr-20">This is suncare built to move.</h1>
               </div>
 
               {/* Early access marquee — both viewports */}
               <div className="mt-6 md:mt-20 flex flex-col items-center z-10">
                 <span className="bg-offwhite2-slaps rounded-t-lg md:px-10 pl-6 pr-4 py-2 text-black-slaps text-slaps-body uppercase text-xs md:text-base">Early Access <span className="ml-2 mr-0">▼</span></span>
-                <div className="border-2 border-offwhite2-slaps">
+                <div className="border-2 border-offwhite2-slaps bg-white-slaps">
                   <div className="w-full overflow-hidden my-6">
                     <div className="flex flex-shrink-0 animate-marquee">
                       <PFMHorizontal className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-offwhite2-slaps" />
@@ -108,9 +108,9 @@ export default function App() {
               </div>
             </section>
             <div className="md:ml-6 md:mt-30 mt-10 mb-5">
-              <h2 className="text-slaps-h2 md:text-[28px] text-[16px] text-black-slaps uppercase text-center md:text-left">Join Mailing List For Early Access</h2>
+              <h2 className="text-slaps-h2 md:text-[28px] text-[16px] text-black-slaps uppercase text-start md:text-left">Join Mailing List For Early Access</h2>
             </div>
-            <section className="relative h-[40vh] overflow-hidden mx-6 mb-[20vh] rounded-lg">
+            <section className="relative h-[50vh] overflow-hidden mb-[20vh] rounded-lg">
               <img src={Background} alt="Background" className="absolute inset-0 w-full h-full object-cover" />
               <div ref={mailingRef} className="absolute inset-0 flex flex-col items-center justify-center gap-14 sm:gap-20 max-w-xl mx-auto">
                 <MailingList />
