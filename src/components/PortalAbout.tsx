@@ -11,7 +11,7 @@ export default function PortalAbout({ onClose }: PortalAboutProps) {
         </h2>
         {onClose && (
           <button onClick={onClose} className="cursor-pointer ml-4">
-            <span className="text-black-slaps hover:text-orange-slaps">X</span>
+            <span className="text-black-slaps hover:text-gold-slaps">X</span>
           </button>
         )}
       </div>

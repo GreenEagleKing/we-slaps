@@ -8,14 +8,25 @@
 
 
   /* Custom colors */
-  --color-orange-slaps: #f05a28;
-  --color-black-slaps: #232322;
-  --color-offwhite-slaps: #f9f8f7;
+  --color-gold-slaps: #c4a15f;
+  --color-black-slaps: #2d2d2d;
+  --color-white-slaps: #dbd4c8;
+  --color-offwhite2-slaps: #e4e0d9;
   --color-white-slaps: #ffffff;
 
 }
 
 @layer utilities {
+    .text-slaps-h1 {
+    font-family: "owners-wide", sans-serif;
+    letter-spacing: 3px;
+    font-weight: 500;
+  }
+      .text-slaps-h2 {
+    font-family: "owners-wide", sans-serif;
+    letter-spacing: 0;
+    font-weight: 500;
+  }
   .text-slaps-heading {
     font-family: "owners-wide", sans-serif;
     letter-spacing: 0;
@@ -28,7 +39,24 @@
   }
   .text-slaps-body {
     font-family: "owners-wide", sans-serif;
-    font-weight: 500;
+    font-weight: 400;
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content; /* lets the container size to its actual content */
+  animation: marquee 20s linear infinite;
+}
+
+@media (max-width: 767px) {
+  .animate-marquee {
+    animation-duration: 30s;
   }
 }
 

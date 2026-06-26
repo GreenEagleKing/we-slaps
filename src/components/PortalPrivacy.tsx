@@ -10,7 +10,7 @@ export default function PortalPrivacy({ onClose }: PortalPrivacyProps) {
           Privacy Policy
         </h2>
         <button onClick={onClose} className="cursor-pointer ml-4">
-          <span className="text-black-slaps hover:text-orange-slaps">X</span>
+          <span className="text-black-slaps hover:text-gold-slaps">X</span>
         </button>
       </div>
       <section className="flex flex-col gap-4 text-black-slaps text-slaps-body text-justify text-sm">
@@ -66,7 +66,7 @@ export default function PortalPrivacy({ onClose }: PortalPrivacyProps) {
         </ul>
         <p>
           To exercise these rights, email us at{" "}
-          <a href="mailto:hello@weslaps.com" className="underline hover:text-orange-slaps">
+          <a href="mailto:hello@weslaps.com" className="underline hover:text-gold-slaps">
             hello@weslaps.com
           </a>
           .
@@ -84,7 +84,7 @@ export default function PortalPrivacy({ onClose }: PortalPrivacyProps) {
         <p>
           If you have questions about this policy or how we handle your data,
           please contact us at:{" "}
-          <a href="mailto:hello@weslaps.com" className="underline hover:text-orange-slaps">
+          <a href="mailto:hello@weslaps.com" className="underline hover:text-gold-slaps">
             hello@weslaps.com
           </a>
           .
