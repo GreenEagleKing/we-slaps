@@ -7,7 +7,7 @@ import PortalContactUs from "./components/PortalContactUs";
 import PortalAbout from "./components/PortalAbout";
 import PortalPrivacy from "./components/PortalPrivacy";
 import Background from "./assets/landingV3BSmall.jpg";
-import FishVideo from "./assets/Web no bg test.mp4";
+import Pouch from "./assets/pouchWebRotateWide.mp4";
 import { ReactComponent as PFMHorizontal } from "./components/PFMHorizontal.tsx";
 
 export default function App() {
@@ -43,12 +43,12 @@ export default function App() {
             <section className="area-main relative flex flex-col items-center w-full md:h-screen md:justify-center md:pt-[80px]">
               {/* Mobile: video in flow; Desktop: absolute background */}
               <video
-                src={FishVideo}
+                src={Pouch}
                 autoPlay
                 muted
                 loop
                 playsInline
-                className="w-full h-[55vh] sm:h-[65vh] object-cover md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:h-full md:min-w-full md:w-auto md:z-0"
+                className="w-[60%] sm:w-[46%] mx-auto h-[70vh] md:h-[40vh] object-cover md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-[55%] lg:w-[30%] md:h-auto md:object-contain md:z-0 md:pb-10 -mt-10"
               />
 
               {/* Desktop-only: original two-column overlay */}
@@ -96,7 +96,7 @@ export default function App() {
               </div>
 
               {/* Mobile-only: stacked headings + pill grid, below marquee */}
-              <div className="flex flex-col items-center gap-6 w-full px-4 py-8 md:hidden">
+              {/* <div className="flex flex-col items-center gap-6 w-full px-4 py-8 md:hidden">
                 <div className="grid grid-cols-2 gap-2 w-full text-nowrap">
                   <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-1 sm:px-2 py-1 text-center text-[9px] sm:text-[11px] whitespace-nowrap">Broad Spectrum</span>
                   <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-1 sm:px-2 py-1 text-center text-[9px] sm:text-[11px] whitespace-nowrap">Advanced Formula</span>
@@ -105,7 +105,7 @@ export default function App() {
                   <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-1 sm:px-2 py-1 text-center text-[9px] sm:text-[11px] whitespace-nowrap">Super-Lightweight</span>
                   <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-1 sm:px-2 py-1 text-center text-[9px] sm:text-[11px] whitespace-nowrap">Built-in Hydration</span>
                 </div>
-              </div>
+              </div> */}
             </section>
             <div className="md:ml-6 md:mt-30 mt-10 mb-5">
               <h2 className="text-slaps-h2 md:text-[28px] text-[16px] text-black-slaps uppercase text-start md:text-left">Join Mailing List For Early Access</h2>
