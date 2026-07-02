@@ -6,14 +6,18 @@ import Footer from "./components/Footer";
 import PortalContactUs from "./components/PortalContactUs";
 import PortalAbout from "./components/PortalAbout";
 import PortalPrivacy from "./components/PortalPrivacy";
+import FAQItem from "./components/FAQItem";
 import Background from "./assets/landingV3BSmall.jpg";
 import Pouch from "./assets/pouchWebRotateWide3.mp4";
+import AboutImage from "./assets/gusAbout.jpg";
 import { ReactComponent as PFMHorizontal } from "./components/PFMHorizontal.tsx";
 
 export default function App() {
   const MotionDiv = motion.create("div");
   const mailingRef = useRef<HTMLDivElement>(null);
-  const [activePanel, setActivePanel] = useState<null | "about" | "contact" | "privacy">(null);
+  const [activePanel, setActivePanel] = useState<
+    null | "about" | "contact" | "privacy"
+  >(null);
 
   const scrollToMailingList = () => {
     setActivePanel(null);
@@ -54,31 +58,51 @@ export default function App() {
               {/* Desktop-only: original two-column overlay */}
               <div className="hidden md:flex relative z-10 w-full h-full">
                 <div className="w-1/2 flex flex-col items-end justify-center gap-4 mr-[4vw]">
-                  <h1 className="text-gold-slaps uppercase text-slaps-h1 text-center text-[clamp(28px,4vw,56px)]">This is suncare</h1>
+                  <h1 className="text-gold-slaps uppercase text-slaps-h1 text-center text-[clamp(28px,4vw,56px)]">
+                    This is suncare
+                  </h1>
                   <div className="flex justify-end gap-[clamp(4px,0.5vw,16px)]">
-                    <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-[clamp(6px,1.2vw,40px)] py-1 whitespace-nowrap text-[clamp(8px,1.1vw,14px)]">Broad Spectrum</span>
-                    <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-[clamp(6px,1.2vw,40px)] py-1 whitespace-nowrap text-[clamp(8px,1.1vw,14px)]">Advanced Formula</span>
-                    <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-[clamp(6px,1.2vw,40px)] py-1 whitespace-nowrap text-[clamp(8px,1.1vw,14px)]">High Protection</span>
+                    <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-[clamp(6px,1.2vw,40px)] py-1 whitespace-nowrap text-[clamp(8px,1.1vw,14px)]">
+                      Broad Spectrum
+                    </span>
+                    <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-[clamp(6px,1.2vw,40px)] py-1 whitespace-nowrap text-[clamp(8px,1.1vw,14px)]">
+                      Advanced Formula
+                    </span>
+                    <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-[clamp(6px,1.2vw,40px)] py-1 whitespace-nowrap text-[clamp(8px,1.1vw,14px)]">
+                      High Protection
+                    </span>
                   </div>
                 </div>
                 <div className="w-1/2 flex flex-col items-start justify-center gap-4 ml-[4vw]">
-                  <h1 className="text-gold-slaps uppercase text-slaps-h1 text-center text-[clamp(28px,4vw,56px)]">built to move.</h1>
+                  <h1 className="text-gold-slaps uppercase text-slaps-h1 text-center text-[clamp(28px,4vw,56px)]">
+                    built to move.
+                  </h1>
                   <div className="flex gap-[clamp(4px,0.5vw,16px)]">
-                    <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-[clamp(6px,1.2vw,40px)] py-1 whitespace-nowrap text-[clamp(8px,1.1vw,14px)]">Sweat Resistant</span>
-                    <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-[clamp(6px,1.2vw,40px)] py-1 whitespace-nowrap text-[clamp(8px,1.1vw,14px)]">Super-Lightweight</span>
-                    <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-[clamp(6px,1.2vw,40px)] py-1 whitespace-nowrap text-[clamp(8px,1.1vw,14px)]">Built-in Hydration</span>
+                    <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-[clamp(6px,1.2vw,40px)] py-1 whitespace-nowrap text-[clamp(8px,1.1vw,14px)]">
+                      Sweat Resistant
+                    </span>
+                    <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-[clamp(6px,1.2vw,40px)] py-1 whitespace-nowrap text-[clamp(8px,1.1vw,14px)]">
+                      Super-Lightweight
+                    </span>
+                    <span className="text-black-slaps text-slaps-body uppercase rounded-full border-2 border-black-slaps px-[clamp(6px,1.2vw,40px)] py-1 whitespace-nowrap text-[clamp(8px,1.1vw,14px)]">
+                      Built-in Hydration
+                    </span>
                   </div>
                 </div>
               </div>
 
               {/* Mobile-only: stacked headings + pill grid */}
               <div className="flex flex-col items-center gap-6 w-full md:px-4 py-8 md:hidden pt-0 -mt-24 relative z-10">
-                <h1 className="text-gold-slaps uppercase text-slaps-h1 text-start md:text-[50px] text-[50px] leading-[45px] sm:pr-40 pl-10 pr-20">This is suncare built to move.</h1>
+                <h1 className="text-gold-slaps uppercase text-slaps-h1 text-start md:text-[50px] text-[50px] leading-[45px] sm:pr-40 pl-10 pr-20">
+                  This is suncare built to move.
+                </h1>
               </div>
 
               {/* Early access marquee — both viewports */}
               <div className="mt-6 md:mt-20 flex flex-col items-center z-10">
-                <span className="bg-offwhite2-slaps rounded-t-lg md:px-10 pl-6 pr-4 py-2 text-black-slaps text-slaps-body uppercase text-xs md:text-base">Early Access <span className="ml-2 mr-0">▼</span></span>
+                <span className="bg-offwhite2-slaps rounded-t-lg md:px-10 pl-6 pr-4 py-2 text-black-slaps text-slaps-body uppercase text-xs md:text-base">
+                  Early Access <span className="ml-2 mr-0">▼</span>
+                </span>
                 <div className="border-2 border-offwhite2-slaps bg-white-slaps">
                   <div className="w-full overflow-hidden my-6">
                     <div className="flex flex-shrink-0 animate-marquee">
@@ -86,10 +110,22 @@ export default function App() {
                       <PFMHorizontal className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-gold-slaps" />
                       <PFMHorizontal className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-offwhite2-slaps" />
                       <PFMHorizontal className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-gold-slaps" />
-                      <PFMHorizontal className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-offwhite2-slaps" aria-hidden="true" />
-                      <PFMHorizontal className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-gold-slaps" aria-hidden="true" />
-                      <PFMHorizontal className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-offwhite2-slaps" aria-hidden="true" />
-                      <PFMHorizontal className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-gold-slaps" aria-hidden="true" />
+                      <PFMHorizontal
+                        className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-offwhite2-slaps"
+                        aria-hidden="true"
+                      />
+                      <PFMHorizontal
+                        className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-gold-slaps"
+                        aria-hidden="true"
+                      />
+                      <PFMHorizontal
+                        className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-offwhite2-slaps"
+                        aria-hidden="true"
+                      />
+                      <PFMHorizontal
+                        className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-gold-slaps"
+                        aria-hidden="true"
+                      />
                     </div>
                   </div>
                 </div>
@@ -108,15 +144,72 @@ export default function App() {
               </div> */}
             </section>
             <div className="md:ml-6 md:mt-30 mt-10 mb-5">
-              <h2 className="text-slaps-h2 md:text-[28px] text-[16px] text-black-slaps uppercase text-start md:text-left">Join Mailing List For Early Access</h2>
+              <h2 className="text-slaps-h2 md:text-[28px] text-[16px] text-black-slaps uppercase text-start md:text-left">
+                Join Mailing List For Early Access
+              </h2>
             </div>
             <section className="relative h-[50vh] overflow-hidden mb-[20vh] rounded-lg">
-              <img src={Background} alt="Background" className="absolute inset-0 w-full h-full object-cover" />
-              <div ref={mailingRef} className="absolute inset-0 flex flex-col items-center justify-center gap-14 sm:gap-20 max-w-xl mx-auto">
+              <img
+                src={Background}
+                alt="Background"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div
+                ref={mailingRef}
+                className="absolute inset-0 flex flex-col items-center justify-center gap-14 sm:gap-20 max-w-xl mx-auto"
+              >
                 <MailingList />
               </div>
             </section>
 
+            <section className="relative overflow-hidden mb-[20vh] flex justify-between items-start">
+              <div className="ml-6">
+                <h2 className="text-slaps-h2 md:text-[28px] text-[16px] text-black-slaps uppercase text-start md:text-left mb-10">
+                  About
+                </h2>
+                <p className="w-[35vw] text-slaps-body text-black-slaps text-[14px] md:text-[16px] leading-relaxed">
+                  We make sun protection for movement, built for the new wave of
+                  sport and wellness. Guided by performance, product innovation
+                  and cultural alignment in the growing world of health and
+                  fitness, our mission is to make SPF the norm - trusted by pros
+                  and a core piece of kit for any casual athlete. We’re
+                  optimising products that fit effortlessly into active
+                  lifestyles and support skin health. Sun protection has been
+                  left behind and we’re bringing it up to speed. No longer a
+                  chore, but an experience. We’re working on it and exciting
+                  things are happening. For now, join our mailing list and join
+                  us on this journey building SLAPS.
+                </p>
+                <button className="mt-10 text-slaps-heading border border-gold-slaps text-white-slaps bg-gold-slaps py-2 px-4 rounded-full uppercase text-sm hover:text-black-slaps transition-colors text-nowrap">
+                  Contact Us
+                </button>
+              </div>
+              <img
+                src={AboutImage}
+                alt="About SLAPS"
+                className="w-[40vw] aspect-[4/5] object-cover rounded-lg"
+              />
+            </section>
+
+            <section className="mb-[20vh] md:ml-6">
+              <h2 className="text-slaps-h2 md:text-[28px] text-[16px] text-black-slaps uppercase text-start md:text-left mb-10">
+                FAQ
+              </h2>
+              <div className="flex flex-col gap-4">
+                <FAQItem
+                  question="Who?"
+                  answer="We make sun protection for movement, built for the new wave of sport and wellness. Guided by performance, product innovation and cultural alignment in the growing world of health and fitness, our mission is to make SPF the norm — trusted by pros and a core piece of kit for any casual athlete. We're optimising products that fit effortlessly into active lifestyles and support skin health."
+                />
+                <FAQItem
+                  question="What?"
+                  answer="SLAPS is a suncare brand built specifically for active lifestyles. Our products are broad spectrum, sweat resistant, super-lightweight and packed with built-in hydration — so you can move freely without compromising on skin protection."
+                />
+                <FAQItem
+                  question="Why?"
+                  answer="Sun protection has been left behind and we're bringing it up to speed. No longer a chore, but an experience. We're working on it and exciting things are happening. For now, join our mailing list and join us on this journey building SLAPS."
+                />
+              </div>
+            </section>
 
             <AnimatePresence>
               {activePanel && (
@@ -128,15 +221,24 @@ export default function App() {
                   transition={{ duration: 0.4, ease: "easeInOut" }}
                   className="absolute top-0 left-0 right-0 min-h-screen bg-white-slaps flex flex-col items-center justify-start pt-[20dvh] z-10 sm:pb-20 pb-10 w-full"
                 >
-                  {activePanel === "about" && <PortalAbout onClose={() => setActivePanel(null)} />}
-                  {activePanel === "contact" && <PortalContactUs onClose={() => setActivePanel(null)} />}
-                  {activePanel === "privacy" && <PortalPrivacy onClose={() => setActivePanel(null)} />}
+                  {activePanel === "about" && (
+                    <PortalAbout onClose={() => setActivePanel(null)} />
+                  )}
+                  {activePanel === "contact" && (
+                    <PortalContactUs onClose={() => setActivePanel(null)} />
+                  )}
+                  {activePanel === "privacy" && (
+                    <PortalPrivacy onClose={() => setActivePanel(null)} />
+                  )}
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
         </MotionDiv>
-        <Footer />
+        <Footer
+          onPrivacyClick={() => togglePanel("privacy")}
+          onContactClick={() => togglePanel("contact")}
+        />
       </div>
     </>
   );

@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const MailingList: React.FC = () => {
+interface MailingListProps {
+  variant?: "hero" | "footer";
+}
+
+const MailingList: React.FC<MailingListProps> = ({ variant = "hero" }) => {
   const [mailingSubmissionState, setMailingSubmissionState] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
@@ -56,6 +60,36 @@ const MailingList: React.FC = () => {
   };
 
   const MotionDiv = motion.create("div");
+
+  if (variant === "footer") {
+    return (
+        <form
+          onSubmit={submitEmail}
+          className="flex gap-3 w-[600px]"
+        >
+          <input
+            className="text-body-heading bg-transparent border border-white-slaps text-white-slaps text-[13px] w-full text-center rounded-full py-2 px-4 placeholder:text-white-slaps placeholder:text-center focus:outline-none focus:border-gold-slaps hover:border-gold-slaps transition-colors"
+            placeholder="ENTER YOUR EMAIL ADDRESS FOR FIRST ACCESS"
+            name="email"
+            type="email"
+            required
+          />
+          <button
+            className="text-slaps-heading border border-gold-slaps text-white-slaps bg-gold-slaps py-2 px-4 rounded-full uppercase text-sm hover:text-black-slaps transition-colors text-nowrap"
+            type="submit"
+            disabled={mailingSubmissionState === "submitting"}
+          >
+            {mailingSubmissionState === "submitting"
+              ? "Submitting..."
+              : mailingSubmissionState === "success"
+              ? "Subscribed!"
+              : mailingSubmissionState === "error"
+              ? "Try again"
+              : "Get Slaps First"}
+          </button>
+        </form>
+    );
+  }
 
   return (
     <div className="flex flex-col gap-8 justify-center items-center">
