@@ -17,7 +17,6 @@ const Navbar = ({
   onAboutClick,
   onMailingListClick,
   onLogoClick,
-  onPrivacyClick,
 }: NavbarProps) => {
   const [open, setOpen] = useState(false);
 
