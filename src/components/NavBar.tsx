@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import { ReactComponent as SlapsLogo } from "./SlapsLogo";
 import { ReactComponent as CrossIcon } from "./CrossIcon";
 import { ReactComponent as MenuCross } from "./MenuCross";
@@ -8,28 +9,21 @@ interface NavbarProps {
   onContactClick: () => void;
   onAboutClick: () => void;
   onMailingListClick?: () => void;
-  onLogoClick?: () => void;
-  onPrivacyClick: () => void;
 }
 
 const Navbar = ({
   onContactClick,
   onAboutClick,
   onMailingListClick,
-  onLogoClick,
 }: NavbarProps) => {
   const [open, setOpen] = useState(false);
 
   return (
     <div className="w-full relative z-20">
       <nav className="relative z-20 flex justify-between items-center px-7 py-6 bg-white-slaps">
-        <button
-          onClick={onLogoClick}
-          aria-label="Go to homepage"
-          className="cursor-pointer"
-        >
+        <Link to="/" aria-label="Go to homepage" className="cursor-pointer">
           <SlapsLogo className="fill-black-slaps shrink-0 h-6 sm:h-10" />
-        </button>
+        </Link>
 
         <div className="hidden md:flex items-center gap-6 lg:gap-12 xl:gap-26">
           <button
