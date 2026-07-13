@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ContactImage from "../assets/contactImage.jpg";
+import ContactImage from "../assets/dayOne.jpg";
 
 export default function ContactSection() {
   const [submissionState, setSubmissionState] = useState<
