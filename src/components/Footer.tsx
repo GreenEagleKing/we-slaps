@@ -24,6 +24,15 @@ const Footer = ({ onContactClick }: FooterProps) => {
         <InstagramIcon className="w-6 h-6" />
       </a>
       <a
+        href="https://www.youtube.com"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="YouTube"
+        className="text-black-slaps hover:text-gold-slaps transition-colors"
+      >
+        <YoutubeIcon className="w-6 h-6" />
+      </a>
+      <a
         href="https://www.facebook.com/profile.php?id=61580049231291"
         target="_blank"
         rel="noreferrer"
@@ -40,15 +49,6 @@ const Footer = ({ onContactClick }: FooterProps) => {
         className="text-black-slaps hover:text-gold-slaps transition-colors"
       >
         <SpotifyIcon className="w-6 h-6" />
-      </a>
-      <a
-        href="https://www.youtube.com"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="YouTube"
-        className="text-black-slaps hover:text-gold-slaps transition-colors"
-      >
-        <YoutubeIcon className="w-6 h-6" />
       </a>
     </>
   );
@@ -84,7 +84,7 @@ const Footer = ({ onContactClick }: FooterProps) => {
           aria-label="Back to top"
           className="mt-auto cursor-pointer text-black-slaps hover:text-gold-slaps transition-colors"
         >
-          <SlapsLogo className="fill-current w-[300px]" />
+          <SlapsLogo className="fill-current w-[250px]" />
         </button>
       </div>
 
