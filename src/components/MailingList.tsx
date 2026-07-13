@@ -105,14 +105,14 @@ const MailingList: React.FC<MailingListProps> = ({ variant = "hero" }) => {
           className="flex flex-col justify-between gap-3 w-[80vw] sm:w-auto px-6"
         >
           <input
-            className="bg-white-slaps text-slaps-body text-black-slaps text-[14px] md:text-[16px] w-full text-center sm:w-[400px] outline-2 outline-white-slaps rounded-full py-2 flex-grow placeholder:text-black-slaps sm:text-sm placeholder:text-center focus:outline-white-slaps hover:outline-gold-slaps"
+            className="bg-transparent text-slaps-body text-black-slaps text-[14px] md:text-[16px] w-full text-center sm:w-[400px] border-2 border-white-slaps rounded-full py-2 flex-grow placeholder:text-black-slaps sm:text-sm placeholder:text-center focus:border-white-slaps hover:border-gold-slaps"
             placeholder="YOUR EMAIL"
             name="email"
             type="email"
             required
           />
           <button
-            className="text-slaps-heading bg-gold-slaps text-white-slaps md:px-4 md:py-4 py-2 rounded-full outline-2 outline-gold-slaps uppercase md:text-3xl md:text-2xl text-md hover:outline-white-slaps"
+            className="text-slaps-heading bg-gold-slaps text-white-slaps md:px-4 md:py-4 py-2 rounded-full border-2 border-gold-slaps uppercase md:text-3xl md:text-2xl text-md hover:border-white-slaps"
             type="submit"
             disabled={mailingSubmissionState === "submitting"}
           >
