@@ -17,10 +17,14 @@ export default function Home() {
     mailingRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
 
   const scrollToAbout = () =>
-    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+    document
+      .getElementById("about")
+      ?.scrollIntoView({ behavior: "smooth", block: "center" });
 
   const scrollToContact = () =>
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    document
+      .getElementById("contact")
+      ?.scrollIntoView({ behavior: "smooth", block: "center" });
 
   return (
     <div className="relative min-h-screen overflow-x-hidden overflow-y-auto flex flex-col bg-white-slaps">
@@ -126,12 +130,12 @@ export default function Home() {
               </div>
             </div>
           </section>
-          <div className="md:ml-6 md:mt-30 mt-10 mb-5">
+          <div className="md:ml-6 md:mt-30 mt-20 mb-5">
             <h2 className="text-slaps-h2 md:text-[28px] text-[16px] text-black-slaps uppercase text-start md:text-left">
               Join Mailing List For Early Access
             </h2>
           </div>
-          <section className="relative h-[50vh] overflow-hidden mb-[20vh] rounded-lg">
+          <section className="relative h-[50vh] overflow-hidden mb-[15vh] rounded-lg">
             <img
               src={Background}
               alt="Background"
@@ -147,7 +151,7 @@ export default function Home() {
 
           <section
             id="about"
-            className="relative overflow-hidden mb-[20vh] flex flex-col md:flex-row justify-between items-stretch"
+            className="relative overflow-hidden mb-[15vh] flex flex-col md:flex-row justify-between items-stretch"
           >
             <div className="flex flex-col justify-between items-stretch md:ml-6 bg-[#F0F0F0] rounded-lg w-full mr-4 px-4 md:px-8 order-2 md:order-1 md:mt-0 mt-4">
               {/* Mobile */}
@@ -173,26 +177,26 @@ export default function Home() {
 
               <div className="flex flex-col md:pb-10 pb-20">
                 <button
-                  className="mt-8 text-slaps-heading border-2 border-gold-slaps text-black-slaps bg-white-slaps py-2 md:py-4 px-16 rounded-full uppercase text-sm hover:text-black-slaps transition-colors text-nowrap order-2 md:order-1 self-center md:self-start"
+                  className="mt-8 text-slaps-heading border-2 border-gold-slaps text-black-slaps bg-transparent py-2 md:py-4 px-16 rounded-full uppercase text-sm hover:text-black-slaps transition-colors text-nowrap order-2 md:order-1 self-center md:self-start hover:text-gold-slaps"
                   onClick={() => scrollToContact()}
                 >
                   Contact Us
                 </button>
                 <p className="md:w-[35vw] text-slaps-body text-black-slaps text-[14px] md:text-[16px] my-10 order-1 md:order-2">
                   <span className="block">
-                    We make protection for movement, body care built for the
-                    new wave of sport and wellness. Guided by performance,
-                    product innovation and cultural alignment.
+                    We make protection for movement, body care built for the new
+                    wave of sport and wellness. Guided by performance, product
+                    innovation and cultural alignment.
                   </span>
                   <span className="block mt-4">
-                    Our mission is to make SPF the norm - trusted by pros and
-                    a core piece of kit for any casual athlete. We’re
-                    optimising products that fit effortlessly into active
-                    lifestyles and support skin health.
+                    Our mission is to make SPF the norm - trusted by pros and a
+                    core piece of kit for any casual athlete. We’re optimising
+                    products that fit effortlessly into active lifestyles and
+                    support skin health.
                   </span>
                   <span className="block mt-4">
-                    Sun protection has been left behind and we’re bringing it
-                    up to speed. No longer a chore, but an experience.
+                    Sun protection has been left behind and we’re bringing it up
+                    to speed. No longer a chore, but an experience.
                   </span>
                   <span className="block mt-4">
                     We’re working on it. For now, join our mailing list, get
@@ -201,12 +205,13 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="order-1 md:order-2">
+            <div className="flex order-1 md:order-2">
               <img
                 src={AboutImage}
                 alt="About SLAPS"
-                className="w-full md:max-w-[40vw] aspect-[4/5] object-cover rounded-lg mr-6"
+                className="w-full md:max-w-[50vw] aspect-[4/5] object-cover rounded-lg mr-6"
               />
+              <div className="w-full bg-gold-slaps h-20 rounded-lg mr-6 mt-4"></div>
             </div>
           </section>
         </div>
@@ -236,7 +241,7 @@ export default function Home() {
         </div>
       </div>
       {/* Desktop: static */}
-      <h2 className="hidden md:block text-slaps-body text-offwhite-slaps text-[200px] m-auto leading-none uppercase -mb-[35px]">
+      <h2 className="hidden md:block text-slaps-body text-offwhite-slaps text-[clamp(80px,12vw,200px)] whitespace-nowrap text-center px-8 leading-none uppercase -mb-[clamp(14px,2.1vw,35px)]">
         Coming Soon
       </h2>
       <Footer onContactClick={scrollToContact} />

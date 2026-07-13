@@ -14,7 +14,7 @@ export default function Privacy() {
         onContactClick={goHome}
         onMailingListClick={goHome}
       />
-      <div className="flex flex-col items-center justify-start pt-[10dvh] sm:pb-20 pb-10 w-full">
+      <div className="flex flex-col items-center justify-start pt-[10dvh] sm:pb-20 pb-20 w-full">
         <PortalPrivacy />
       </div>
       <Footer onContactClick={goHome} />
