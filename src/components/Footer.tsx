@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ReactComponent as SlapsLogo } from "./SlapsLogo";
 import { ReactComponent as InstagramIcon } from "./socialIcons/InstagramIcon";
 import { ReactComponent as FacebookIcon } from "./socialIcons/FacebookIcon";
@@ -7,11 +8,10 @@ import footerGradient from "../assets/footerGradient.svg";
 import MailingList from "./MailingList";
 
 interface FooterProps {
-  onPrivacyClick: () => void;
   onContactClick: () => void;
 }
 
-const Footer = ({ onPrivacyClick, onContactClick }: FooterProps) => {
+const Footer = ({ onContactClick }: FooterProps) => {
   const socialIcons = (
     <>
       <a
@@ -71,12 +71,12 @@ const Footer = ({ onPrivacyClick, onContactClick }: FooterProps) => {
           >
             Contact
           </button>
-          <button
-            onClick={onPrivacyClick}
+          <Link
+            to="/privacy"
             className="uppercase hover:text-gold-slaps transition-colors underline"
           >
             Privacy
-          </button>
+          </Link>
         </div>
         <div className="flex items-center gap-6 ml-auto">{socialIcons}</div>
         <button
@@ -98,12 +98,12 @@ const Footer = ({ onPrivacyClick, onContactClick }: FooterProps) => {
             >
               Contact
             </button>
-            <button
-              onClick={onPrivacyClick}
+            <Link
+              to="/privacy"
               className="uppercase hover:text-gold-slaps transition-colors underline"
             >
               Privacy
-            </button>
+            </Link>
           </div>
           <MailingList variant="footer" />
         </div>
