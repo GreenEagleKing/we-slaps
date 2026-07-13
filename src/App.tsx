@@ -3,37 +3,36 @@ import MailingList from "./components/MailingList";
 import { motion, AnimatePresence } from "framer-motion";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
-import PortalContactUs from "./components/PortalContactUs";
-import PortalAbout from "./components/PortalAbout";
 import PortalPrivacy from "./components/PortalPrivacy";
-import FAQItem from "./components/FAQItem";
+import ContactSection from "./components/ContactSection";
 import Background from "./assets/landingV3BSmall.jpg";
 import Pouch from "./assets/pouchWebRotateWide3.mp4";
-import AboutImage from "./assets/gusAbout.jpg";
+import AboutImage from "./assets/pouchSide.jpg";
 import { ReactComponent as PFMHorizontal } from "./components/PFMHorizontal.tsx";
 
 export default function App() {
   const MotionDiv = motion.create("div");
   const mailingRef = useRef<HTMLDivElement>(null);
-  const [activePanel, setActivePanel] = useState<
-    null | "about" | "contact" | "privacy"
-  >(null);
+  const [activePanel, setActivePanel] = useState<null | "privacy">(null);
 
-  const scrollToMailingList = () => {
-    setActivePanel(null);
+  const scrollToMailingList = () =>
     mailingRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
-  };
 
-  const togglePanel = (panel: "about" | "contact" | "privacy") =>
-    setActivePanel((p) => (p === panel ? null : panel));
+  const scrollToAbout = () =>
+    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+
+  const scrollToContact = () =>
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <>
       <div className="relative min-h-screen overflow-x-hidden overflow-y-auto flex flex-col bg-white-slaps">
         <NavBar
-          onAboutClick={() => togglePanel("about")}
-          onContactClick={() => togglePanel("contact")}
-          onPrivacyClick={() => togglePanel("privacy")}
+          onAboutClick={scrollToAbout}
+          onContactClick={scrollToContact}
+          onPrivacyClick={() =>
+            setActivePanel((p) => (p === "privacy" ? null : "privacy"))
+          }
           onMailingListClick={scrollToMailingList}
           onLogoClick={() => setActivePanel(null)}
         />
@@ -100,18 +99,21 @@ export default function App() {
 
               {/* Early access marquee — both viewports */}
               <div className="mt-6 md:mt-20 flex flex-col items-center z-10">
-                <span className="bg-offwhite2-slaps rounded-t-lg md:px-10 pl-6 pr-4 py-2 text-black-slaps text-slaps-body uppercase text-xs md:text-base">
+                <span className="bg-offwhite-slaps rounded-t-lg md:px-10 pl-6 pr-4 py-2 text-black-slaps text-slaps-body uppercase text-xs md:text-base">
                   Early Access <span className="ml-2 mr-0">▼</span>
                 </span>
-                <div className="border-2 border-offwhite2-slaps bg-white-slaps">
+                <div className="border-2 border-offwhite-slaps bg-white-slaps">
                   <div className="w-full overflow-hidden my-6">
                     <div className="flex flex-shrink-0 animate-marquee">
-                      <PFMHorizontal className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-offwhite2-slaps" />
-                      <PFMHorizontal className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-gold-slaps" />
-                      <PFMHorizontal className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-offwhite2-slaps" />
+                      <PFMHorizontal className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-offwhite-slaps" />
                       <PFMHorizontal className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-gold-slaps" />
                       <PFMHorizontal
-                        className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-offwhite2-slaps"
+                        className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-offwhite
+                      -slaps"
+                      />
+                      <PFMHorizontal className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-gold-slaps" />
+                      <PFMHorizontal
+                        className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-offwhite-slaps"
                         aria-hidden="true"
                       />
                       <PFMHorizontal
@@ -119,7 +121,7 @@ export default function App() {
                         aria-hidden="true"
                       />
                       <PFMHorizontal
-                        className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-offwhite2-slaps"
+                        className="h-4 sm:h-6 md:h-8 w-auto flex-shrink-0 mr-16 md:mr-[200px] text-offwhite-slaps"
                         aria-hidden="true"
                       />
                       <PFMHorizontal
@@ -162,51 +164,67 @@ export default function App() {
               </div>
             </section>
 
-            <section className="relative overflow-hidden mb-[20vh] flex justify-between items-start">
-              <div className="ml-6">
-                <h2 className="text-slaps-h2 md:text-[28px] text-[16px] text-black-slaps uppercase text-start md:text-left mb-10">
-                  About
+            <section
+              id="about"
+              className="relative overflow-hidden mb-[20vh] flex flex-col md:flex-row justify-between items-stretch"
+            >
+              <div className="flex flex-col justify-between items-stretch md:ml-6 bg-[#F0F0F0] rounded-lg w-full mr-4 px-4 md:px-8 order-2 md:order-1 md:mt-0 mt-4">
+                {/* Mobile */}
+                <h2 className="md:hidden text-slaps-h2 text-[50px] text-black-slaps text-start mb-10 mt-16">
+                  Sunscreen
+                  <br />
+                  wasn't built
+                  <br />
+                  for people
+                  <br />
+                  who move.
+                  <br />
+                  So we built
+                  <br />
+                  one that is.
                 </h2>
-                <p className="w-[35vw] text-slaps-body text-black-slaps text-[14px] md:text-[16px] leading-relaxed">
-                  We make sun protection for movement, built for the new wave of
-                  sport and wellness. Guided by performance, product innovation
-                  and cultural alignment in the growing world of health and
-                  fitness, our mission is to make SPF the norm - trusted by pros
-                  and a core piece of kit for any casual athlete. We’re
-                  optimising products that fit effortlessly into active
-                  lifestyles and support skin health. Sun protection has been
-                  left behind and we’re bringing it up to speed. No longer a
-                  chore, but an experience. We’re working on it and exciting
-                  things are happening. For now, join our mailing list and join
-                  us on this journey building SLAPS.
-                </p>
-                <button className="mt-10 text-slaps-heading border border-gold-slaps text-white-slaps bg-gold-slaps py-2 px-4 rounded-full uppercase text-sm hover:text-black-slaps transition-colors text-nowrap">
-                  Contact Us
-                </button>
-              </div>
-              <img
-                src={AboutImage}
-                alt="About SLAPS"
-                className="w-[40vw] aspect-[4/5] object-cover rounded-lg"
-              />
-            </section>
+                {/* Desktop */}
+                <h2 className="hidden md:block text-slaps-h2 md:text-[60px] text-black-slaps text-start mb-10 mt-16">
+                  Sunscreen wasn't built for <br /> people who move.
+                  <br />
+                  So we built one that is.
+                </h2>
 
-            <section className="mb-[20vh] md:ml-6">
-              <h2 className="text-slaps-h2 md:text-[28px] text-[16px] text-black-slaps uppercase text-start md:text-left mb-10">
-                FAQ
-              </h2>
-              <div className="flex flex-col gap-4">
-                <FAQItem
-                  question="Who?"
-                  answer="We make sun protection for movement, built for the new wave of sport and wellness. Guided by performance, product innovation and cultural alignment in the growing world of health and fitness, our mission is to make SPF the norm — trusted by pros and a core piece of kit for any casual athlete. We're optimising products that fit effortlessly into active lifestyles and support skin health."
-                />
-                <FAQItem
-                  question="What?"
-                  answer="SLAPS is a suncare brand built specifically for active lifestyles. Our products are broad spectrum, sweat resistant, super-lightweight and packed with built-in hydration — so you can move freely without compromising on skin protection."
-                />
-                <FAQItem
-                  question="Why?"
-                  answer="Sun protection has been left behind and we're bringing it up to speed. No longer a chore, but an experience. We're working on it and exciting things are happening. For now, join our mailing list and join us on this journey building SLAPS."
+                <div className="flex flex-col md:pb-10 pb-20">
+                  <button
+                    className="mt-8 text-slaps-heading border-2 border-gold-slaps text-black-slaps bg-white-slaps py-2 md:py-4 px-16 rounded-full uppercase text-sm hover:text-black-slaps transition-colors text-nowrap order-2 md:order-1 self-center md:self-start"
+                    onClick={() => scrollToContact()}
+                  >
+                    Contact Us
+                  </button>
+                  <p className="md:w-[35vw] text-slaps-body text-black-slaps text-[14px] md:text-[16px] my-10 order-1 md:order-2">
+                    <span className="block">
+                      We make protection for movement, body care built for the
+                      new wave of sport and wellness. Guided by performance,
+                      product innovation and cultural alignment.
+                    </span>
+                    <span className="block mt-4">
+                      Our mission is to make SPF the norm - trusted by pros and
+                      a core piece of kit for any casual athlete. We’re
+                      optimising products that fit effortlessly into active
+                      lifestyles and support skin health.
+                    </span>
+                    <span className="block mt-4">
+                      Sun protection has been left behind and we’re bringing it
+                      up to speed. No longer a chore, but an experience.
+                    </span>
+                    <span className="block mt-4">
+                      We’re working on it. For now, join our mailing list, get
+                      early access and join us on this journey building SLAPS.
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div className="order-1 md:order-2">
+                <img
+                  src={AboutImage}
+                  alt="About SLAPS"
+                  className="w-full md:max-w-[40vw] aspect-[4/5] object-cover rounded-lg mr-6"
                 />
               </div>
             </section>
@@ -221,12 +239,6 @@ export default function App() {
                   transition={{ duration: 0.4, ease: "easeInOut" }}
                   className="absolute top-0 left-0 right-0 min-h-screen bg-white-slaps flex flex-col items-center justify-start pt-[20dvh] z-10 sm:pb-20 pb-10 w-full"
                 >
-                  {activePanel === "about" && (
-                    <PortalAbout onClose={() => setActivePanel(null)} />
-                  )}
-                  {activePanel === "contact" && (
-                    <PortalContactUs onClose={() => setActivePanel(null)} />
-                  )}
                   {activePanel === "privacy" && (
                     <PortalPrivacy onClose={() => setActivePanel(null)} />
                   )}
@@ -235,9 +247,39 @@ export default function App() {
             </AnimatePresence>
           </div>
         </MotionDiv>
+        <ContactSection />
+        {/* Mobile: scrolling marquee */}
+        <div className="md:hidden overflow-hidden -mb-[15px]">
+          <div className="animate-marquee">
+            <span className="text-slaps-body text-black-slaps text-[100px] leading-none uppercase whitespace-nowrap mr-16">
+              Coming Soon
+            </span>
+            <span className="text-slaps-body text-black-slaps text-[100px] leading-none uppercase whitespace-nowrap mr-16">
+              Coming Soon
+            </span>
+            <span
+              className="text-slaps-body text-black-slaps text-[100px] leading-none uppercase whitespace-nowrap mr-16"
+              aria-hidden="true"
+            >
+              Coming Soon
+            </span>
+            <span
+              className="text-slaps-body text-black-slaps text-[100px] leading-none uppercase whitespace-nowrap mr-16"
+              aria-hidden="true"
+            >
+              Coming Soon
+            </span>
+          </div>
+        </div>
+        {/* Desktop: static */}
+        <h2 className="hidden md:block text-slaps-body text-offwhite-slaps text-[200px] m-auto leading-none uppercase -mb-[35px]">
+          Coming Soon
+        </h2>
         <Footer
-          onPrivacyClick={() => togglePanel("privacy")}
-          onContactClick={() => togglePanel("contact")}
+          onPrivacyClick={() =>
+            setActivePanel((p) => (p === "privacy" ? null : "privacy"))
+          }
+          onContactClick={scrollToContact}
         />
       </div>
     </>
