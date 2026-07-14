@@ -1,18 +1,9 @@
-type PortalPrivacyProps = {
-  onClose: () => void;
-};
-
-export default function PortalPrivacy({ onClose }: PortalPrivacyProps) {
+export default function PortalPrivacy() {
   return (
-    <div className="flex flex-col gap-4 text-sm sm:text-base max-w-md sm:max-w-4xl w-full px-6 overflow-y-auto max-h-[80dvh]">
-      <div className="flex items-center justify-between">
-        <h2 className="text-black-slaps text-slaps-heading uppercase text-lg sm:text-md">
-          Privacy Policy
-        </h2>
-        <button onClick={onClose} className="cursor-pointer ml-4">
-          <span className="text-black-slaps hover:text-gold-slaps">X</span>
-        </button>
-      </div>
+    <div className="flex flex-col gap-4 text-sm sm:text-base max-w-md sm:max-w-4xl w-full px-6">
+      <h2 className="text-black-slaps text-slaps-heading uppercase text-lg sm:text-md">
+        Privacy Policy
+      </h2>
       <section className="flex flex-col gap-4 text-black-slaps text-slaps-body text-justify text-sm">
         <p>
           At Slaps, we value your privacy and are committed to protecting your
