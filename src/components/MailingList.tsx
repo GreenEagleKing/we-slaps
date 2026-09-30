@@ -1,11 +1,19 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
+// Created once at module level: creating it during render remounts the form on every state change
+const MotionDiv = motion.create("div");
+
 interface MailingListProps {
-  variant?: "hero" | "footer";
+  variant?: "hero" | "footer" | "stealth";
+  /** Called after a successful signup with the form's centre in viewport coordinates */
+  onSuccess?: (origin: { x: number; y: number }) => void;
 }
 
-const MailingList: React.FC<MailingListProps> = ({ variant = "hero" }) => {
+const MailingList: React.FC<MailingListProps> = ({
+  variant = "hero",
+  onSuccess,
+}) => {
   const [mailingSubmissionState, setMailingSubmissionState] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
@@ -38,6 +46,11 @@ const MailingList: React.FC<MailingListProps> = ({ variant = "hero" }) => {
       } else {
         setMailingSubmissionState("success");
         form.reset();
+        const rect = form.getBoundingClientRect();
+        onSuccess?.({
+          x: rect.left + rect.width / 2,
+          y: rect.top + rect.height / 2,
+        });
       }
     } catch (e) {
       console.error("Submission error:", e);
@@ -59,7 +72,39 @@ const MailingList: React.FC<MailingListProps> = ({ variant = "hero" }) => {
     }
   };
 
-  const MotionDiv = motion.create("div");
+  if (variant === "stealth") {
+    return (
+      <form
+        onSubmit={submitEmail}
+        className="w-full max-w-[366px] md:max-w-[653px] font-stealth text-[12.7px] md:text-[19px] tracking-[-0.05em]"
+      >
+        <div className="flex items-center h-[39px] md:h-[55px] p-px md:p-[2px] pl-5 md:pl-[30px] bg-stealth-white rounded-full">
+          <p className="text-stealth-gold text-nowrap">join the movement</p>
+          <input
+            className="flex-1 min-w-0 h-full ml-1 md:ml-1.5 bg-transparent text-stealth-dark placeholder:text-stealth-grey focus:outline-none"
+            placeholder="your email"
+            name="email"
+          aria-label="Email address"
+            type="email"
+            required
+          />
+          <button
+            className="h-full w-[92px] md:w-[173px] shrink-0 rounded-full bg-stealth-dark text-stealth-white text-nowrap hover:bg-black transition-colors cursor-pointer disabled:cursor-default"
+            type="submit"
+            disabled={mailingSubmissionState === "submitting"}
+          >
+            {mailingSubmissionState === "submitting"
+              ? "Submitting..."
+              : mailingSubmissionState === "success"
+                ? "Subscribed!"
+                : mailingSubmissionState === "error"
+                  ? "Try again"
+                  : "early access"}
+          </button>
+        </div>
+      </form>
+    );
+  }
 
   if (variant === "footer") {
     return (
@@ -71,6 +116,7 @@ const MailingList: React.FC<MailingListProps> = ({ variant = "hero" }) => {
           className="text-slaps-body bg-transparent border-2 border-black-slaps text-black-slaps text-[13px] w-full text-start rounded-full py-2 md:py-3 px-4 placeholder:text-black-slaps placeholder:text-start placeholder:text-slaps-body focus:outline-none focus:border-gold-slaps hover:border-gold-slaps transition-colors"
           placeholder="Enter your email address for first access"
           name="email"
+          aria-label="Email address"
           type="email"
           required
         />
@@ -108,6 +154,7 @@ const MailingList: React.FC<MailingListProps> = ({ variant = "hero" }) => {
             className="bg-transparent text-slaps-body text-black-slaps text-[14px] md:text-[16px] w-full text-center sm:w-[400px] border-2 border-white-slaps rounded-full py-2 flex-grow placeholder:text-black-slaps sm:text-sm placeholder:text-center focus:border-white-slaps hover:border-gold-slaps"
             placeholder="YOUR EMAIL"
             name="email"
+          aria-label="Email address"
             type="email"
             required
           />
