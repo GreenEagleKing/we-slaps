@@ -1,3 +1,5 @@
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export const handler = async (event) => {
   if (event.httpMethod !== "POST") {
     return {
@@ -6,14 +8,25 @@ export const handler = async (event) => {
     };
   }
 
+  let body;
   try {
-    const { email } = JSON.parse(event.body);
-    console.log("Function invoked for:", email);
+    body = JSON.parse(event.body || "{}");
+  } catch {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ error: "Invalid request body." }),
+    };
+  }
 
-    if (!email) {
+  try {
+    const email =
+      typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
+
+    // The endpoint is public, so don't trust the browser's type="email" check
+    if (!email || email.length > 254 || !EMAIL_PATTERN.test(email)) {
       return {
         statusCode: 400,
-        body: JSON.stringify({ error: "Email is required." }),
+        body: JSON.stringify({ error: "A valid email is required." }),
       };
     }
 
