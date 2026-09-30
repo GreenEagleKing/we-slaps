@@ -1,10 +1,44 @@
 @import url("https://fonts.googleapis.com/css2?family=Cousine:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("https://fonts.cdnfonts.com/s/14188/HelveticaNeue-Light.woff")
+    format("woff");
+}
+@font-face {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://fonts.cdnfonts.com/s/14188/HelveticaNeue-Roman.woff")
+    format("woff");
+}
+@font-face {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("https://fonts.cdnfonts.com/s/14188/HelveticaNeue-Medium.woff")
+    format("woff");
+}
+@font-face {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("https://fonts.cdnfonts.com/s/14188/HelveticaNeueBold.woff")
+    format("woff");
+}
+
 @theme {
   /* Font family */
   --font-display: "owners", sans-serif;
   --font-display-medium-it: "owners", sans-serif;
+  --font-stealth: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   /* Custom colors */
   --color-gold-slaps: #c4a15f;
@@ -12,6 +46,10 @@
   /* --color-white-slaps: #dbd4c8; */
   --color-offwhite-slaps: #e4e0d9;
   --color-white-slaps: #ffffff;
+  --color-stealth-gold: #a8862f;
+  --color-stealth-white: #f7f7f7;
+  --color-stealth-dark: #202020;
+  --color-stealth-grey: #bebebe;
 }
 
 @layer utilities {
