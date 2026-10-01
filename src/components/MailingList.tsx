@@ -79,23 +79,27 @@ const MailingList: React.FC<MailingListProps> = ({
         className="w-full max-w-[366px] md:max-w-[653px] font-stealth text-[14px] md:text-[19px] tracking-[-0.05em]"
       >
         {/* Mobile only: while the input is focused or filled, the label slides out left and the input takes its space */}
-        <div className="group flex items-center h-[45px] md:h-[55px] p-px md:p-[2px] pl-5 md:pl-[30px] bg-stealth-white rounded-full overflow-hidden">
+        <div className="group flex items-center h-[45px] md:h-[55px] pl-5 md:pl-[30px] bg-stealth-white rounded-full overflow-hidden">
           <p
             aria-hidden="true"
             className="text-stealth-gold text-nowrap overflow-hidden max-w-[160px] transition-all duration-300 ease-out motion-reduce:transition-none max-md:group-focus-within:max-w-0 max-md:group-focus-within:opacity-0 max-md:group-focus-within:-translate-x-6 max-md:group-has-[input:not(:placeholder-shown)]:max-w-0 max-md:group-has-[input:not(:placeholder-shown)]:opacity-0 max-md:group-has-[input:not(:placeholder-shown)]:-translate-x-6"
           >
             join the movement
           </p>
-          <input
-            className="flex-1 min-w-0 h-full ml-1 md:ml-1.5 bg-transparent text-stealth-dark placeholder:text-stealth-grey focus:outline-none transition-[margin] duration-300 ease-out motion-reduce:transition-none max-md:focus:ml-0 max-md:[&:not(:placeholder-shown)]:ml-0"
-            placeholder="your email"
-            name="email"
-            aria-label="Email address"
-            type="email"
-            required
-          />
+          <div className="flex-1 min-w-0 h-full ml-1 md:ml-1.5 transition-[margin] duration-300 ease-out motion-reduce:transition-none max-md:group-focus-within:ml-0 max-md:group-has-[input:not(:placeholder-shown)]:ml-0">
+            {/* On mobile the input is 16px (below that, iOS Safari zooms in on focus) and scaled
+                to 87.5% so it still looks 14px; the widened box keeps its visual width at 100% */}
+            <input
+              className="w-full h-full bg-transparent text-stealth-dark placeholder:text-stealth-grey focus:outline-none max-md:text-[16px] max-md:w-[114.2857%] max-md:scale-[0.875] max-md:origin-left"
+              placeholder="your email"
+              name="email"
+              aria-label="Email address"
+              type="email"
+              required
+            />
+          </div>
           <button
-            className="h-full w-[92px] md:w-[173px] shrink-0 rounded-full bg-stealth-dark text-stealth-white text-nowrap hover:bg-black transition-colors cursor-pointer disabled:cursor-default"
+            className="h-full w-[94px] md:w-[177px] shrink-0 rounded-full border md:border-2 border-stealth-white bg-stealth-dark text-stealth-white text-nowrap hover:bg-black transition-colors cursor-pointer disabled:cursor-default"
             type="submit"
             disabled={mailingSubmissionState === "submitting"}
           >
