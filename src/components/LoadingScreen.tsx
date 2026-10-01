@@ -41,7 +41,7 @@ const LoadingScreen = () => {
             zIndex: 5,
             scale: 1.5,
           }}
-          className="w-48 h-48 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+          className="w-[178px] h-48 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
         />
       )}
 
@@ -72,7 +72,7 @@ const LoadingScreen = () => {
                 fill: "white",
                 position: "absolute",
               }}
-              className="w-48 h-48 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+              className="w-[178px] h-48 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
             />
           );
         })}
@@ -97,7 +97,7 @@ const LoadingScreen = () => {
             position: "absolute",
             zIndex: 10,
           }}
-          className="w-48 h-48 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 mt-4"
+          className="w-[178px] h-48 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 mt-4"
         />
       )}
     </div>

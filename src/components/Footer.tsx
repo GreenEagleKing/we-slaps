@@ -84,7 +84,7 @@ const Footer = ({ onContactClick }: FooterProps) => {
           aria-label="Back to top"
           className="mt-auto cursor-pointer text-black-slaps hover:text-gold-slaps transition-colors"
         >
-          <SlapsLogo className="fill-current w-[250px]" />
+          <SlapsLogo className="fill-current w-[232px]" />
         </button>
       </div>
 
@@ -113,7 +113,7 @@ const Footer = ({ onContactClick }: FooterProps) => {
             aria-label="Back to top"
             className="cursor-pointer text-black-slaps hover:text-gold-slaps transition-colors"
           >
-            <SlapsLogo className="fill-current w-[300px]" />
+            <SlapsLogo className="fill-current w-[278px]" />
           </button>
           <div className="flex items-center gap-6">{socialIcons}</div>
         </div>
