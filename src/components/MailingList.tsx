@@ -76,15 +76,21 @@ const MailingList: React.FC<MailingListProps> = ({
     return (
       <form
         onSubmit={submitEmail}
-        className="w-full max-w-[366px] md:max-w-[653px] font-stealth text-[12.7px] md:text-[19px] tracking-[-0.05em]"
+        className="w-full max-w-[366px] md:max-w-[653px] font-stealth text-[14px] md:text-[19px] tracking-[-0.05em]"
       >
-        <div className="flex items-center h-[39px] md:h-[55px] p-px md:p-[2px] pl-5 md:pl-[30px] bg-stealth-white rounded-full">
-          <p className="text-stealth-gold text-nowrap">join the movement</p>
+        {/* Mobile only: while the input is focused or filled, the label slides out left and the input takes its space */}
+        <div className="group flex items-center h-[45px] md:h-[55px] p-px md:p-[2px] pl-5 md:pl-[30px] bg-stealth-white rounded-full overflow-hidden">
+          <p
+            aria-hidden="true"
+            className="text-stealth-gold text-nowrap overflow-hidden max-w-[160px] transition-all duration-300 ease-out motion-reduce:transition-none max-md:group-focus-within:max-w-0 max-md:group-focus-within:opacity-0 max-md:group-focus-within:-translate-x-6 max-md:group-has-[input:not(:placeholder-shown)]:max-w-0 max-md:group-has-[input:not(:placeholder-shown)]:opacity-0 max-md:group-has-[input:not(:placeholder-shown)]:-translate-x-6"
+          >
+            join the movement
+          </p>
           <input
-            className="flex-1 min-w-0 h-full ml-1 md:ml-1.5 bg-transparent text-stealth-dark placeholder:text-stealth-grey focus:outline-none"
+            className="flex-1 min-w-0 h-full ml-1 md:ml-1.5 bg-transparent text-stealth-dark placeholder:text-stealth-grey focus:outline-none transition-[margin] duration-300 ease-out motion-reduce:transition-none max-md:focus:ml-0 max-md:[&:not(:placeholder-shown)]:ml-0"
             placeholder="your email"
             name="email"
-          aria-label="Email address"
+            aria-label="Email address"
             type="email"
             required
           />
@@ -154,7 +160,7 @@ const MailingList: React.FC<MailingListProps> = ({
             className="bg-transparent text-slaps-body text-black-slaps text-[14px] md:text-[16px] w-full text-center sm:w-[400px] border-2 border-white-slaps rounded-full py-2 flex-grow placeholder:text-black-slaps sm:text-sm placeholder:text-center focus:border-white-slaps hover:border-gold-slaps"
             placeholder="YOUR EMAIL"
             name="email"
-          aria-label="Email address"
+            aria-label="Email address"
             type="email"
             required
           />

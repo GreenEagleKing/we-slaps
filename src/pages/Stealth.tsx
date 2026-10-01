@@ -32,12 +32,12 @@ export default function Stealth() {
       {/* pt is 40px more than pb, nudging the block 20px below centre as in the design */}
       <main className="relative flex flex-1 flex-col items-center justify-center px-[18px] pt-[104px] pb-16">
         <h1 className="sr-only">Slaps</h1>
-        <SlapsLogo className="w-[250px] md:w-[347px] h-auto" />
-        <p className="mt-3 md:mt-[23px] max-w-[277px] md:max-w-none text-[18px] md:text-[26px] leading-[20px] md:leading-normal tracking-[-0.05em] font-medium uppercase text-center">
+        <SlapsLogo className="w-[232px] md:w-[322px] h-auto" />
+        <p className="mt-4 md:mt-[23px] max-w-[277px] md:max-w-none text-[18px] md:text-[26px] leading-[20px] md:leading-normal tracking-[-0.05em] font-medium uppercase text-center">
           Protection for movement
           <span className="hidden md:inline"> - </span> Coming spring 2027
         </p>
-        <div className="flex justify-center w-full mt-[11px] md:mt-[15px]">
+        <div className="flex justify-center w-full mt-4 md:mt-[16px]">
           <MailingList
             variant="stealth"
             onSuccess={(origin) =>
@@ -47,7 +47,7 @@ export default function Stealth() {
         </div>
       </main>
 
-      <footer className="absolute inset-x-0 bottom-0 flex justify-between md:justify-center md:gap-10 px-[17px] pb-[14px] md:pb-[38px] text-[16px] md:text-[18px] leading-[0.969] tracking-[-0.05em]">
+      <footer className="font-regular  absolute inset-x-0 bottom-0 flex justify-between md:justify-center md:gap-10 px-[17px] pb-[14px] md:pb-[38px] text-[16px] md:text-[18px] leading-[0.969] tracking-[-0.05em]">
         {links.map(({ label, href }) => (
           <a
             key={label}
